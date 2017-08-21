@@ -1,0 +1,24 @@
+--Login Dispositivo
+  dispositivo si connette
+  dispositivo manda messaggio di login sbagliato (non conforme al protocollo)
+
+--Login User
+  user si connette e riceve la parola di benvenuto
+  user manda messaggio di login sbagliato (non conforme al protocollo)
+
+--KeepAlive
+  invio del .                                               -> dispositivo riceve il .
+  risposta del - in tempo                                   -> tutto ok, non succede nulla
+  risposta del - entro il 2° giro                           -> tutto ok, ma info del 1° giro andato a vuoto
+  mancata risposta del -                                    -> il dispositivo viene sconnesso
+  risposta sbagliata (non - ma altri caratteri)             -> risposta ignorata, come non avesse risposto
+  risposta sbagliata (non ridice id risposta con id comando)-> vanno prima loggate e poi eliminate subito
+
+--Comando da User a server
+  ricezione comando
+  esecuzione comando di chiusura
+  ritrasmissione al dispo giusto
+  controllare risposta del dispo
+  se comando non viene recapitato x il doppio del tempo di timeot viene annullato
+
+--

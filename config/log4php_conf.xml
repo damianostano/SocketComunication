@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns="http://logging.apache.org/log4php/">
+    <appender name="tofile" class="LoggerAppenderRollingFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{Y-m-d H:i:s,u} %-8logger %-5level %msg%n" />
+        </layout>
+        <param name="file" value="C:\xampp\htdocs\PhpStorm\SocketComunication\log\monitor.log" />
+        <param name="maxFileSize" value="1MB" />
+        <param name="append" value="false" />
+    </appender>
+    <appender name="debugfile" class="LoggerAppenderRollingFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{Y-m-d H:i:s,u} %-8logger %-5level %msg%n" />
+        </layout>
+        <param name="file" value="C:\xampp\htdocs\PhpStorm\SocketComunication\log\trace.log" />
+        <param name="maxFileSize" value="1MB" />
+        <param name="append" value="true" />
+    </appender>
+    <appender name="appendCmd" class="LoggerAppenderRollingFile">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{Y-m-d H:i:s,u} %-8logger %-5level %msg%n" />
+        </layout>
+        <param name="file" value="C:\xampp\htdocs\PhpStorm\SocketComunication\log\appendCmd.log" />
+        <param name="maxFileSize" value="1MB" />
+        <param name="append" value="true" />
+    </appender>
+
+    <appender name="default" class="LoggerAppenderConsole">
+        <layout class="LoggerLayoutPattern">
+            <param name="conversionPattern" value="%date{Y-m-d H:i:s,u} %-8logger %-5level %msg%n" />
+        </layout>
+    </appender>
+
+    <root>
+        <!--<level value="warn" />-->
+        <level value="debug" />
+        <appender_ref ref="default" />
+    </root>
+
+    <logger name="monitor">
+        <level value="info" />
+        <appender_ref ref="tofile" />
+    </logger>
+    <logger name="monitor.trace">
+        <level value="trace" />
+        <appender_ref ref="debugfile" />
+    </logger>
+
+    <logger name="monitor.appendCmd">
+        <level value="info" />
+        <appender_ref ref="appendCmd" />
+    </logger>
+
+</configuration>

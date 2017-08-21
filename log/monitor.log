@@ -1,0 +1,5 @@
+2017-05-09 15:32:55,490 monitor.trace INFO  *****************************************
+Avvio server in corso...
+2017-05-09 15:32:55,516 monitor.trace INFO  __destruct: socket_close eseguita
+2017-05-09 15:32:55,525 monitor.trace INFO  __destruct: disconnessi 0 dispositivi
+2017-05-09 15:32:55,534 monitor.trace INFO  __destruct: disconnessi 0 utenti

@@ -1,0 +1,45 @@
+2017-03-06 15:57:49,331 monitor.appendCmd WARN  Non ho avuto risposta al comando 0001. Comando eliminato:
+Cmd Object
+(
+    [id:Cmd:private] => 0001
+    [cmd:Cmd:private] => ||ww0617
+    [id_dispo:Cmd:private] => sisas1
+    [id_user:Cmd:private] => user1
+    [ts_creazione:Cmd:private] => 1488812199.1971
+    [ts_invio:Cmd:private] => 1488812208.8457
+    [ts_ricezione:Cmd:private] => 
+    [ts_wait:Cmd:private] => 
+    [keep_alive:Cmd:private] => 
+    [response:Cmd:private] => 
+)
+
+2017-04-19 10:59:34,823 monitor.appendCmd WARN  Non ho avuto risposta al comando 0003. Comando eliminato:
+Cmd Object
+(
+    [id:Cmd:private] => 0003
+    [cmd:Cmd:private] => .
+    [id_dispo:Cmd:private] => Sisas
+    [id_user:Cmd:private] => server
+    [ts_creazione:Cmd:private] => 1492592314.5661
+    [ts_invio:Cmd:private] => 1492592314.578
+    [ts_ricezione:Cmd:private] => 
+    [ts_wait:Cmd:private] => 
+    [keep_alive:Cmd:private] => 1
+    [response:Cmd:private] => 
+)
+
+2017-04-19 11:00:05,475 monitor.appendCmd WARN  Non ho avuto risposta al comando 0004. Comando eliminato:
+Cmd Object
+(
+    [id:Cmd:private] => 0004
+    [cmd:Cmd:private] => .
+    [id_dispo:Cmd:private] => Sisas
+    [id_user:Cmd:private] => server
+    [ts_creazione:Cmd:private] => 1492592345.0986
+    [ts_invio:Cmd:private] => 1492592345.1089
+    [ts_ricezione:Cmd:private] => 
+    [ts_wait:Cmd:private] => 
+    [keep_alive:Cmd:private] => 1
+    [response:Cmd:private] => 
+)
+

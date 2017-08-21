@@ -1,0 +1,3605 @@
+2017-04-27 18:15:27,614 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:27,618 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:27,621 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:28,131 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:28,135 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:28,138 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:28,642 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:28,647 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:28,651 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:29,156 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:29,160 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:29,162 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:29,665 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:29,672 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:29,675 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:30,178 monitor.trace DEBUG from start 4895 sec
+2017-04-27 18:15:30,182 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:30,185 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:30,188 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:30,691 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:30,695 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:30,698 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:31,201 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:31,205 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:31,208 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:31,712 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:31,715 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:31,745 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:32,248 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:32,252 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:32,256 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:32,760 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:32,766 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:32,770 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:33,273 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:33,281 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:33,289 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:33,796 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:33,799 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:33,803 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:34,329 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:34,336 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:34,340 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:34,843 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:34,863 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:34,867 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:35,370 monitor.trace DEBUG from start 4900 sec
+2017-04-27 18:15:35,374 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:35,378 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:35,381 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:35,885 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:35,891 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:35,896 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:36,400 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:36,407 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:36,414 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:36,918 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:36,923 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:36,927 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:37,430 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:37,434 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:37,439 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:37,944 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:37,951 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:37,955 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:38,459 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:38,464 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:38,468 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:38,974 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:38,978 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:38,982 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:39,485 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:39,491 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:39,495 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:39,998 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:40,005 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:40,009 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:40,514 monitor.trace DEBUG from start 4905 sec
+2017-04-27 18:15:40,518 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:40,523 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:40,527 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:41,031 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:41,036 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:41,040 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:41,544 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:41,551 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:41,556 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:42,060 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:42,067 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:42,071 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:42,576 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:42,583 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:42,587 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:43,093 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:43,097 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:43,101 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:43,606 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:43,612 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:43,616 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:44,120 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:44,127 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:44,130 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:44,634 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:44,641 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:44,645 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:45,149 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:45,154 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:45,159 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:45,663 monitor.trace DEBUG from start 4910 sec
+2017-04-27 18:15:45,668 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:45,672 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:45,678 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:46,182 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:46,187 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:46,191 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:46,696 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:46,706 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:46,711 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:47,215 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:47,220 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:47,224 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:47,729 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:47,733 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:47,738 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:48,241 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:48,247 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:48,253 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:48,757 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:48,763 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:48,768 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:49,273 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:49,278 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:49,281 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:49,785 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:49,792 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:49,796 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:50,300 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:50,306 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:50,310 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:50,815 monitor.trace DEBUG from start 4915 sec
+2017-04-27 18:15:50,821 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:50,825 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:50,830 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:51,334 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:51,339 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:51,343 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:51,847 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:51,855 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:51,862 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:52,370 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:52,375 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:52,380 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:52,884 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:52,889 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:52,893 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:53,398 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:53,404 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:53,408 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:53,913 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:53,918 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:53,923 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:54,428 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:54,436 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:54,441 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:54,945 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:54,949 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:54,954 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:55,458 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:55,465 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:55,470 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:55,975 monitor.trace DEBUG from start 4920 sec
+2017-04-27 18:15:55,982 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:55,986 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:55,991 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:56,495 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:56,499 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:56,504 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:57,009 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:57,015 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:57,020 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:57,524 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:57,529 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:57,533 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:58,038 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:58,044 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:58,048 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:58,552 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:58,558 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:58,564 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:59,070 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:59,078 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:59,082 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:15:59,588 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:15:59,596 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:15:59,605 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:00,109 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:00,116 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:00,121 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:00,626 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:00,633 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:00,639 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:01,143 monitor.trace DEBUG from start 4925 sec
+2017-04-27 18:16:01,150 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:01,156 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:01,160 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:01,664 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:01,673 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:01,678 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:02,182 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:02,192 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:02,197 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:02,703 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:02,708 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:02,713 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:03,217 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:03,225 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:03,230 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:03,735 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:03,741 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:03,745 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:04,249 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:04,254 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:04,259 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:04,763 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:04,769 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:04,775 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:05,281 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:05,287 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:05,292 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:05,798 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:05,806 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:05,814 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:06,321 monitor.trace DEBUG from start 4930 sec
+2017-04-27 18:16:06,327 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:06,332 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:06,337 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:06,843 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:06,851 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:06,856 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:07,361 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:07,370 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:07,375 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:07,880 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:07,888 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:07,893 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:08,399 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:08,406 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:08,413 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:08,918 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:08,926 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:08,931 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:09,438 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:09,443 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:09,448 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:09,954 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:09,960 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:09,966 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:10,470 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:10,481 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:10,489 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:10,993 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:11,001 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:11,006 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:11,511 monitor.trace DEBUG from start 4935 sec
+2017-04-27 18:16:11,521 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:11,527 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:11,533 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:12,039 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:12,045 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:12,052 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:12,558 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:12,567 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:12,572 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:13,077 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:13,083 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:13,089 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:13,593 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:13,598 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:13,604 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:14,108 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:14,115 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:14,120 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:14,625 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:14,633 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:14,643 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:15,147 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:15,155 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:15,161 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:15,665 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:15,670 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:15,675 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:16,181 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:16,189 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:16,194 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:16,698 monitor.trace DEBUG from start 4940 sec
+2017-04-27 18:16:16,707 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:16,713 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:16,717 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:17,223 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:17,228 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:17,232 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:17,738 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:17,744 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:17,749 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:18,254 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:18,259 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:18,264 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:18,769 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:18,777 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:18,783 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:19,289 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:19,297 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:19,301 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:19,807 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:19,812 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:19,819 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:20,324 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:20,332 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:20,338 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:20,842 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:20,847 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:20,853 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:21,358 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:21,367 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:21,376 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:21,881 monitor.trace DEBUG from start 4945 sec
+2017-04-27 18:16:21,887 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:21,893 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:21,897 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:22,404 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:22,409 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:22,415 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:22,920 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:22,928 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:22,932 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:23,437 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:23,442 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:23,447 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:23,951 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:23,957 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:23,962 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:24,467 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:24,473 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:24,479 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:24,984 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:24,989 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:24,994 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:25,499 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:25,505 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:25,510 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:26,016 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:26,022 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:26,027 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:26,533 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:26,539 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:26,544 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:27,049 monitor.trace DEBUG from start 4950 sec
+2017-04-27 18:16:27,058 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:27,063 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:27,067 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:27,573 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:27,578 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:27,583 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:28,087 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:28,094 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:28,098 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:28,605 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:28,613 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:28,617 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:29,124 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:29,131 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:29,137 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:29,642 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:29,650 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:29,656 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:30,161 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:30,169 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:30,174 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:30,680 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:30,688 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:30,693 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:31,198 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:31,208 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:31,213 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:31,718 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:31,731 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:31,738 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:32,242 monitor.trace DEBUG from start 4955 sec
+2017-04-27 18:16:32,250 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:32,254 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:32,258 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:32,765 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:32,771 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:32,776 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:33,280 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:33,288 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:33,293 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:33,798 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:33,805 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:33,810 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:34,315 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:34,321 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:34,326 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:34,831 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:34,839 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:34,843 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:35,348 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:35,355 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:35,361 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:35,866 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:35,873 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:35,878 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:36,384 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:36,393 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:36,399 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:36,905 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:36,913 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:36,919 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:37,425 monitor.trace DEBUG from start 4960 sec
+2017-04-27 18:16:37,433 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:37,439 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:37,444 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:37,948 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:37,954 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:37,959 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:38,464 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:38,471 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:38,476 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:38,982 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:38,991 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:38,995 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:39,500 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:39,506 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:39,511 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:40,016 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:40,024 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:40,030 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:40,539 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:40,546 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:40,551 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:41,056 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:41,064 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:41,068 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:41,574 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:41,579 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:41,584 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:42,090 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:42,097 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:42,103 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:42,607 monitor.trace DEBUG from start 4965 sec
+2017-04-27 18:16:42,613 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:42,618 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:42,624 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:43,129 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:43,137 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:43,142 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:43,647 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:43,654 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:43,659 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:44,164 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:44,170 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:44,175 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:44,680 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:44,687 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:44,693 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:45,198 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:45,205 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:45,211 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:45,716 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:45,724 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:45,730 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:46,234 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:46,239 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:46,245 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:46,750 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:46,756 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:46,761 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:47,266 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:47,271 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:47,277 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:47,782 monitor.trace DEBUG from start 4970 sec
+2017-04-27 18:16:47,787 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:47,792 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:47,797 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:48,301 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:48,307 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:48,312 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:48,816 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:48,823 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:48,828 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:49,332 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:49,338 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:49,343 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:49,847 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:49,855 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:49,860 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:50,365 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:50,370 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:50,375 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:50,881 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:50,891 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:50,896 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:51,400 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:51,406 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:51,411 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:51,916 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:51,922 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:51,927 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:52,431 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:52,437 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:52,441 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:52,946 monitor.trace DEBUG from start 4975 sec
+2017-04-27 18:16:52,954 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:52,959 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:52,964 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:53,468 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:53,474 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:53,479 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:53,984 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:53,992 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:53,997 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:54,501 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:54,507 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:54,512 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:55,016 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:55,023 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:55,028 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:55,532 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:55,539 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:55,543 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:56,048 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:56,053 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:56,058 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:56,563 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:56,571 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:56,576 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:57,080 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:57,087 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:57,092 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:57,596 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:57,605 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:57,609 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:58,119 monitor.trace DEBUG from start 4980 sec
+2017-04-27 18:16:58,137 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:58,149 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:58,159 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:58,668 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:58,680 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:58,690 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:59,198 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:59,209 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:59,219 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:16:59,726 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:16:59,732 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:16:59,738 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:00,244 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:00,254 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:00,261 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:00,768 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:00,787 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:00,796 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:01,305 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:01,314 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:01,322 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:01,830 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:01,840 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:01,848 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:02,357 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:02,365 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:02,374 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:02,879 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:02,885 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:02,891 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:03,397 monitor.trace DEBUG from start 4985 sec
+2017-04-27 18:17:03,404 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:03,409 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:03,414 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:03,919 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:03,924 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:03,930 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:04,434 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:04,441 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:04,446 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:04,951 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:04,959 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:04,965 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:05,471 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:05,479 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:05,484 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:05,990 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:05,996 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:06,000 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:06,507 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:06,514 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:06,520 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:07,026 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:07,033 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:07,040 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:07,546 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:07,554 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:07,560 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:08,067 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:08,076 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:08,082 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:08,589 monitor.trace DEBUG from start 4990 sec
+2017-04-27 18:17:08,595 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:08,602 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:08,609 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:09,115 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:09,127 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:09,133 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:09,639 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:09,648 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:09,655 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:10,162 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:10,172 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:10,178 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:10,685 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:10,694 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:10,701 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:11,209 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:11,219 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:11,227 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:11,733 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:11,741 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:11,748 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:12,254 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:12,261 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:12,268 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:12,776 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:12,783 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:12,791 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:13,299 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:13,309 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:13,316 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:13,824 monitor.trace DEBUG from start 4995 sec
+2017-04-27 18:17:13,833 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:13,840 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:13,847 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:14,354 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:14,366 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:14,375 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:14,881 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:14,890 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:14,896 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:15,404 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:15,419 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:15,431 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:15,938 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:15,945 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:15,951 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:16,458 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:16,463 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:16,469 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:16,975 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:16,983 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:16,989 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:17,494 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:17,503 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:17,509 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:18,014 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:18,025 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:18,030 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:18,536 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:18,543 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:18,549 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:19,055 monitor.trace DEBUG from start 5000 sec
+2017-04-27 18:17:19,061 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:19,067 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:19,074 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:19,580 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:19,587 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:19,594 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:20,099 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:20,108 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:20,114 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:20,620 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:20,627 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:20,632 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:21,138 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:21,144 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:21,149 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:21,655 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:21,661 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:21,666 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:22,173 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:22,180 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:22,185 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:22,691 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:22,698 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:22,704 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:23,211 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:23,218 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:23,224 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:23,731 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:23,739 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:23,746 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:24,253 monitor.trace DEBUG from start 5005 sec
+2017-04-27 18:17:24,260 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:24,267 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:24,275 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:24,782 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:24,790 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:24,797 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:25,305 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:25,313 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:25,321 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:25,827 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:25,839 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:25,846 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:26,354 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:26,364 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:26,372 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:26,878 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:26,892 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:26,902 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:27,410 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:27,417 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:27,425 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:27,931 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:27,939 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:27,946 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:28,452 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:28,463 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:28,470 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:28,978 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:28,985 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:28,992 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:29,499 monitor.trace DEBUG from start 5010 sec
+2017-04-27 18:17:29,511 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:29,518 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:29,526 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:30,033 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:30,044 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:30,051 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:30,558 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:30,566 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:30,574 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:31,081 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:31,091 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:31,097 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:31,606 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:31,614 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:31,621 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:32,129 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:32,137 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:32,143 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:32,650 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:32,658 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:32,664 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:33,171 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:33,178 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:33,185 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:33,692 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:33,702 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:33,709 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:34,215 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:34,223 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:34,230 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:34,738 monitor.trace DEBUG from start 5015 sec
+2017-04-27 18:17:34,745 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:34,751 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:34,759 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:35,265 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:35,273 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:35,280 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:35,789 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:35,795 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:35,802 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:36,309 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:36,317 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:36,324 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:36,831 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:36,839 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:36,846 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:37,354 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:37,361 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:37,368 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:37,875 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:37,886 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:37,893 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:38,400 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:38,410 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:38,416 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:38,924 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:38,934 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:38,941 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:39,448 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:39,457 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:39,464 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:39,976 monitor.trace DEBUG from start 5020 sec
+2017-04-27 18:17:39,999 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:40,012 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:40,024 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:40,537 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:40,549 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:40,562 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:41,075 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:41,090 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:41,102 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:41,609 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:41,616 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:41,623 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:42,128 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:42,135 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:42,142 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:42,648 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:42,657 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:42,665 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:43,174 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:43,186 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:43,195 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:43,702 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:43,714 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:43,722 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:44,230 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:44,242 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:44,251 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:44,759 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:44,769 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:44,777 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:45,285 monitor.trace DEBUG from start 5025 sec
+2017-04-27 18:17:45,295 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:45,304 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:45,312 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:45,820 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:45,828 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:45,836 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:46,345 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:46,354 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:46,362 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:46,870 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:46,881 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:46,890 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:47,397 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:47,405 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:47,413 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:47,921 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:47,929 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:47,937 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:48,445 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:48,457 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:48,464 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:48,973 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:48,984 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:48,991 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:49,496 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:49,501 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:49,506 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:50,010 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:50,017 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:50,022 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:50,527 monitor.trace DEBUG from start 5030 sec
+2017-04-27 18:17:50,533 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:50,538 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:50,543 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:51,049 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:51,057 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:51,062 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:51,569 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:51,575 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:51,580 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:52,086 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:52,092 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:52,098 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:52,604 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:52,612 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:52,618 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:53,124 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:53,131 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:53,137 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:53,643 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:53,649 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:53,655 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:54,161 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:54,170 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:54,175 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:54,681 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:54,692 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:54,697 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:55,202 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:55,209 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:55,215 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:55,720 monitor.trace DEBUG from start 5035 sec
+2017-04-27 18:17:55,726 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:55,732 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:55,738 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:56,243 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:56,252 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:56,258 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:56,765 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:56,771 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:56,777 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:57,283 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:57,299 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:57,308 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:57,816 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:57,822 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:57,828 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:58,333 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:58,342 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:58,348 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:58,854 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:58,862 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:58,867 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:59,374 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:59,380 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:59,386 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:17:59,891 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:17:59,900 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:17:59,906 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:00,412 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:00,420 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:00,426 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:00,931 monitor.trace DEBUG from start 5040 sec
+2017-04-27 18:18:00,939 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:00,944 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:00,949 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:01,456 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:01,461 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:01,466 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:01,973 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:01,983 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:01,989 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:02,495 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:02,503 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:02,509 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:03,015 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:03,024 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:03,029 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:03,535 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:03,542 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:03,547 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:04,053 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:04,061 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:04,067 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:04,573 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:04,582 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:04,588 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:05,094 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:05,104 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:05,110 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:05,616 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:05,625 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:05,630 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:06,136 monitor.trace DEBUG from start 5045 sec
+2017-04-27 18:18:06,146 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:06,151 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:06,157 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:06,663 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:06,670 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:06,676 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:07,182 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:07,191 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:07,197 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:07,703 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:07,713 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:07,718 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:08,224 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:08,231 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:08,238 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:08,743 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:08,753 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:08,759 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:09,265 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:09,275 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:09,281 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:09,787 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:09,793 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:09,800 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:10,307 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:10,322 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:10,337 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:10,846 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:10,855 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:10,861 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:11,367 monitor.trace DEBUG from start 5050 sec
+2017-04-27 18:18:11,377 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:11,382 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:11,388 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:11,894 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:11,900 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:11,906 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:12,413 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:12,419 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:12,425 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:12,930 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:12,937 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:12,943 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:13,448 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:13,455 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:13,460 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:13,965 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:13,971 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:13,977 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:14,483 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:14,493 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:14,498 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:15,004 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:15,013 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:15,019 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:15,525 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:15,531 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:15,537 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:16,043 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:16,049 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:16,054 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:16,561 monitor.trace DEBUG from start 5055 sec
+2017-04-27 18:18:16,571 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:16,576 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:16,581 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:17,088 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:17,096 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:17,103 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:17,609 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:17,618 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:17,624 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:18,130 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:18,136 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:18,142 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:18,647 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:18,653 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:18,659 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:19,165 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:19,173 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:19,180 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:19,686 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:19,693 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:19,698 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:20,204 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:20,212 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:20,217 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:20,723 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:20,731 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:20,738 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:21,245 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:21,254 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:21,259 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:21,764 monitor.trace DEBUG from start 5060 sec
+2017-04-27 18:18:21,774 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:21,780 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:21,785 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:22,291 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:22,297 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:22,303 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:22,809 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:22,815 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:22,821 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:23,328 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:23,334 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:23,340 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:23,846 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:23,853 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:23,859 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:24,365 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:24,371 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:24,377 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:24,883 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:24,889 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:24,895 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:25,400 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:25,406 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:25,412 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:25,917 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:25,924 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:25,930 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:26,435 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:26,442 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:26,448 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:26,954 monitor.trace DEBUG from start 5065 sec
+2017-04-27 18:18:26,962 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:26,970 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:26,975 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:27,481 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:27,488 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:27,493 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:27,999 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:28,007 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:28,012 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:28,518 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:28,525 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:28,531 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:29,037 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:29,045 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:29,050 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:29,556 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:29,562 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:29,569 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:30,075 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:30,083 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:30,090 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:30,596 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:30,604 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:30,612 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:31,119 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:31,127 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:31,132 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:31,639 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:31,648 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:31,654 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:32,159 monitor.trace DEBUG from start 5070 sec
+2017-04-27 18:18:32,166 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:32,172 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:32,178 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:32,684 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:32,693 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:32,699 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:33,204 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:33,213 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:33,218 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:33,725 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:33,730 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:33,736 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:34,242 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:34,251 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:34,257 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:34,763 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:34,772 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:34,777 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:35,283 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:35,290 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:35,295 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:35,800 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:35,806 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:35,811 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:36,317 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:36,326 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:36,331 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:36,838 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:36,845 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:36,853 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:37,360 monitor.trace DEBUG from start 5075 sec
+2017-04-27 18:18:37,368 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:37,374 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:37,379 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:37,885 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:37,898 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:37,907 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:38,413 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:38,422 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:38,428 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:38,933 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:38,942 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:38,947 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:39,452 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:39,460 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:39,465 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:39,971 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:39,977 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:39,982 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:40,489 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:40,495 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:40,501 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:41,007 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:41,014 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:41,021 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:41,527 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:41,537 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:41,542 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:42,047 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:42,059 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:42,064 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:42,570 monitor.trace DEBUG from start 5080 sec
+2017-04-27 18:18:42,576 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:42,582 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:42,588 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:43,094 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:43,103 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:43,109 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:43,613 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:43,621 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:43,627 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:44,133 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:44,141 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:44,147 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:44,653 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:44,659 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:44,664 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:45,170 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:45,178 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:45,186 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:45,692 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:45,697 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:45,703 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:46,210 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:46,220 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:46,226 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:46,731 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:46,738 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:46,743 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:47,249 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:47,256 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:47,261 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:47,766 monitor.trace DEBUG from start 5085 sec
+2017-04-27 18:18:47,773 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:47,778 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:47,783 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:48,289 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:48,296 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:48,302 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:48,808 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:48,814 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:48,820 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:49,325 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:49,331 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:49,337 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:49,842 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:49,848 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:49,853 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:50,360 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:50,366 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:50,372 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:50,878 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:50,884 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:50,891 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:51,397 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:51,406 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:51,411 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:51,917 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:51,927 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:51,932 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:52,438 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:52,445 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:52,450 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:52,957 monitor.trace DEBUG from start 5090 sec
+2017-04-27 18:18:52,968 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:52,976 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:52,982 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:53,487 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:53,495 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:53,500 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:54,007 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:54,015 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:54,021 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:54,528 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:54,537 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:54,543 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:55,048 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:55,057 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:55,063 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:55,569 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:55,575 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:55,580 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:56,085 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:56,093 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:56,098 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:56,604 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:56,613 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:56,619 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:57,125 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:57,134 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:57,140 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:57,645 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:57,651 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:57,657 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:58,163 monitor.trace DEBUG from start 5095 sec
+2017-04-27 18:18:58,172 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:58,177 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:58,183 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:58,689 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:58,701 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:58,710 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:59,216 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:59,224 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:59,231 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:18:59,737 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:18:59,744 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:18:59,749 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:00,255 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:00,261 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:00,266 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:00,773 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:00,781 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:00,787 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:01,293 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:01,303 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:01,309 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:01,814 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:01,821 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:01,827 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:02,333 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:02,341 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:02,347 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:02,852 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:02,862 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:02,868 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:03,374 monitor.trace DEBUG from start 5100 sec
+2017-04-27 18:19:03,380 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:03,386 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:03,392 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:03,897 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:03,906 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:03,912 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:04,417 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:04,425 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:04,430 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:04,935 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:04,941 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:04,947 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:05,452 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:05,460 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:05,466 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:05,971 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:05,979 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:05,984 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:06,491 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:06,498 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:06,504 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:07,009 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:07,015 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:07,021 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:07,527 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:07,534 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:07,540 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:08,045 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:08,052 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:08,058 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:08,563 monitor.trace DEBUG from start 5105 sec
+2017-04-27 18:19:08,570 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:08,576 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:08,582 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:09,088 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:09,094 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:09,100 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:09,606 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:09,611 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:09,617 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:10,124 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:10,132 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:10,138 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:10,644 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:10,653 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:10,659 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:11,166 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:11,172 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:11,178 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:11,684 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:11,692 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:11,697 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:12,202 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:12,209 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:12,214 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:12,720 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:12,729 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:12,735 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:13,241 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:13,246 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:13,251 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:13,757 monitor.trace DEBUG from start 5110 sec
+2017-04-27 18:19:13,766 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:13,773 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:13,778 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:14,284 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:14,291 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:14,296 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:14,801 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:14,807 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:14,813 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:15,318 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:15,327 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:15,337 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:15,845 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:15,851 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:15,857 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:16,363 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:16,377 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:16,382 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:16,888 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:16,895 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:16,901 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:17,406 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:17,413 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:17,418 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:17,925 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:17,932 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:17,938 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:18,443 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:18,451 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:18,457 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:18,962 monitor.trace DEBUG from start 5115 sec
+2017-04-27 18:19:18,970 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:18,976 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:18,981 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:19,487 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:19,495 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:19,500 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:20,006 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:20,015 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:20,021 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:20,527 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:20,533 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:20,539 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:21,044 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:21,052 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:21,058 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:21,563 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:21,573 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:21,578 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:22,083 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:22,092 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:22,098 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:22,604 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:22,611 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:22,616 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:23,122 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:23,130 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:23,135 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:23,641 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:23,649 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:23,654 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:24,161 monitor.trace DEBUG from start 5120 sec
+2017-04-27 18:19:24,170 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:24,176 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:24,181 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:24,688 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:24,695 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:24,701 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:25,206 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:25,212 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:25,218 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:25,725 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:25,733 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:25,739 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:26,244 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:26,252 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:26,258 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:26,763 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:26,769 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:26,775 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:27,281 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:27,289 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:27,296 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:27,801 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:27,807 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:27,813 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:28,318 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:28,327 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:28,333 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:28,839 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:28,845 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:28,852 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:29,357 monitor.trace DEBUG from start 5125 sec
+2017-04-27 18:19:29,363 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:29,368 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:29,374 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:29,880 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:29,887 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:29,892 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:30,398 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:30,405 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:30,410 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:30,917 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:30,925 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:30,933 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:31,441 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:31,448 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:31,454 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:31,960 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:31,967 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:31,974 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:32,479 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:32,488 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:32,493 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:32,999 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:33,009 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:33,014 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:33,519 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:33,525 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:33,531 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:34,038 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:34,046 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:34,051 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:34,558 monitor.trace DEBUG from start 5130 sec
+2017-04-27 18:19:34,564 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:34,570 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:34,576 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:35,081 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:35,090 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:35,097 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:35,603 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:35,609 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:35,615 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:36,122 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:36,129 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:36,134 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:36,640 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:36,647 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:36,654 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:37,160 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:37,170 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:37,175 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:37,681 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:37,687 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:37,693 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:38,198 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:38,208 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:38,213 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:38,719 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:38,726 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:38,731 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:39,237 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:39,245 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:39,250 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:39,757 monitor.trace DEBUG from start 5135 sec
+2017-04-27 18:19:39,763 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:39,768 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:39,774 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:40,280 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:40,289 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:40,295 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:40,800 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:40,808 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:40,815 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:41,321 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:41,327 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:41,333 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:41,840 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:41,846 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:41,851 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:42,358 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:42,367 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:42,374 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:42,879 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:42,886 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:42,892 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:43,397 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:43,404 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:43,410 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:43,917 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:43,924 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:43,929 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:44,434 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:44,443 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:44,451 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:44,958 monitor.trace DEBUG from start 5140 sec
+2017-04-27 18:19:44,964 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:44,970 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:44,975 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:45,481 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:45,488 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:45,493 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:45,999 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:46,009 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:46,016 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:46,522 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:46,529 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:46,534 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:47,040 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:47,047 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:47,053 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:47,558 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:47,566 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:47,572 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:48,077 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:48,086 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:48,093 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:48,600 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:48,606 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:48,612 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:49,117 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:49,126 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:49,132 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:49,638 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:49,644 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:49,649 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:50,154 monitor.trace DEBUG from start 5145 sec
+2017-04-27 18:19:50,162 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:50,167 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:50,174 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:50,679 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:50,689 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:50,695 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:51,200 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:51,208 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:51,213 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:51,720 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:51,726 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:51,732 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:52,238 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:52,246 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:52,251 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:52,758 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:52,766 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:52,772 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:53,278 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:53,285 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:53,291 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:53,797 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:53,807 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:53,813 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:54,318 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:54,329 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:54,335 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:54,842 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:54,850 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:54,857 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:55,362 monitor.trace DEBUG from start 5150 sec
+2017-04-27 18:19:55,369 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:55,375 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:55,380 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:55,886 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:55,891 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:55,897 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:56,404 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:56,411 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:56,416 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:56,922 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:56,929 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:56,935 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:57,442 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:57,450 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:57,456 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:57,961 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:57,967 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:57,973 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:58,479 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:58,485 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:58,491 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:58,997 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:59,004 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:59,010 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:19:59,515 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:19:59,522 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:19:59,527 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:00,033 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:00,039 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:00,044 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:00,550 monitor.trace DEBUG from start 5155 sec
+2017-04-27 18:20:00,558 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:00,564 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:00,570 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:01,076 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:01,082 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:01,090 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:01,595 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:01,601 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:01,608 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:02,114 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:02,120 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:02,125 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:02,632 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:02,638 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:02,644 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:03,151 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:03,158 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:03,164 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:03,671 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:03,679 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:03,688 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:04,193 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:04,199 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:04,205 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:04,711 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:04,718 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:04,724 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:05,230 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:05,239 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:05,248 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:05,756 monitor.trace DEBUG from start 5160 sec
+2017-04-27 18:20:05,765 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:05,772 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:05,778 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:06,283 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:06,293 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:06,299 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:06,805 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:06,813 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:06,820 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:07,326 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:07,333 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:07,339 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:07,844 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:07,850 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:07,856 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:08,363 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:08,369 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:08,375 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:08,881 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:08,892 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:08,897 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:09,403 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:09,409 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:09,414 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:09,921 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:09,928 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:09,933 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:10,439 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:10,447 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:10,454 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:10,959 monitor.trace DEBUG from start 5165 sec
+2017-04-27 18:20:10,965 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:10,974 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:10,981 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:11,490 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:11,496 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:11,503 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:12,009 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:12,014 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:12,021 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:12,526 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:12,534 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:12,540 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:13,047 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:13,054 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:13,059 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:13,565 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:13,575 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:13,580 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:14,089 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:14,097 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:14,103 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:14,609 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:14,615 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:14,623 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:15,129 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:15,135 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:15,141 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:15,647 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:15,654 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:15,659 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:16,165 monitor.trace DEBUG from start 5170 sec
+2017-04-27 18:20:16,171 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:16,177 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:16,182 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:16,688 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:16,696 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:16,701 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:17,208 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:17,216 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:17,223 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:17,728 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:17,737 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:17,743 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:18,247 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:18,256 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:18,262 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:18,768 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:18,776 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:18,782 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:19,288 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:19,295 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:19,301 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:19,808 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:19,816 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:19,824 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:20,332 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:20,339 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:20,345 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:20,851 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:20,861 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:20,869 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:21,375 monitor.trace DEBUG from start 5175 sec
+2017-04-27 18:20:21,381 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:21,386 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:21,392 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:21,897 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:21,903 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:21,909 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:22,416 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:22,424 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:22,431 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:22,939 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:22,945 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:22,951 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:23,457 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:23,463 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:23,469 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:23,975 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:23,982 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:23,990 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:24,498 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:24,505 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:24,512 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:25,019 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:25,029 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:25,035 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:25,550 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:25,559 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:25,565 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:26,073 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:26,082 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:26,088 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:26,593 monitor.trace DEBUG from start 5180 sec
+2017-04-27 18:20:26,602 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:26,608 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:26,614 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:27,120 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:27,131 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:27,142 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:27,650 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:27,656 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:27,662 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:28,168 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:28,176 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:28,183 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:28,692 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:28,697 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:28,704 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:29,210 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:29,216 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:29,223 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:29,729 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:29,735 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:29,741 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:30,247 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:30,257 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:30,263 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:30,770 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:30,776 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:30,782 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:31,288 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:31,294 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:31,301 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:31,808 monitor.trace DEBUG from start 5185 sec
+2017-04-27 18:20:31,815 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:31,821 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:31,828 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:32,334 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:32,341 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:32,347 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:32,852 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:32,858 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:32,864 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:33,370 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:33,376 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:33,381 monitor.trace TRACE -----function: handlerCmd()
+2017-04-27 18:20:33,887 monitor.trace TRACE socket_select eseguita
+2017-04-27 18:20:33,895 monitor.trace TRACE read: Array
+(
+)
+
+2017-04-27 18:20:33,901 monitor.trace TRACE -----function: handlerCmd()
+2017-05-09 15:32:55,490 monitor.trace INFO  *****************************************
+Avvio server in corso...
+2017-05-09 15:32:55,510 monitor.trace DEBUG -----function: __destruct()
+2017-05-09 15:32:55,516 monitor.trace INFO  __destruct: socket_close eseguita
+2017-05-09 15:32:55,525 monitor.trace INFO  __destruct: disconnessi 0 dispositivi
+2017-05-09 15:32:55,534 monitor.trace INFO  __destruct: disconnessi 0 utenti
