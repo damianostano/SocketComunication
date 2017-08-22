@@ -13,6 +13,7 @@ $configurator = new LoggerConfiguratorDefault();
 $config = $configurator->parse('C:\xampp\htdocs\PhpStorm\SocketComunication\config\log4php_conf.xml');
 Logger::configure($config);
 
+include_once(ROOT.'\src\dao\DB.php');//è importante che sia dopo la configurazione del Logger
 
 $sec = 1000000;     //facendo le cose precise il cliclo non era di 1 sec perchè giustamente ci sono i rallentamenti del tempo di esecuzione concreto oltre quello di attesa.
 //$margine = $sec/7;  //Questo tempo è all'incirca 1/7 di sec, sottraendolo si ottengono dei cicli di 1 min teorico in circa 58 sec in condizioni di riposo, avendo ulteriori 2 sec circa a min di ulteriore mergine.

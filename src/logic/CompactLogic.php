@@ -7,7 +7,7 @@
  * Time: 12:15
  */
 
-class CompactLogic
+class CompactLogic implements AbstractDispoLogic
 {
     private $map_cmd = array();
     private $cmds = array();
@@ -16,7 +16,7 @@ class CompactLogic
      * CompactLogic constructor.
      * @param array $cmds
      */
-    public function __construct(){
+    function __construct(){
         global $map_cmd;
         $this->map_cmd = $map_cmd;
 
@@ -81,7 +81,7 @@ class CompactLogic
         $this->addCmd(new CmdDispo("**ur")); //richiedere la configurazione generale del Compact
     }
 
-    protected function addCmd(CmdDispo $cmd){
+    function addCmd(CmdDispo $cmd){
         $this->cmds[$cmd->getComando()] = $cmd;
     }
 
@@ -89,7 +89,7 @@ class CompactLogic
         return $this->cmds[$key];
     }
 
-    public function isCmd($cmd){
+    function isCmd($cmd){
         $nomeCmd = "";
         if(is_string($cmd)){
             $nomeCmd = substr($cmd, 0,4);
@@ -107,7 +107,7 @@ class CompactLogic
         }
     }
 
-    public function elaboraRisposta(Cmd $cmd): string{
+    function elaboraRisposta(Cmd $cmd): string{
         $return="";
         $keyCmd = substr($cmd->getCmd(), 0,4);
         $valCmd = substr($cmd->getCmd(), 4);

@@ -7,6 +7,7 @@ function my_autoloader($class) {
     includeOnce('src/', $class);
     includeOnce('src/model/', $class);
     includeOnce('src/logic/', $class);
+    includeOnce('src/dao/', $class);
 }
 
 function includeOnce($path, $class){

@@ -1,6 +1,7 @@
 <?php
 $map_cmd = array(
     'compact' => array(
+        'logic' => "CompactLogic",
         'cmd' => array(
             '**iw' => "scrivi identificativo",
             '**nw' => "scrivi città",
@@ -46,10 +47,18 @@ $map_cmd = array(
             '||or' => "corr_corsia_2",
             '||lr' => "volt_batteria",),
     ),
+    'pmv' => array(
+        'logic' => "CompactLogic",
+        'cmd' => array(),
+        'heder' => array(),
+        'campo' => array(),
+    ),
     'pedestrian' => array(
-        '' => '',
-        '' => ''
-    )
+        'logic' => "CompactLogic",
+        'cmd' => array(),
+        'heder' => array(),
+        'campo' => array(),
+    ),
 );
 
 

@@ -8,8 +8,8 @@
 error_reporting(E_ALL);
 include_once('include.php');
 
-
-$master = new Master("192.168.1.197","6080");
+$map = new MapDispoLogic();
+$master = new Master("192.168.1.197","6080", $map);
 
 //$cl = new CompactLogic();
 //print $cl->cmd("||jw")->buildStringCmd("3");

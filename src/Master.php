@@ -79,12 +79,12 @@ class Master{
     }
 
     //costruttore
-    public function __construct($indirizzo, $porta){
+    public function __construct($indirizzo, $porta, MapDispoLogic $mapLogic){
         if(!isset($this->log)){
             $this->log = Logger::getLogger("monitor.trace");
         }
         $this->decode = new DecodeSimple();
-        $this->logic = new CompactLogic();
+        $this->logic = $mapLogic;//new CompactLogic();                  //      ! ! ! !
         $this->indirizzo = $indirizzo;
         $this->porta = $porta;
         $this->log->info("*****************************************\nAvvio server in corso...");
@@ -276,7 +276,7 @@ class Master{
                 //bisogna controllare se è un comando valido
                 try{
                     $cmd = $this->getDecode()->decodeCmd($string_cmd);
-                    if($cmd!==null && $this->logic->isCmd($cmd)){
+                    if($cmd!==null && $this->logic->get($cmd->getIdDispo())->isCmd($cmd)){
                         $id_cmd = $this->getSequenceCmd();
                         $command = new Cmd($id_cmd, $cmd->getCmd(), $cmd->getIdDispo(), $key_u);
                         //TODO:? controllo che non ci siano comandi ripetuti per lo stesso utente
@@ -413,7 +413,7 @@ class Master{
 
                         }else{
                             //logica di risposta
-                            $rispXuser = $this->logic->elaboraRisposta($cmd);
+                            $rispXuser = $this->logic->get($cmd->getIdDispo())->elaboraRisposta($cmd);
                             $this->scrivi_a_user($id_user, $rispXuser);    //scrivo allo user la risposta del dispositivo
                         }
                     }else{
