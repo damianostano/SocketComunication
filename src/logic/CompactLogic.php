@@ -6,18 +6,17 @@
  * Date: 28/02/2017
  * Time: 12:15
  */
+include_once ("AbstractDispoLogic.php");
 
-class CompactLogic implements AbstractDispoLogic
+class CompactLogic extends AbstractDispoLogic
 {
-    private $map_cmd = array();
-    private $cmds = array();
+
 
     /**
      * CompactLogic constructor.
      * @param array $cmds
      */
-    function __construct(){
-        global $map_cmd;
+    function __construct($map_cmd){
         $this->map_cmd = $map_cmd;
 
         $max21char = function($value) {
@@ -77,78 +76,72 @@ class CompactLogic implements AbstractDispoLogic
         $this->addCmd(new CmdDispo("**lw", $max30char)); //imposta direzione avanti max 34 char
         $this->addCmd(new CmdDispo("**mw", $max30char)); //imposta direzione indietro max 34 char
         $this->addCmd(new CmdDispo("**nw", $max30char)); //imposta nome della città max 34 char
+        $this->addCmd(new CmdDispo("**vw", $max30char)); //imposta site max 32 char
+        $this->addCmd(new CmdDispo("**ww", $max30char)); //imposta point max 32 char
 
         $this->addCmd(new CmdDispo("**ur")); //richiedere la configurazione generale del Compact
-    }
-
-    function addCmd(CmdDispo $cmd){
-        $this->cmds[$cmd->getComando()] = $cmd;
-    }
-
-    public function cmd($key):CmdDispo{
-        return $this->cmds[$key];
-    }
-
-    function isCmd($cmd){
-        $nomeCmd = "";
-        if(is_string($cmd)){
-            $nomeCmd = substr($cmd, 0,4);
-        }elseif($cmd instanceof DecodeCmd){
-            $nomeCmd = substr($cmd->getCmd(), 0,4);
-        }
-        return array_key_exists($nomeCmd, $this->cmds);
-    }
-
-    function validaRispConfig($value) {
-        if(preg_match("/(GENERAL SETTING;)([^;\r\n]+;){14}(END GENERAL SETTING)$$/",$value)){
-            return true;
-        }else{
-            return false;
-        }
+        $this->addCmd(new CmdDispo("||lr"));
     }
 
     function elaboraRisposta(Cmd $cmd): string{
         $return="";
         $keyCmd = substr($cmd->getCmd(), 0,4);
         $valCmd = substr($cmd->getCmd(), 4);
-        switch ($keyCmd) {
-            case "||jw":
-            case "||mw":
-            case "||vw":
-            case "||ww":
-            case "**iw":
-            case "**jw":
-            case "**kw":
-            case "**lw":
-            case "**mw":
-            case "**nw":
-                if($cmd->getResponse()==="ok"){
-                    $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$valCmd;
-                }else{
-                    $return = $cmd->getResponse();
-                }
-                break;
-            case "||nr":
-            case "||or":
-                $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$cmd->getResponse();
-                break;
-            case "**ur":
-                $response = explode(";", trim($cmd->getResponse()));
-                if(count($response)==16 && $response[0]==="GENERAL SETTING" && $response[15]==="END GENERAL SETTING"){
-                    array_pop($response); //tolgo l'ultimo
-                    array_shift($response); //tolgo il 1°
-                    $i=0;
-                    foreach ($this->map_cmd['compact']['campo'] as $key => $value){
-                        $return.=$value."=".$response[$i].";";
-                        $i++;
+        if($cmd->getResponse()===RES_DELETE){
+            $return = $cmd->getResponse();
+        }else{
+            switch ($keyCmd) {
+                case "||jw":
+                case "||mw":
+                case "||vw":
+                case "||ww":
+                case "**iw":
+                case "**jw":
+                case "**kw":
+                case "**lw":
+                case "**mw":
+                case "**nw":
+                case "**vw":
+                case "**ww":
+                    if($cmd->getResponse()==="ok"){
+                        $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$valCmd;
+                    }else{
+                        $return = $cmd->getResponse();
                     }
-                }else{
-                    throw new Exception("Messaggio di risposta alla configurazione generale del Compact non conforme!");
-                }
-                break;
-            default: $return = $cmd->getResponse();
+                    break;
+                case "||nr":
+                case "||or":
+                case "||lr":
+                    $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$cmd->getResponse();
+                    break;
+                case "**ur":
+                    $response = explode(";", trim($cmd->getResponse()));
+                    if(count($response)==18 && $response[0]==="GENERAL SETTING" && $response[17]==="END GENERAL SETTING"){
+                        array_pop($response); //tolgo l'ultimo
+                        array_shift($response); //tolgo il 1°
+                        $i=0;
+                        foreach ($this->map_cmd['compact']['campo'] as $key => $value){
+                            $return.=$value."=".$response[$i].";";
+                            $i++;
+                        }
+                    }else{
+                        throw new Exception("Messaggio di risposta alla configurazione generale del Compact non conforme!");
+                    }
+                    break;
+                default: $return = $cmd->getResponse();
+            }
         }
+
         return $return;
+    }
+
+    function encodeCmd(array $keysValues, String $idDispo){
+        $strCmd = array();
+        $compact = $this->map_cmd['compact'];
+        foreach($keysValues as $key => $value){
+            $strCmd[] = $compact['w_cmd'][$key].$value."@@".$idDispo."\r";
+        }
+        return $strCmd;
     }
 
 }

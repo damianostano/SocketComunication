@@ -4,10 +4,11 @@
 
 function my_autoloader($class) {
 
-    includeOnce('src/', $class);
-    includeOnce('src/model/', $class);
-    includeOnce('src/logic/', $class);
-    includeOnce('src/dao/', $class);
+    includeOnce(ROOT.'/src/', $class);
+    includeOnce(ROOT.'/src/model/', $class);
+    includeOnce(ROOT.'/src/logic/', $class);
+    includeOnce(ROOT.'/src/dao/', $class);
+    includeOnce(ROOT.'/exception/', $class);
 }
 
 function includeOnce($path, $class){

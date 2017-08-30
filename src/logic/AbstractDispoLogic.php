@@ -7,19 +7,44 @@
  * Time: 12:15
  */
 
-interface AbstractDispoLogic
+abstract class AbstractDispoLogic
 {
+    protected $map_cmd = array();
+    protected $cmds = array();
 
-    function __construct();
 
-    function addCmd(CmdDispo $cmd);
+    abstract function __construct($map_cmd);
 
-    function cmd($key):CmdDispo;
+    function addCmd(CmdDispo $cmd){
+        $this->cmds[$cmd->getComando()] = $cmd;
+    }
 
-    function isCmd($cmd);
+    function cmd($key):CmdDispo{
+        return $this->cmds[$key];
+    }
 
-    function validaRispConfig($value);
+    function isCmd($cmd){
+        $nomeCmd = "";
+        if(is_string($cmd)){
+            $nomeCmd = substr($cmd, 0,4);
+        }elseif($cmd instanceof DecodeCmd){
+            $nomeCmd = substr($cmd->getCmd(), 0,4);
+        }
+        return array_key_exists($nomeCmd, $this->cmds);
+    }
 
-    function elaboraRisposta(Cmd $cmd): string;
+    function validaRispConfig($value) {
+        if(preg_match("/(GENERAL SETTING;)([^;\r\n]+;){14}(END GENERAL SETTING)$$/",$value)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
+
+    abstract function elaboraRisposta(Cmd $cmd): string;
+
+    abstract function encodeCmd(array $keysValues, String $idDispo);
 
 }

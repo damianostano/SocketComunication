@@ -10,7 +10,7 @@ class Cmd {
     public static $SERVER="server";
 
     private $id;
-    private $cmd=".";
+    private $cmd=CMD_KEEP_ALIVE;
     private $id_dispo="";
     private $id_user="";
     private $ts_creazione=null;
@@ -70,7 +70,7 @@ class Cmd {
     }
 
     public static function getKeepAlive($id, string $id_dispo) :Cmd {
-        return new Cmd($id, ".", $id_dispo, Cmd::$SERVER, true);
+        return new Cmd($id, CMD_KEEP_ALIVE, $id_dispo, Cmd::$SERVER, true);
     }
 
     /**

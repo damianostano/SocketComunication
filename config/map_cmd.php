@@ -1,5 +1,20 @@
 <?php
 $map_cmd = array(
+    'server' => array(
+        'logic' => "ServerLogic",
+        'cmd' => array(
+            'quit'       => "spegni il server",
+            'list_dispo' => "lista dei dispositivi",
+            'list_user'  => "lista degli user",
+        ),
+        'r_cmd' => array(
+            'quit'       => "quit",
+            'list_dispo' => "list_dispo",
+            'list_user'  => "list_user",
+        ),
+        'heder' => array(),
+        'campo' => array(),
+    ),
     'compact' => array(
         'logic' => "CompactLogic",
         'cmd' => array(
@@ -14,8 +29,32 @@ $map_cmd = array(
             '||vw' => "scrivi orario sistema",
             '||nr' => "leggi correzione corsia 1",
             '||or' => "leggi correzione corsia 2",
-            '||mw' => "scrivi sensibilità radar",
-            '**ur' => "leggi configurazione di sistema",),
+            '||mw' => "scrivi sensibilità radar",   //solo qui
+            '**ur' => "leggi configurazione di sistema",//solo qui
+            '||lr' => "leggi voltaggio batteria",
+            '**vw' => "tag site per file xml",
+            '**ww' => "tag point per file xml",
+        ),
+        'w_cmd' => array(
+            "id_dispo"          => '**iw',
+            "citta"             => '**nw',
+            "via"               => '**jw',
+            "rif_km"            => '**kw',
+            "dir_avanti"        => '**lw',
+            "dir_indietro"      => '**mw',
+            "counting"          => '||jw',
+            "giorno"            => '||ww',
+            "ora"               => '||vw',
+            "amplificazione"    => '||mw',
+            "site"              => '**vw',
+            "point"             => '**ww',
+        ),
+        'r_cmd' => array(
+            "volt_batteria" => '||lr',
+            "corr_avanti"   => '||nr',
+            "corr_dietro"   => '||or',
+            "r_conf"        => '**ur',
+        ),
         'heder' => array(
             'bios' => "versione bios",
             '**iw' => "identificativo",
@@ -30,7 +69,10 @@ $map_cmd = array(
             '||mr' => "amplificazione",
             '||nr' => "correzione corsia 1",
             '||or' => "correzione corsia 2",
-            '||lr' => "voltaggio batteria",),
+            '||lr' => "voltaggio batteria",
+            '**vw' => "site",
+            '**ww' => "point",
+        ), //non c'è su cmd
         'campo' => array(
             'bios' => "bios",
             '**iw' => "id",
@@ -45,17 +87,21 @@ $map_cmd = array(
             '||mr' => "amplificazione",
             '||nr' => "corr_corsia_1",
             '||or' => "corr_corsia_2",
-            '||lr' => "volt_batteria",),
+            '||lr' => "volt_batteria",//non c'è su cmd
+            '**vw' => "site",
+            '**ww' => "point",),
     ),
     'pmv' => array(
         'logic' => "CompactLogic",
         'cmd' => array(),
+        'ec_cmd' => array(),
         'heder' => array(),
         'campo' => array(),
     ),
     'pedestrian' => array(
         'logic' => "CompactLogic",
         'cmd' => array(),
+        'ec_cmd' => array(),
         'heder' => array(),
         'campo' => array(),
     ),

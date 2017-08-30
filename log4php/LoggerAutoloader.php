@@ -36,8 +36,8 @@ class LoggerAutoloader {
 	/** Maps classnames to files containing the class. */
 	private static $classes = array(
 
-        'Master'    => '/../src/Master.php',
-        'KeepAlive' => '/../src/KeepAlive.php',
+//        'Master'    => '/../src/Master.php',
+//        'KeepAlive' => '/../src/KeepAlive.php',
 		// Base
 		'LoggerAppender' => '/LoggerAppender.php',
 		'LoggerAppenderPool' => '/LoggerAppenderPool.php',
