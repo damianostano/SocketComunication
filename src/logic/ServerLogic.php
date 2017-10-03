@@ -21,6 +21,7 @@ class ServerLogic extends AbstractDispoLogic
         $this->addCmd(new CmdDispo("quit")); //legge correzione corsia 1
         $this->addCmd(new CmdDispo("list_dispo")); //legge correzione corsia 2
         $this->addCmd(new CmdDispo("list_user")); //richiedere la configurazione generale del Compact
+        $this->addCmd(new CmdDispo("logout_user")); //richiedere la disconnessione di un dispositivo o user
     }
 
     function elaboraRisposta(Cmd $cmd): string{

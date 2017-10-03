@@ -7,6 +7,7 @@
  * Time: 12:15
  */
 include_once ("AbstractDispoLogic.php");
+include_once (__DIR__."/../model/CmdDispo.php");
 
 class CompactLogic extends AbstractDispoLogic
 {
@@ -47,6 +48,13 @@ class CompactLogic extends AbstractDispoLogic
                 return "Il valore è compreso tra 2 e 4.";
             }
         };
+        $min0max10 = function($value) {
+            if(0<=$value && $value <10){
+                return true;
+            }else{
+                return "Il valore è compreso tra 0 e 9.99.";
+            }
+        };
         $validaData = function($value) {
             if(preg_match("/^(0[1-9]|[1-2][0-9]|3[0-1])\/(0[1-9]|1[0-2])\/[0-9]{2}$/",$value)){
                 return true;
@@ -65,8 +73,10 @@ class CompactLogic extends AbstractDispoLogic
         $this->addCmd(new CmdDispo("||jw", $min2max4)); //imposta counting (2=misura 2 corsie, 3=misura corsia avanti, 4=misura corsie indietro)
 
         $this->addCmd(new CmdDispo("||mw", $min0max3)); //imposta sensibilità da 0 a 3, 0 default
-        $this->addCmd(new CmdDispo("||nr")); //legge correzione corsia 1
-        $this->addCmd(new CmdDispo("||or")); //legge correzione corsia 2
+        $this->addCmd(new CmdDispo("||nr")); //legge correzione avanti
+        $this->addCmd(new CmdDispo("||or")); //legge correzione dietro
+        $this->addCmd(new CmdDispo("||nw", $min0max10)); //scrive correzione avanti
+        $this->addCmd(new CmdDispo("||ow", $min0max10)); //scrive correzione dietro
         $this->addCmd(new CmdDispo("||vw", $validaOra)); //imposta l'orario di sistema HH:MM:SS
         $this->addCmd(new CmdDispo("||ww", $validaData)); //imposta la data di sistema GG/MM/AA
 
@@ -76,8 +86,8 @@ class CompactLogic extends AbstractDispoLogic
         $this->addCmd(new CmdDispo("**lw", $max30char)); //imposta direzione avanti max 34 char
         $this->addCmd(new CmdDispo("**mw", $max30char)); //imposta direzione indietro max 34 char
         $this->addCmd(new CmdDispo("**nw", $max30char)); //imposta nome della città max 34 char
-        $this->addCmd(new CmdDispo("**vw", $max30char)); //imposta site max 32 char
-        $this->addCmd(new CmdDispo("**ww", $max30char)); //imposta point max 32 char
+        $this->addCmd(new CmdDispo("**vw", $max21char)); //imposta site
+        $this->addCmd(new CmdDispo("**ww", $max21char)); //imposta point
 
         $this->addCmd(new CmdDispo("**ur")); //richiedere la configurazione generale del Compact
         $this->addCmd(new CmdDispo("||lr"));
@@ -103,6 +113,9 @@ class CompactLogic extends AbstractDispoLogic
                 case "**nw":
                 case "**vw":
                 case "**ww":
+                case "||nw":
+                case "||ow":
+                case "**mw":
                     if($cmd->getResponse()==="ok"){
                         $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$valCmd;
                     }else{
@@ -135,13 +148,61 @@ class CompactLogic extends AbstractDispoLogic
         return $return;
     }
 
+    function decodeConfigInDbForm(String $conf): array{
+        $array = explode(';', $conf);
+        $new_array = array();
+        foreach($array as $key => $val){
+            if($val){
+                $e = explode('=',$val);
+                if($e[0]=="giorno"){
+                    $e[1] = CompactLogic::toMySqlDate($e[1]);
+                }
+                $new_array[$e[0]] = $e[1];
+            }
+        }
+        return $new_array;
+    }
+
+
     function encodeCmd(array $keysValues, String $idDispo){
         $strCmd = array();
         $compact = $this->map_cmd['compact'];
         foreach($keysValues as $key => $value){
+            if($key=="giorno"){
+                $value = CompactLogic::fromMySqlDate($value);
+            }
             $strCmd[] = $compact['w_cmd'][$key].$value."@@".$idDispo."\r";
         }
         return $strCmd;
     }
+
+    function filterConfig(array $dati_dispo): array{
+        $conf = array();
+        foreach ($dati_dispo as $key => $val){
+            if(array_key_exists($key, $this->map_cmd['compact']['w_cmd'])){
+                $conf[$key] = $val;
+            }
+        }
+        return $conf;
+    }
+
+    /**
+     * @param $data La DATA nel formato gg-mm-aa
+     * @return string Viene convertita nel formato aaaa-mm-gg
+     */
+    public static function toMySqlDate($data){
+        $newDate = date_create_from_format("d/m/y", $data);
+        return $newDate->format('Y-m-d');
+    }
+
+    /**
+     * @param $data La DATA nel formato aaaa-mm-gg
+     * @return string Viene convertita nel formato gg-mm-aa
+     */
+    public static function fromMySqlDate($data){
+        $newDate = DateTime::createFromFormat("Y-m-d", $data);
+        return $newDate->format('d/m/y');
+    }
+
 
 }

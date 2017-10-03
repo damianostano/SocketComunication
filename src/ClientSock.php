@@ -3,25 +3,25 @@
 
 class ClientSock{
 
-    public $log = null;
+    public $n_try = 2;
+
     public $indirizzo = null;
     public $porta = null;
     public $sock = null;
+
+    public $logic = null;
     public $user = null;
 
-    public function __construct($indirizzo, $porta, MapDispoLogic $mapLogic, String $user){
-        if(!isset($this->log)){
-            $this->log = Logger::getLogger("monitor.trace");
-        }
+    public function __construct($indirizzo, $porta, String $user /*, MapDispoLogic $mapLogic */){
 //        $this->decode = new DecodeSimple();
-        $this->logic = $mapLogic;//new CompactLogic();                  //      ! ! ! !
+//        $this->logic = $mapLogic;//new CompactLogic();                  //      ! ! ! !
         $this->indirizzo = $indirizzo;
         $this->porta = $porta;
         $this->user = $user;
     }
 
     function login(){
-        set_time_limit(0);
+        set_time_limit(5);
         ob_implicit_flush(); //Implicit flushing will result in a flush operation after every output call (echo, print, ecc...)
         $this->sock = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
         if($this->sock === false){
@@ -39,8 +39,66 @@ class ClientSock{
         return $this->leggi();
     }
     function logout(){
+        $this->scrivi("logout_user*".$this->user."@@server\r");
         socket_close($this->sock);
+        $this->sock = null;
     }
+
+    function exeCmds($cmds){
+        $this->login();
+        $listRet = array();
+        $retryList = array();
+        $failList = array();
+        //TODO: da implementare che riprovi a rieseguire i comandi che non hanno tornato risposta
+        foreach ($cmds as $key => $value){
+            $this->scrivi($value);
+            usleep(50000);//5/100 di sec.
+            try{
+                $response = $this->leggi();
+                if($response=="X" || $response=="I"){
+                    $retryList[$key] = $value;
+                }else{
+                    $listRet[$key] = $response;
+                }
+            }catch (Exception $e){
+                $retryList[$key] = $value;
+            }
+            usleep(50000);//5/100 di sec.
+        }
+        if(count($retryList)>0){
+            foreach ($retryList as $key => $value){
+                $this->scrivi($value);
+                usleep(50000);//5/100 di sec.
+                try{
+                    $response = $this->leggi();
+                    if($response=="X" || $response!="I"){
+                        $failList[$key] = $value;
+                    }else{
+                        $listRet[$key] = $response;
+                    }
+                }catch (Exception $e){
+                    $failList[$key] = $value;
+                }
+                usleep(50000);//5/100 di sec.
+            }
+        }
+        $this->logout();
+        return $listRet;
+    }
+    function exeCmd($cmd){
+        $return = "X";
+        $this->login();
+        $this->scrivi($cmd);
+        for($i=0;$i<$this->n_try;$i++){
+            $return = $this->leggi();
+            if($return!="X" && $return!="I")//se è diverso da X (annullato) e I (invalido)
+                break;//posso interrompere il ciclo e ritornare la risposta che è buona
+            usleep(50000);//5/100 di sec.
+        }
+        $this->logout();
+        return $return;
+    }
+
 
     function leggi(){
         $msg = $this::socketRead($this->sock);
