@@ -18,10 +18,12 @@ class ServerLogic extends AbstractDispoLogic
     function __construct($map_cmd){
         $this->map_cmd = $map_cmd;
 
-        $this->addCmd(new CmdDispo("quit")); //legge correzione corsia 1
-        $this->addCmd(new CmdDispo("list_dispo")); //legge correzione corsia 2
-        $this->addCmd(new CmdDispo("list_user")); //richiedere la configurazione generale del Compact
-        $this->addCmd(new CmdDispo("logout_user")); //richiedere la disconnessione di un dispositivo o user
+        $this->addCmd(new CmdDispo("quit")); //spegnere il server (non funziona come dovrebbe)
+        $this->addCmd(new CmdDispo("list_dispo")); //richiede la lista dei dispositivi connessi per una certa istanza
+        $this->addCmd(new CmdDispo("list_user")); //richiede la lista di tutti gli utenti attualmente connessi
+        $this->addCmd(new CmdDispo("logout_user")); //richiedere la disconnessione di uno user
+        $this->addCmd(new CmdDispo("WAIT")); //richiedere la disconnessione di uno user
+        $this->addCmd(new CmdDispo("READY")); //richiedere la disconnessione di uno user
     }
 
     function elaboraRisposta(Cmd $cmd): string{
@@ -36,6 +38,8 @@ class ServerLogic extends AbstractDispoLogic
                 case "quit":break;
                 case "list_dispo":
                 case "list_user":
+                case "WAIT":
+                case "READY":
                     $return = $cmd->getResponse();
                     break;
                 default: $return = $cmd->getResponse();

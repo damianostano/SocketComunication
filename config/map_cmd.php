@@ -7,6 +7,8 @@ $map_cmd = array(
             'list_dispo' => "lista dei dispositivi",
             'list_user'  => "lista degli user",
             'logout_user'=> "logout di uno user",
+            'WAIT'       => "dispositivo occupato",
+            'READY'      => "dispositivo pronto",
         ),
         'r_cmd' => array(
             'quit'       => "quit",

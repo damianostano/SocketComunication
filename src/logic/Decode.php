@@ -38,6 +38,11 @@ interface Decode{
      */
     public function decodeResponse(string $response_msg) : DecodeResponse;
 
-
+    /**
+     * Per capire se un messaggio dal dispositivo è una risposta o altro
+     * @param string $msg
+     * @return bool true se è una risposta
+     */
+    public function isResponse(string $msg): bool;
 
 }

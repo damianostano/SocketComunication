@@ -38,6 +38,9 @@ define("RES_DELETE", "X");     //risposta da inviare all'utente che il comando i
 define("CMD_ESEGUITO", "V");   //da mettere sulla response per comandi eseguiti (anche se non deve essere data risposta allo user)
 define("CMD_INVALID", "I");    //risposta da inviare all'utente che il comando in questione non è valido
 
+define("CMD_WAIT", "WAIT");    //comando di wait inviato dal dispositivo per comunicare al server che non può processare le sue richieste, nemmeno i keepalive
+define("CMD_READY","READY");   //comando di ready inviato dal dispositivo per comunicare al server che è tornato disponibile a processare i comandi
+
 include_once('Autoload.php');
 
 //include_once('src\Master.php');

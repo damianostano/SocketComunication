@@ -62,6 +62,10 @@ class DecodeSimple implements Decode{
             throw new Exception("Stringa non decodificabile in risposta!");
     }
 
-
+    public function isResponse(string $msg): bool{
+        if($msg==null)
+            return false;
+        return (preg_match("/^\\d\\d\\d\\d/", $msg)==1?true:false);
+    }
 
 }

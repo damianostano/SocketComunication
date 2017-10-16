@@ -54,6 +54,7 @@ class Master{
     public $lastPongUser= array();//per ogni utente l'ultima volta che ha risposto
     public $lastLogin=array(); //per ogni dispositivo l'ultima volta che ha effettuato il login (in caso di riconnessione e di cmd keepAlive in sospeso non devo rimandare indietro il lastPing oltre questo valore)
     public $lastLogout=array(); //per ogni dispositivo l'ultima volta che ho rilevato la disconnessione
+    public $semaforoDispo=array("server"=>true); //per ogni dispositivo indica true o false a seconda se è possibile inviare comandi o no
 
     private $sequence_cmd=1;
     public function getSequenceCmd(): string{
@@ -258,7 +259,10 @@ class Master{
                     }
                 }elseif($login_msg->isDISP()){
                     $id_dispositivo = $login_msg->getVal();
-                    $maxLastLogoutOrPong = $this->lastLogout[$id_dispositivo]>$this->lastPong[$id_dispositivo]?$this->lastLogout[$id_dispositivo]:$this->lastPong[$id_dispositivo];
+                    if(isset($this->lastLogout[$id_dispositivo]) && isset($this->lastPong[$id_dispositivo]))
+                        $maxLastLogoutOrPong = $this->lastLogout[$id_dispositivo]>$this->lastPong[$id_dispositivo]?$this->lastLogout[$id_dispositivo]:$this->lastPong[$id_dispositivo];
+                    else
+                        $maxLastLogoutOrPong = false;
                     $disconnTime = $maxLastLogoutOrPong? microtime(true) - $maxLastLogoutOrPong : "prima connessione... 0";
                     if(!key_exists($id_dispositivo, $this->dispositivi)){
 //                        $this->log->info("Dispositivo $id_dispositivo aggiunto");
@@ -269,15 +273,16 @@ class Master{
 //                        $this->log->info("Dispositivo $id_dispositivo già presente!");
                         Logger::getLogger("monitor.disconnTime")->info("Dispositivo $id_dispositivo già presente! DisconnTime: $disconnTime sec. ");
                     }
-                    //Sia che il dispositivo lo senta già connesso o sia la 1° volta è bene ricollegare il buffer
+                    //Sia che il dispositivo lo senta già connesso o sia la 1° volta bisogna ricollegare il buffer
                     //(nel caso già lo senta potrebbe essere caduta la connessione e quindi essere ricollegato in un nuovo socket)
                     $this->dispositivi[$id_dispositivo] = $buf;
                     $this->lastPing[$id_dispositivo] = microtime(true);
                     $this->lastPong[$id_dispositivo] = microtime(true);
                     $this->lastLogin[$id_dispositivo] = microtime(true);
+                    $this->semaforoDispo[$id_dispositivo] = true;
                     //bisognerebbe azzerare le code comandi in esecuzione perchè se si è riconnesso i vecchi cmd oramai sono persi, non riceverranno mai risposta
                     //ma non conviene perchè i comandi non sono divisi per dispositivo, meglio aspettare semplicemente che scadano
-//                    $this->execCmd[$id_dispositivo] = array();
+//                    $this->execCmd[$id_dispositivo] = array(); //non va
                 }
             }
             return true;
@@ -291,33 +296,34 @@ class Master{
         foreach($read as $key=>$value){
             //key corrispondente nell'array user
             $key_u = array_search($value, $this->user);
-            $ret = $this->leggi_da_user($key_u);
-            $string_cmd = trim($ret);
-            if($string_cmd){//se c'è una stringa
-                //bisogna controllare se è un comando valido
-                try{
-                    $cmd = $this->getDecode()->decodeCmd($string_cmd);
+            if($ret = $this->leggi_da_user($key_u)){
+                $string_cmd = trim($ret);
+                if($string_cmd){//se c'è una stringa
+                    //bisogna controllare se è un comando valido
                     try{
-                        $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
-                    }catch (NotMappedException $e){
-                        $this->logic->refreshDispositivi(); //reinterroga il DB per controllare se sono stati salvati altri dispositivi
-                        $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
+                        $cmd = $this->getDecode()->decodeCmd($string_cmd);
+                        try{
+                            $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
+                        }catch (NotMappedException $e){
+                            $this->logic->refreshDispositivi(); //reinterroga il DB per controllare se sono stati salvati altri dispositivi
+                            $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
+                        }
+                        if($cmd!==null && $isCmd){
+                            $id_cmd = $this->getSequenceCmd();
+                            $command = new Cmd($id_cmd, $cmd->getCmd(), $cmd->getIdDispo(), $key_u);
+                            //TODO:? controllo che non ci siano comandi ripetuti per lo stesso utente
+                            $this->codaCmd[$command->getIdDispo()][] = $command;
+                            $this->lastPongUser[$command->getIdUser()] = microtime(true);
+                        }else{
+                            $this->scrivi_a_user($key_u, CMD_INVALID);
+                            $this->log->warn("Ricevuto comando non riconosciuto: ".$cmd->getCmd());
+                        }
+                    }catch (Exception $e){
+                        $this->log->error($e->getMessage());
                     }
-                    if($cmd!==null && $isCmd){
-                        $id_cmd = $this->getSequenceCmd();
-                        $command = new Cmd($id_cmd, $cmd->getCmd(), $cmd->getIdDispo(), $key_u);
-                        //TODO:? controllo che non ci siano comandi ripetuti per lo stesso utente
-                        $this->codaCmd[$command->getIdDispo()][] = $command;
-                        $this->lastPongUser[$command->getIdUser()] = microtime(true);
-                    }else{
-                        $this->scrivi_a_user($key_u, CMD_INVALID);
-                        $this->log->warn("Ricevuto comando non riconosciuto: ".$cmd->getCmd());
-                    }
-                }catch (Exception $e){
-                    $this->log->error($e->getMessage());
+                }elseif($string_cmd===""){
+                    $this->disconnetti_user($key_u);
                 }
-            }elseif($string_cmd===""){
-                $this->disconnetti_user($key_u);
             }
         }
         if(count($this->codaCmd)>0 || count($this->execCmd)>0 || count($this->codaResponse)>0){
@@ -339,7 +345,7 @@ class Master{
             $this->log->trace("handlerCmd: giro di keep alive");
             foreach($this->dispositivi as $id_dispo=>$sock_dispo){
                 $interval = $now-$this->lastPing[$id_dispo];//se il tempo passato dall'ultima volta che ho mandato qualche cosa
-                if($interval>KEEPALIVE_SEC){       //è > del tempo definito per il mantenimento della connessione
+                if($interval>KEEPALIVE_SEC && $this->semaforoDispo[$id_dispo]){//è > del tempo definito per il mantenimento della connessione e il semaforo è verde
                     //mando il segnale di keep_alive
                     $cmd = Cmd::getKeepAlive($this->getSequenceCmd(), $id_dispo);
                     $this->eseguiCmd($cmd);                 //eseguiCmd() riazzera il tempo di lastPing
@@ -354,12 +360,11 @@ class Master{
         if($countCodaCmd>0){
             $this->log->debug("handlerCmd: ci sono ".$countCodaCmd." comandi in coda per qualche dispositivo");
             foreach($this->codaCmd as $id_dispo=>$codaCmdDispo){//per ogni dispositivo estraggo la sua coda
-                if(count($this->codaCmd[$id_dispo])>0){     //se ci sono effettivamente comandi
+                if(count($this->codaCmd[$id_dispo])>0 && $this->semaforoDispo[$id_dispo]){  //se ci sono effettivamente comandi e il semaforo è verde
                     $cmd = array_shift($this->codaCmd[$id_dispo]);//estraggo il successivo comando di quel dispositivo
 //print "------ handlerCmd: comando in coda: ".print_r($cmd, true);
                     if($id_dispo===Cmd::$SERVER){//se lo user vuole comunicare con il server invece che mandare un comando ad un dispositivo
                         $this->cmd4Server($cmd);
-                        $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
                     }elseif(isset($this->dispositivi[$id_dispo]) && $this->dispositivi[$id_dispo]!=null){//se c'è il dispositivo giusto per l'esecuzione
                         $this->eseguiCmd($cmd);                 //lo eseguo
                         $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
@@ -388,15 +393,15 @@ class Master{
             }
         }
 
-        //faccio un giro per vedere se mi sono arrivate delle risposte
+        //faccio un giro per vedere se qualche dispositivo ha scritto
         $countExecCmd = count($this->execCmd);
-        if($n_dispo_connessi>0 && $countExecCmd>0){//se ci sono dei dispositivi connessi ed ho ancora dei comandi in esecuzione
-            $this->log->debug("handlerCmd: ci potrebbero essere risposte da qualche dispositivo. ".$countExecCmd." cmd in codaEsecuzione.");
+        if($n_dispo_connessi>0 /*&& $countExecCmd>0*/){//se ci sono dei dispositivi connessi /*ed ho ancora dei comandi in esecuzione*/
+//            $this->log->debug("handlerCmd: controllo per vedere se qualche dispositivo ha scritto risposte o comnadi.");
             foreach($this->dispositivi as $id_dispo=>$sock_dispo){  //per ogni dispositivo
                 $response = $this->socketRead($sock_dispo);         //provo a vedere se c'è qualche cosa da leggere
                 if($response["state"]==="to"){                       //se va in time out non c'è nulla nel buffer
                     $interval = $now-$this->lastPong[$id_dispo];    //se il tempo passato dall'ultima volta che ho ricevuto qualche cosa da quel dispositivo
-                    if($interval>TIME_OUT){   //è > del tempo definito per il mantenimento della connessione moltiplicato per quante volte ritentare di contattare il dispositivo
+                    if($interval>TIME_OUT && $this->semaforoDispo[$id_dispo]){//è > del tempo definito per il mantenimento della connessione moltiplicato per quante volte ritentare di contattare il dispositivo e il dispo è ricettivo
                         //stronca la connessione
                         if($this->disconnetti($id_dispo)){
                             Logger::getLogger("monitor.disconnTime")->warn("handlerCmd: TimeOut per il dispositivo $id_dispo superato! interval: ".$interval."; now: ".$now."; lastPong: ".$this->lastPong[$id_dispo]."\n");
@@ -404,21 +409,42 @@ class Master{
                     }
                 }elseif($response["state"]==="ok"){                 //se invece ho ricevuto effettivamente qualche cosa
                     try{
-                        $msg = $this->getDecode()->decodeResponse($response["msg"]); //splitto la risposta nel suo ID e nel messaggio
-                        $cmd = $this->execCmd[$msg->getIdMsg()];    //prendo il comando da quelli in esecuzione
-                        if($cmd!=null){                                 //e se ho un comando in esecuzione che ha richiesto questa risposta
-                            $cmd->setResponse($msg->getResponse());  //gli setto la risposta (che setta anche il tempo di ricezione)
-                            $this->lastPong[$cmd->getIdDispo()] = microtime(true);//aggiorno l'ultima volta che il dispo mi ha risposto
-                        }else { //ho una risposta ad un comando che non c'è più... la risposta cade nel vuoto
-                            $this->log->warn("Risposta al comando ".$msg->getIdMsg()." arrivata ma comando non più presente!");
+                        $msg_from_dispo = $response["msg"];
+                        if($this->getDecode()->isResponse($msg_from_dispo)){//risposta ad un messaggio
+                            $msg = $this->getDecode()->decodeResponse($msg_from_dispo); //splitto la risposta nel suo ID e nel messaggio
+                            $cmd = $this->execCmd[$msg->getIdMsg()];    //prendo il comando da quelli in esecuzione
+                            if($cmd!=null){                                 //e se ho un comando in esecuzione che ha richiesto questa risposta
+                                $cmd->setResponse($msg->getResponse());  //gli setto la risposta (che setta anche il tempo di ricezione)
+                                $this->lastPong[$cmd->getIdDispo()] = microtime(true);//aggiorno l'ultima volta che il dispo mi ha risposto
+                            }else { //ho una risposta ad un comando che non c'è più... la risposta cade nel vuoto
+                                $this->log->warn("Risposta al comando ".$msg->getIdMsg()." arrivata ma comando non più presente!");
+                            }
+                        }else{//comando di un dispositivo
+                            try{
+                                $cmd = $this->getDecode()->decodeCmd($msg_from_dispo);//WAIT*Sisas666@@server\n
+                                $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
+                                if($cmd!==null && $isCmd){
+                                    $id_cmd = $this->getSequenceCmd();
+                                    //idDispo è "server" dato che è un dispositivo a mandare il comando, sul posto dell'idUser ci va quello del dispositivo che ha mandato il comando
+                                    $idDispo = explode("*", trim($cmd->getCmd()))[1];
+                                    $command = new Cmd($id_cmd, $cmd->getCmd(), $cmd->getIdDispo(), $idDispo);
+                                    $this->codaCmd[$command->getIdDispo()][] = $command;
+                                    $this->lastPong[$idDispo] = microtime(true);//perchè dentro a IdUser c'è l'id del comando
+                                }else{
+//                                $this->scrivi_a_dispositivo($key_d, CMD_INVALID); //non ha senso ancora scrivere al dispositivo se non c'è la logica che elabora la risposta
+                                    $this->log->warn("Ricevuto comando non riconosciuto dal dispo ".$idDispo.": ".$cmd->getCmd());
+                                }
+                            }catch (Exception $e){
+                                $this->log->error($e->getMessage());
+                            }
                         }
+
                     }catch (Exception $e){
                         $this->log->error($e->getMessage());
                     }
                 }
             }
         }
-
 
         //se ci sono comandi eseguiti in attesa di essere mandati al richiedente?
         if($countExecCmd>0){
@@ -447,7 +473,7 @@ class Master{
             foreach ($this->codaResponse as $id_user => $codaRespUser) {
                 if(isset($this->user[$id_user])){   //se l'utente a cui va mandata la risposta c'è
                     if(count($this->codaResponse[$id_user])>0){     //se ci sono effettivamente response in coda
-                        $cmd = array_shift($this->codaResponse[$id_user]);      //estraggo il successivo comando di quel dispositivo
+                        $cmd = array_shift($this->codaResponse[$id_user]);      //la estraggo
                         if($cmd->getIdUser()===Cmd::$SERVER){
                             $this->response4Server($cmd);
 
@@ -516,6 +542,7 @@ class Master{
                 //elaboro lista per scrivere messaggio di response
                 $response = $list!=null? implode(";",$list) : ";";
                 $cmd->setResponse($response);
+                $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
 
             }elseif($keyCmd==="list_user") {//richiesta di utenti connessi attualmente
                 $this->log->info("Ricevuto comando di lista utenti");
@@ -524,10 +551,20 @@ class Master{
                 //elaboro lista per scrivere messaggio di response
                 $response = $list!=null? implode(";",$list) : ";";
                 $cmd->setResponse($response);
+                $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
             }elseif($keyCmd==="logout_user") {//logout user
                 $this->log->info("Ricevuto comando di logout User: ".$valCmd);
                 $this->disconnetti_user($valCmd);
                 $cmd->setResponse(CMD_ESEGUITO);
+                $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
+            }elseif($keyCmd==="WAIT") {//richiesta di mettere in pausa l'invio di comandi al dispositivo
+                $this->log->info("Ricevuto comando WAIT da dispositivo: ".$valCmd);
+//                unset($this->execCmd[$cmd->getId()]);
+                $this->semaforoDispo[$valCmd] = false;
+            }elseif($keyCmd==="READY") {//fine del periodo di sospensione di invio comandi
+                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
+//                unset($this->execCmd[$cmd->getId()]);
+                $this->semaforoDispo[$valCmd] = true;
             }
         }
 
