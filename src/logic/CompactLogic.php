@@ -97,7 +97,7 @@ class CompactLogic extends AbstractDispoLogic
         $return="";
         $keyCmd = substr($cmd->getCmd(), 0,4);
         $valCmd = substr($cmd->getCmd(), 4);
-        if($cmd->getResponse()===RES_DELETE){
+        if($cmd->getResponse()===RES_DELETE || $cmd->getResponse()===RES_BUSY){
             $return = $cmd->getResponse();
         }else{
             switch ($keyCmd) {

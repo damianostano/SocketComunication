@@ -216,11 +216,11 @@ class Master{
 //            $sso = socket_set_option($buf, SOL_SOCKET, SO_RCVTIMEO, array('sec'=>2,'usec'=>10000));//timeout impostato ad 1/100 di sec per ricevere il login
             socket_set_nonblock($buf);
             $this->log->debug("riferimento al buffer: ".print_r($buf, true));
-            usleep(20000);//timeout impostato ad 2/100 di sec per ricevere il login
+            usleep(100000);//timeout impostato ad 1/10 di sec per ricevere il login
             $response = $this->socketRead($buf);
             $this->log->info("1° response: ".print_r($response, true));
             if($response["state"]=="to"){
-                usleep(2500000);//timeout impostato a 2,5 sec per ricevere il login
+                usleep(3000000);//timeout impostato a 3 sec per ricevere il login
                 $response = $this->socketRead($buf);   // prima di tentare di rileggere
                 $this->log->info("2° response: ".print_r($response, true));
                 //altrimenti la cosa è fallita, gestiamo ed andiamo avanti
@@ -259,10 +259,10 @@ class Master{
                     }
                 }elseif($login_msg->isDISP()){
                     $id_dispositivo = $login_msg->getVal();
-                    if(isset($this->lastLogout[$id_dispositivo]) && isset($this->lastPong[$id_dispositivo]))
+//                    if(isset($this->lastLogout[$id_dispositivo]) && isset($this->lastPong[$id_dispositivo]))
                         $maxLastLogoutOrPong = $this->lastLogout[$id_dispositivo]>$this->lastPong[$id_dispositivo]?$this->lastLogout[$id_dispositivo]:$this->lastPong[$id_dispositivo];
-                    else
-                        $maxLastLogoutOrPong = false;
+//                    else
+//                        $maxLastLogoutOrPong = false;
                     $disconnTime = $maxLastLogoutOrPong? microtime(true) - $maxLastLogoutOrPong : "prima connessione... 0";
                     if(!key_exists($id_dispositivo, $this->dispositivi)){
 //                        $this->log->info("Dispositivo $id_dispositivo aggiunto");
@@ -289,7 +289,7 @@ class Master{
         }
     }
 
-    //richiamo metodi per chat
+
     private function receiveCmd($read){
         $this->log->trace("-----function: receiveCmd(read)");
         //lettura client
@@ -360,32 +360,37 @@ class Master{
         if($countCodaCmd>0){
             $this->log->debug("handlerCmd: ci sono ".$countCodaCmd." comandi in coda per qualche dispositivo");
             foreach($this->codaCmd as $id_dispo=>$codaCmdDispo){//per ogni dispositivo estraggo la sua coda
-                if(count($this->codaCmd[$id_dispo])>0 && $this->semaforoDispo[$id_dispo]){  //se ci sono effettivamente comandi e il semaforo è verde
+                if(count($this->codaCmd[$id_dispo])>0){  //se ci sono effettivamente comandi
                     $cmd = array_shift($this->codaCmd[$id_dispo]);//estraggo il successivo comando di quel dispositivo
+                    if($this->semaforoDispo[$id_dispo]){ //e il semaforo è verde
 //print "------ handlerCmd: comando in coda: ".print_r($cmd, true);
-                    if($id_dispo===Cmd::$SERVER){//se lo user vuole comunicare con il server invece che mandare un comando ad un dispositivo
-                        $this->cmd4Server($cmd);
-                    }elseif(isset($this->dispositivi[$id_dispo]) && $this->dispositivi[$id_dispo]!=null){//se c'è il dispositivo giusto per l'esecuzione
-                        $this->eseguiCmd($cmd);                 //lo eseguo
-                        $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
-                    }else{//ci sono comandi per dispositivi non presenti (teoricamente non dovrebbe succedere)
+                        if($id_dispo===Cmd::$SERVER){//se lo user vuole comunicare con il server invece che mandare un comando ad un dispositivo
+                            $this->cmd4Server($cmd);
+                        }elseif(isset($this->dispositivi[$id_dispo]) && $this->dispositivi[$id_dispo]!=null){//se c'è il dispositivo giusto per l'esecuzione
+                            $this->eseguiCmd($cmd);                 //lo eseguo
+                            $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
+                        }else{//ci sono comandi per dispositivi non presenti (teoricamente non dovrebbe succedere)
 
-                        if($cmd->getTsWait()===null){
+                            if($cmd->getTsWait()===null){
 
-                            //TODO: bisognerebbe creare una risposta per l'utente che ha impartito il comando, il dispositivo potrebbe riconnettersi e quindi eseguire il comando
-                            $this->log->warn("Il dispositivo ".$id_dispo." non è attualmente connesso. Il comando: ".$cmd->getId()." attenderà ".TIME_OUT." sec, dopodichè sarà annullato.");
-                            $cmd->setTsWait(microtime(true));
-                            $this->codaCmd[$id_dispo][] = $cmd;
-                        }else{
-                            $interval = $now-$cmd->getTsWait();
-                            if($interval<TIME_OUT){
-                                $this->codaCmd[$id_dispo][] = $cmd;//per verificarlo l'avevo tolto quindi dato che può aspettare ancora lo rimetto in coda
+                                //TODO: bisognerebbe creare una risposta per l'utente che ha impartito il comando, il dispositivo potrebbe riconnettersi e quindi eseguire il comando
+                                $this->log->warn("Il dispositivo ".$id_dispo." non è attualmente connesso. Il comando: ".$cmd->getId()." attenderà ".TIME_OUT." sec, dopodichè sarà annullato.");
+                                $cmd->setTsWait(microtime(true));
+                                $this->codaCmd[$id_dispo][] = $cmd;
                             }else{
-                                $cmd->setResponse(RES_DELETE);//Setto la risposta per indicare la mancata risposta del dispositivo
-                                $this->codaResponse[$cmd->getIdUser()][] = $cmd;//lo metto nella coda di risposte allo user che aveva fatto la richiesta informandolo della mancata risposta del dispositivo
-                                Logger::getLogger("monitor.appendCmd")->warn("Comando ".$cmd->getId()." annullato, non è potuto essere recapitato al dispositivo $id_dispo per più di ".TIME_OUT." sec.\n".print_r($cmd,true));
+                                $interval = $now-$cmd->getTsWait();
+                                if($interval<TIME_OUT){
+                                    $this->codaCmd[$id_dispo][] = $cmd;//per verificarlo l'avevo tolto quindi dato che può aspettare ancora lo rimetto in coda
+                                }else{
+                                    $cmd->setResponse(RES_DELETE);//Setto la risposta per indicare la mancata risposta del dispositivo
+                                    $this->codaResponse[$cmd->getIdUser()][] = $cmd;//lo metto nella coda di risposte allo user che aveva fatto la richiesta informandolo della mancata risposta del dispositivo
+                                    Logger::getLogger("monitor.appendCmd")->warn("Comando ".$cmd->getId()." annullato, non è potuto essere recapitato al dispositivo $id_dispo per più di ".TIME_OUT." sec.\n".print_r($cmd,true));
+                                }
                             }
                         }
+                    }else{//il semaforo di quel dispositivo è rosso
+                        $cmd->setResponse(BUSY);
+                        $this->execCmd[$cmd->getId()] = $cmd;
                     }
                 }else{//se non ci sono comandi
                     unset($this->codaCmd[$id_dispo]);
@@ -429,7 +434,7 @@ class Master{
                                     $idDispo = explode("*", trim($cmd->getCmd()))[1];
                                     $command = new Cmd($id_cmd, $cmd->getCmd(), $cmd->getIdDispo(), $idDispo);
                                     $this->codaCmd[$command->getIdDispo()][] = $command;
-                                    $this->lastPong[$idDispo] = microtime(true);//perchè dentro a IdUser c'è l'id del comando
+                                    $this->lastPong[$idDispo] = microtime(true);
                                 }else{
 //                                $this->scrivi_a_dispositivo($key_d, CMD_INVALID); //non ha senso ancora scrivere al dispositivo se non c'è la logica che elabora la risposta
                                     $this->log->warn("Ricevuto comando non riconosciuto dal dispo ".$idDispo.": ".$cmd->getCmd());
@@ -515,9 +520,12 @@ class Master{
     private function response4Server(Cmd $cmd){
         if($cmd->isKeepAlive()){//se è un comando di keep alive
             if($cmd->getResponse()!==RES_KEEP_ALIVE){//bisogna validare il response
-                $lastPong = ($cmd->getTsInvio()-KEEPALIVE_SEC);//se non è valido riporto indietro il pong time, come se non avessi ricevuto risposta
-                $lastLogin= $this->lastLogin[$cmd->getIdDispo()];
-                $this->lastPong[$cmd->getIdDispo()] = $lastPong > $lastLogin ? $lastPong : $lastLogin;//ma non più sotto dell'ultima volta che il dispo si è loggato
+                $pongPreCmd = ($cmd->getTsInvio()-KEEPALIVE_SEC);//se non è valido dovrei riportare indietro il pong time, come se non avessi ricevuto risposta
+                $lastLogin  = $this->lastLogin[$cmd->getIdDispo()];//ma non più sotto dell'ultima volta che il dispo si è loggato
+                $lastPong   = $this->lastPong[$cmd->getIdDispo()];//e non più sotto dell'ultima volta che il dispo ha risposto se c'è stata una comunicazione successiva andata a buon fine
+
+                $max = max($pongPreCmd, $lastLogin, $lastPong);//in parole povere serve la MAX tra le 3
+                $this->lastPong[$cmd->getIdDispo()] = $max;
                 $this->log->warn("ATTENZIONE! Il dispositivo ".$cmd->getIdDispo()." non ha risposto '-' al keep alive:\n".print_r($cmd,true));//ma loggo la cosa
             }else{
                 $this->log->info("Response al KeppAlive ".$cmd->getId()." valido");
@@ -558,11 +566,13 @@ class Master{
                 $cmd->setResponse(CMD_ESEGUITO);
                 $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
             }elseif($keyCmd==="WAIT") {//richiesta di mettere in pausa l'invio di comandi al dispositivo
-                $this->log->info("Ricevuto comando WAIT da dispositivo: ".$valCmd);
+//                $this->log->info("Ricevuto comando WAIT da dispositivo: ".$valCmd);
+                Logger::getLogger("monitor.disconnTime")->info("Ricevuto comando WAIT da dispositivo: ".$valCmd);
 //                unset($this->execCmd[$cmd->getId()]);
                 $this->semaforoDispo[$valCmd] = false;
             }elseif($keyCmd==="READY") {//fine del periodo di sospensione di invio comandi
-                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
+//                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
+                Logger::getLogger("monitor.disconnTime")->info("Ricevuto comando READY da dispositivo: ".$valCmd);
 //                unset($this->execCmd[$cmd->getId()]);
                 $this->semaforoDispo[$valCmd] = true;
             }
@@ -648,7 +658,7 @@ class Master{
         $ret = $this->scrivi($this->dispositivi[$key], $msg);
         if($ret===false){
             if($this->disconnetti($key)){
-                $this->log->error("Errore con il dispositivo $key (in scrittura). Situazione master:\n".$this->__toString());
+                $this->log->error("Errore con il dispositivo $key (durante la disconnessione, in scrittura). Situazione master:\n".$this->__toString());
             }else{
                 $this->log->debug("Situazione master:\n".$this->__toString());
             }
