@@ -72,6 +72,9 @@ class Cmd {
     public static function getKeepAlive($id, string $id_dispo) :Cmd {
         return new Cmd($id, CMD_KEEP_ALIVE, $id_dispo, Cmd::$SERVER, true);
     }
+    public static function getResponseKeepAlive($id, string $id_dispo) :Cmd {
+        return new Cmd($id, RES_KEEP_ALIVE, $id_dispo, Cmd::$SERVER, false);
+    }
 
     /**
      * @return int

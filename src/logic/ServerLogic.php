@@ -22,8 +22,9 @@ class ServerLogic extends AbstractDispoLogic
         $this->addCmd(new CmdDispo("list_dispo")); //richiede la lista dei dispositivi connessi per una certa istanza
         $this->addCmd(new CmdDispo("list_user")); //richiede la lista di tutti gli utenti attualmente connessi
         $this->addCmd(new CmdDispo("logout_user")); //richiedere la disconnessione di uno user
-        $this->addCmd(new CmdDispo("WAIT")); //richiedere la disconnessione di uno user
-        $this->addCmd(new CmdDispo("READY")); //richiedere la disconnessione di uno user
+        $this->addCmd(new CmdDispo("WAIT")); //il dispo ci comunica che è occupato a fare altro e non può ne ricevere comandi dal server tantomeno rispondere
+        $this->addCmd(new CmdDispo("READY")); //il dispo ci comunica che è tornato ricevente
+        $this->addCmd(new CmdDispo(".")); //keepalive del dispo
     }
 
     function elaboraRisposta(Cmd $cmd): string{
@@ -40,6 +41,7 @@ class ServerLogic extends AbstractDispoLogic
                 case "list_user":
                 case "WAIT":
                 case "READY":
+                case ".":
                     $return = $cmd->getResponse();
                     break;
                 default: $return = $cmd->getResponse();

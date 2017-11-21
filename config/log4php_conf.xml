@@ -32,8 +32,8 @@
         <param name="user" value="sisas" />
         <param name="password" value="sisas" />
         <param name="table" value="log_discon_time" />
-        <param name="insertSql" value="INSERT INTO __TABLE__ (timestamp, logger, level, message, thread, file, line, function) VALUES (?, ?, ?, ?, ?, ?, ?, ?)" />
-        <param name="insertPattern" value="%date{Y-m-d H:i:s},%logger,%level,%message,%pid,%file,%line,%M" />
+        <param name="insertSql" value="INSERT INTO __TABLE__ (timestamp, logger, level, message, thread, file, line, function, exception) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)" />
+        <param name="insertPattern" value="%date{Y-m-d H:i:s},%logger,%level,%message,%pid,%file,%line,%M,%ex" />
     </appender>
     <appender name="disconn_time" class="LoggerAppenderRollingFile">
         <layout class="LoggerLayoutPattern">

@@ -9,6 +9,7 @@ $map_cmd = array(
             'logout_user'=> "logout di uno user",
             'WAIT'       => "dispositivo occupato",
             'READY'      => "dispositivo pronto",
+            '.'          => "keepalive del dispositivo",
         ),
         'r_cmd' => array(
             'quit'       => "quit",
