@@ -22,14 +22,15 @@ define("SECONDO", $sec);
 
 define("FRAZ_SEC", 2);  //ogni quanto si ripete un ciclo di controllo
 define("KEEPALIVE_SEC", 20); //ogni quanto (in secondi) manda un segnale di broadcast per mantenere vive le connessioni con i clients
-define("N_TRY", 5); //numero di tentativi di check connection falliti dopo i quali si chiude la connessione con quel particolare client forzatamente
+//define("N_TRY", 5); //numero di tentativi di check connection falliti dopo i quali si chiude la connessione con quel particolare client forzatamente
 define("CMD_TIME_OUT", 6); //numero di secondi massimo che si aspetta la risposta dal dispositivo
-define("TIME_OUT_USER", 60); //numero di secondi massimo che si aspetta la risposta dal dispositivo
+define("TIME_OUT_USER", 60); //numero di secondi massimo che si tiene aperta la connessione con gli Users
 
 define("SLEEP", $sec/FRAZ_SEC);// es: 1/5 di sec = 0.2 sec
-define("TIME_OUT", KEEPALIVE_SEC*N_TRY); //numero di secondi dopo cui si stacca la connessione in assenza di risposta e si eliminano i comandi appesi di quel dispositivo
-define("MAX_CHARS_READ", 2048);
-define("MAX_QUEUE", 10);//max n° di connessioni che vengono incodate
+define("TIME_OUT_NORMAL", 40);//numero di secondi senza pong dal dispositivo dopo cui si stacca la connessione in condizioni normali
+define("TIME_OUT_WAIT", 150); //numero di secondi senza pong dal dispositivo dopo cui si stacca la connessione in stato di WAIT
+define("MAX_CHARS_READ", 512);
+define("MAX_QUEUE", 20);//max n° di connessioni che vengono incodate
 define("SOGLIA_CMD_EXEC", 10); //numero di comandi in coda di esecuzione superata la quale ci potrebbe essere un problema
 
 define("CMD_KEEP_ALIVE", "."); //comando per mantenere aperta la connessione

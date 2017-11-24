@@ -1,0 +1,24 @@
+/*
+ * login*user&&root#013
+ * quit@@server#013
+ * help@@1234#013 -> 0001@@help#013
+ *
+ * login*1234#013
+ * 0001@@resp-help#013
+ * 0003@@-#013
+ */
+
+FORMATI
+
+/* login */     comando * id_del_loggante && (a chi è rivolto nel caso sia uno User)
+
+del dispositivo:                                login*1234\r
+del user:                                       login*user&&root\r
+
+/* comandi */
+
+dallo user al server per il dispositivo:        example_cmd@@id_disp\r        ->  **rw@@Sisas02
+decodificato dal server ed inviato al dispo:    id_comando@@example_cmd\r     ->  0001@@**rw      //perchè dopo l'esecuzione viene impilato nella coda del dispositivo
+comandi al server:                              cmd*istanza@@server\r         ->  list_dispo*perugia@@server\r
+
+
