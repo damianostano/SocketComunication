@@ -257,6 +257,11 @@ class Master
                     //bisognerebbe azzerare le code comandi in esecuzione perchè se si è riconnesso i vecchi cmd oramai sono persi, non riceverranno mai risposta
                     //ma non conviene perchè i comandi non sono divisi per dispositivo, meglio aspettare semplicemente che scadano
 //                    $this->execCmd[$id_dispositivo] = array(); //non va
+
+                    //-------- FARSI DARE LA CONFIGURAZIONE ATTUALE PER SALVARSELA SUL DB
+                    $id_cmd = $this->getSequenceCmd();
+                    $command = new Cmd($id_cmd, "**ur", $id_dispositivo, Cmd::$SERVER);
+                    $this->codaCmd[$command->getIdDispo()][] = $command;
                 }
             }
             return true;
