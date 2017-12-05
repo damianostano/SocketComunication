@@ -186,6 +186,76 @@ class CompactLogic extends AbstractDispoLogic
         return $conf;
     }
 
+    public function updateConfig(array $compact, PDO $db=null){
+        try{
+            if($db==null){
+                throw new Exception("In updateConfig non è stato passato il DB");
+            }
+            $db->beginTransaction();
+
+            $sql = "UPDATE dispositivo  
+                    SET citta = :citta,
+                        via = :via,
+                        rif_km = :rif_km
+                    WHERE id_dispo=:id_dispo ";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':id_dispo',       $compact['id_dispo'],   PDO::PARAM_STR);
+            $stmt->bindValue(':citta',          $compact['citta'],      PDO::PARAM_STR);
+            $stmt->bindValue(':via',            $compact['via'],        PDO::PARAM_STR);
+            $stmt->bindValue(':rif_km',         $compact['rif_km'],     PDO::PARAM_STR);
+            $n_affected1 = $stmt->execute();
+
+            $sql = "UPDATE dispo_compact
+                    SET v_bios = :v_bios,
+                        volt_batteria = :volt_batteria,
+                        dir_avanti = :dir_avanti,
+                        dir_dietro = :dir_dietro,
+                        counting = :counting,
+                        amplificazione = :amplificazione,
+                        giorno = :giorno,
+                        ora = :ora,
+                        corr_avanti = :corr_avanti,
+                        corr_dietro = :corr_dietro,
+                        site = :site,
+                        point = :point
+                    WHERE id_dispo=:id_dispo ";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':id_dispo',       $compact['id_dispo'],       PDO::PARAM_STR);
+            $stmt->bindValue(':v_bios',         $compact['v_bios'],         PDO::PARAM_STR);
+            $stmt->bindValue(':volt_batteria',  $compact['volt_batteria'],  PDO::PARAM_STR);
+            $stmt->bindValue(':dir_avanti',     $compact['dir_avanti'],     PDO::PARAM_STR);
+            $stmt->bindValue(':dir_dietro',     $compact['dir_dietro'],     PDO::PARAM_STR);
+            $stmt->bindValue(':counting',       $compact['counting'],       PDO::PARAM_STR);
+            $stmt->bindValue(':amplificazione', $compact['amplificazione'], PDO::PARAM_STR);
+            $stmt->bindValue(':giorno',         $compact['giorno'],         PDO::PARAM_STR);
+            $stmt->bindValue(':ora',            $compact['ora'],            PDO::PARAM_INT);
+            $stmt->bindValue(':corr_avanti',    $compact['corr_avanti'],    PDO::PARAM_STR);
+            $stmt->bindValue(':corr_dietro',    $compact['corr_dietro'],    PDO::PARAM_STR);
+            $stmt->bindValue(':site',           $compact['site'],           PDO::PARAM_STR);
+            $stmt->bindValue(':point',          $compact['point'],          PDO::PARAM_STR);
+            $n_affected2 = $stmt->execute();
+
+            $ok = $n_affected1 === $n_affected2;
+            if($ok) {
+                $db->commit();
+            }else{
+                $db->rollBack();
+            }
+        }catch (PDOException $e){
+            Logger::getLogger("monitor.appendCmd")->error("!!!! ERRORE nell'aggiornamento della configurazione di".$compact['id_dispo']." dopo la sua connessione!", $e);
+            try{
+                $db->rollBack();
+            }catch (PDOException $e){
+                Logger::getLogger("monitor.appendCmd")->error("!!!!!!!!!!!!!! ERRORE nel ROLL-BACK della transazione!", $e);
+            }
+        }
+        return $ok;
+    }
+
+    function getCmdReadConfig(): string{
+        return $this->map_cmd["compact"]["r_cmd"]["config"];
+    }
+
     /**
      * @param $data La DATA nel formato gg-mm-aa
      * @return string Viene convertita nel formato aaaa-mm-gg

@@ -74,6 +74,31 @@ class ServerLogic extends AbstractDispoLogic
         return array_key_exists($nomeCmd, $this->cmds);
     }
 
+    /**
+     * Per utilizzi futuri...forse
+     * @param String $conf
+     * @return array
+     */
+    function decodeConfigInDbForm(String $conf): array{
+        return null;
+    }
+
+    /**
+     * Per utilizzi futuri...forse
+     * @return string
+     */
+    function getCmdReadConfig(): string{
+        return null;
+    }
+
+    /**
+     * Per utilizzi futuri...forse
+     * @return string
+     */
+    function updateConfig(array $config, PDO $db=null): string{
+        return null;
+    }
+
     static function getCmd(Cmd $cmd){
         $c = explode("*", trim($cmd->getCmd()));
         return $c[0];

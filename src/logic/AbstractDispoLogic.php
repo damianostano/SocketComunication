@@ -41,7 +41,20 @@ abstract class AbstractDispoLogic
         }
     }
 
+    abstract function decodeConfigInDbForm(String $conf): array;
 
+    /**
+     * Aggiorna la configurazione del dispositivo specifico
+     * @param array $config La configurazione come ritornata da decodeConfigInDbForm();
+     * @return mixed
+     */
+    abstract function updateConfig(array $config, PDO $db=null);
+
+    /**
+     * Ottiene il comando che serve per avere la configurazione del dispositivo
+     * @return string (es.: return $this->map_cmd["compact"]["r_cmd"]["config"];)
+     */
+    abstract function getCmdReadConfig(): string;
 
     abstract function elaboraRisposta(Cmd $cmd): string;
 

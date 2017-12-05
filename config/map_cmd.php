@@ -61,7 +61,7 @@ $map_cmd = array(
             "volt_batteria" => '||lr',
             "corr_avanti"   => '||nr',
             "corr_dietro"   => '||or',
-            "r_conf"        => '**ur',
+            "config"        => '**ur',
         ),
         'heder' => array(
             'bios' => "versione bios",

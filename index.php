@@ -8,8 +8,7 @@
 error_reporting(E_ALL);
 include_once('include.php');
 
-$db = DB::getDb();
-$map = new MapDispoLogic($db, $map_cmd);
+$map = new MapDispoLogic($map_cmd);
 $master = new Master("192.168.1.197","6080", $map);
 
 //$cl = new CompactLogic();

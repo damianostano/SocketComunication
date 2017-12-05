@@ -259,8 +259,10 @@ class Master
 //                    $this->execCmd[$id_dispositivo] = array(); //non va
 
                     //-------- FARSI DARE LA CONFIGURAZIONE ATTUALE PER SALVARSELA SUL DB
-                    $id_cmd = $this->getSequenceCmd();
-                    $command = new Cmd($id_cmd, "**ur", $id_dispositivo, Cmd::$SERVER);
+                    //TODO: ottenere il comando per richiedere la configurazione a seconda della tipologia di dispositivo
+                    $logic = $this->logic->getLogic($id_dispositivo);
+                    $cmd_get_conf = $logic->getCmdReadConfig(); //"**ur" per il compact
+                    $command = new Cmd($this->getSequenceCmd(), $cmd_get_conf, $id_dispositivo, Cmd::$SERVER);
                     $this->codaCmd[$command->getIdDispo()][] = $command;
                 }
             }
@@ -528,6 +530,16 @@ class Master
             }
         } else {//TODO: futuri possibili sviluppi
 
+            $logic = $this->logic->getLogic($cmd->getIdDispo());
+            if($cmd->getCmd() === $logic->getCmdReadConfig()){
+                if($cmd->getResponse()!=RES_DELETE){
+                    //TODO: salvare nel DB la configurazione
+                    $rispXuser = $logic->elaboraRisposta($cmd);
+                    $config4bd = $logic->decodeConfigInDbForm($rispXuser);
+                    $logic->updateConfig($config4bd, $this->logic->db);//$config4bd['citta']='B'
+                }
+                $this->log->info("---------------------------------Arrivata risposta dispositivo ".$cmd->getIdDispo().". Configurazione: ".$cmd->getResponse());
+            }
         }
     }
 
