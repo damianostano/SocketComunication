@@ -260,7 +260,17 @@ class Master
 
                     //-------- FARSI DARE LA CONFIGURAZIONE ATTUALE PER SALVARSELA SUL DB
                     //TODO: ottenere il comando per richiedere la configurazione a seconda della tipologia di dispositivo
-                    $logic = $this->logic->getLogic($id_dispositivo);
+                    try {
+                        $logic = $this->logic->getLogic($id_dispositivo);
+                    } catch (NotMappedException $e) {
+                        $this->logic->refreshDispositivi(); //reinterroga il DB per controllare se sono stati salvati altri dispositivi
+                        try {
+                            $logic = $this->logic->getLogic($id_dispositivo);
+                        } catch (NotMappedException $e) {//ok non c'è sicuramente
+                            $this->log->error("Errore in getLogic nella funzione aggiungi(): ". $e->getMessage());
+                            return false;
+                        }
+                    }
                     $cmd_get_conf = $logic->getCmdReadConfig(); //"**ur" per il compact
                     $command = new Cmd($this->getSequenceCmd(), $cmd_get_conf, $id_dispositivo, Cmd::$SERVER);
                     $this->codaCmd[$command->getIdDispo()][] = $command;
@@ -288,7 +298,12 @@ class Master
                             $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
                         } catch (NotMappedException $e) {
                             $this->logic->refreshDispositivi(); //reinterroga il DB per controllare se sono stati salvati altri dispositivi
-                            $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
+                            try {
+                                $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
+                            } catch (NotMappedException $e) {//ok non c'è sicuramente
+                                $this->log->error("Errore in getLogic nella funzione receiveCmd(): ". $e->getMessage());
+                                return false;
+                            }
                         }
                         if ($cmd !== null && $isCmd) {
                             $id_cmd = $this->getSequenceCmd();
@@ -350,7 +365,7 @@ class Master
                 if (count($this->codaCmd[$id_dispo]) > 0) {  //se ci sono effettivamente comandi
                     $cmd = array_shift($this->codaCmd[$id_dispo]);//estraggo il successivo comando di quel dispositivo
                     if ($this->semaforoDispo[$id_dispo]) { //e il semaforo è verde
-                        if ($id_dispo === Cmd::$SERVER) {//se lo user vuole comunicare con il server invece che mandare un comando ad un dispositivo
+                        if ($id_dispo === Cmd::$SERVER) {//se si vuole comunicare con il server invece che mandare un comando ad un dispositivo
                             $this->cmd4Server($cmd);
                         } elseif (isset($this->dispositivi[$id_dispo]) && $this->dispositivi[$id_dispo] != null) {//se c'è il dispositivo giusto per l'esecuzione
                             $this->eseguiCmd($cmd);                 //lo eseguo
@@ -423,7 +438,7 @@ class Master
                                 $this->log->warn("Risposta al comando " . $msg->getIdMsg() . " arrivata ma comando non più presente!");
                             }
                         } else {//comando di un dispositivo
-                            try {
+                            try {//COMANDO{param1=val1;param2=val2;}*Sisas666@@server\n
                                 $cmd = $this->getDecode()->decodeCmd($msg_from_dispo);//WAIT*Sisas666@@server\n   oppure keep alive del dispo-> .*Sisas666@@server\n
                                 $isCmd = $this->logic->getLogic($cmd->getIdDispo())->isCmd($cmd);
                                 if ($cmd !== null && $isCmd) {
@@ -481,8 +496,14 @@ class Master
 
                         } else {
                             //logica di risposta
-                            $rispXuser = $this->logic->getLogic($cmd->getIdDispo())->elaboraRisposta($cmd);
-                            $this->scrivi_a_user($id_user, $rispXuser);    //scrivo allo user la risposta del dispositivo
+                            try {
+                                $rispXuser = $this->logic->getLogic($cmd->getIdDispo())->elaboraRisposta($cmd);
+                                $this->scrivi_a_user($id_user, $rispXuser);    //scrivo allo user la risposta del dispositivo
+                            }catch(NotMappedException $nme){
+                                $this->log->error($cmd->getIdDispo().") Errore durante l'invio delle risposte presenti agli utenti. In 'this->logic->getLogic(cmd->getIdDispo())'.", $nme);
+                            }catch(Exception $e){
+                                $this->log->error($cmd->getIdDispo().") Errore durante l'invio delle risposte presenti agli utenti. In '->elaboraRisposta(cmd)'.", $e);
+                            }
                         }
                     } else {
                         unset($this->codaResponse[$id_user]);   //ho finito i messaggi a questo user quindi posso ripulire la sua coda
@@ -534,9 +555,13 @@ class Master
             if($cmd->getCmd() === $logic->getCmdReadConfig()){
                 if($cmd->getResponse()!=RES_DELETE){
                     //TODO: salvare nel DB la configurazione
-                    $rispXuser = $logic->elaboraRisposta($cmd);
-                    $config4bd = $logic->decodeConfigInDbForm($rispXuser);
-                    $logic->updateConfig($config4bd, $this->logic->db);//$config4bd['citta']='B'
+                    try {
+                        $rispXuser = $logic->elaboraRisposta($cmd);
+                        $config4bd = $logic->decodeConfigInDbForm($rispXuser);
+                        $logic->updateConfig($config4bd, $this->logic->db);//$config4bd['citta']='B'
+                    }catch(Exception $e){
+                        $this->log->error($cmd->getIdDispo().") Errore in response4Server (".$e->getMessage().").", $e);
+                    }
                 }
                 $this->log->info("---------------------------------Arrivata risposta dispositivo ".$cmd->getIdDispo().". Configurazione: ".$cmd->getResponse());
             }
@@ -545,7 +570,29 @@ class Master
 
     private function cmd4Server(Cmd $cmd)
     {
-        $keyCmd = ServerLogic::getCmd($cmd);
+        $cmd = ServerLogic::getCmd($cmd);
+        if(preg_match("/^.+\\{.+\\}$/", $cmd)){
+
+            $cmd_array = explode("{", $cmd);
+
+            $keyCmd = $cmd_array[0];
+            $parCmd = substr($cmd_array[1], 0, -1);//tolgo l'ultimo carattere che so essere la parentesi }
+            if(preg_match("/^(.+=.+;)+$/", $parCmd)){
+
+                $parametri_str = explode(";", $parCmd);
+                $parametri = null;
+                foreach ($parametri_str as $param){
+                    $par_k_v = explode("=", $parCmd);
+                    $key    = $par_k_v[0];
+                    $value  = $par_k_v[1];
+                    $parametri[$key] = $value;
+                }
+            }else{
+                //se i parametri non sono scritti bene...
+            }
+        }else{
+            $keyCmd = $cmd;
+        }
         $valCmd = ServerLogic::getValue($cmd);
         if ($keyCmd === "quit") {
             $this->log->info("Ricevuto comando di spegnimento");
@@ -553,6 +600,7 @@ class Master
         } else {
             $cmd->setTsInvio();
             $cmd->setTsWait(null);
+
             if ($keyCmd === "list_dispo") {//richiesta di dispositivi connessi attualmente
                 $this->log->info("Ricevuto comando di lista dispositivi");
                 //reperire la lista dispo
@@ -570,21 +618,25 @@ class Master
                 $response = $list != null ? implode(";", $list) : ";";
                 $cmd->setResponse($response);
                 $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
+
             } elseif ($keyCmd === "logout_user") {//logout user
                 $this->log->info("Ricevuto comando di logout User: " . $valCmd, new Exception($valCmd));
                 $this->disconnetti_user($valCmd);
                 $cmd->setResponse(CMD_ESEGUITO);
                 $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
+
             } elseif ($keyCmd === "WAIT") {//richiesta di mettere in pausa l'invio di comandi al dispositivo
 //                $this->log->info("Ricevuto comando WAIT da dispositivo: ".$valCmd);
                 Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Ricevuto comando WAIT da dispositivo: " . $valCmd, new Exception($valCmd));
 //                unset($this->execCmd[$cmd->getId()]);
                 $this->semaforoDispo[$valCmd] = false;
+
             } elseif ($keyCmd === "READY") {//fine del periodo di sospensione di invio comandi
 //                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
                 Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Ricevuto comando READY da dispositivo: " . $valCmd, new Exception($valCmd));
 //                unset($this->execCmd[$cmd->getId()]);
                 $this->semaforoDispo[$valCmd] = true;
+
             } elseif ($keyCmd === ".") {//keepalive del dispositivo
 //                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
                 Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Ricevuto comando di KeepAlive da dispositivo: " . $valCmd, new Exception($valCmd));
@@ -594,6 +646,22 @@ class Master
                     Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Risposto con comando di ResponseKeepAlive id_cmd: " . $rka->getId(), new Exception($valCmd));
                 } else {
                     Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Non posso rispondere con ResponseKeepAlive. $valCmd in WAIT", new Exception($valCmd));
+                }
+
+            } elseif ($keyCmd === "MAIL") {//un dispositivo richiede di mandare una mail
+                //i parametri sono: to, object, text
+                $mail = new Mail();
+                $response = $mail->send($parametri['to'], $parametri['object'], $parametri['text']);
+                if($response===true){
+                    $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd. Parametri:".$parametri);
+                }else{
+                    Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd. Errore: ".$response."; parametri: ".$parametri);
+                    $response = $mail->send($parametri['to'], $parametri['object'], $parametri['text']);
+                    if($response===true){
+                        $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd al 2° tentativo. Parametri:".$parametri);
+                    }else{
+                        Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd anche al 2° tentativo. Errore: ".$response."; parametri: ".$parametri);
+                    }
                 }
 
             }

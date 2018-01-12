@@ -108,6 +108,21 @@ $map_cmd = array(
         'heder' => array(),
         'campo' => array(),
     ),
+    'apricancello' => array(
+        'logic' => "ApricancelloLogic",
+        'cmd' => array(
+            '**ur' => "leggi configurazione di sistema",//solo qui
+        ),
+        'w_cmd' => array(),
+        'r_cmd' => array(
+            "config"        => '**ur',
+        ),
+        'heder' => array(),
+        'campo' => array(),
+    ),
+
+
+
     'pedestrian' => array(
         'logic' => "CompactLogic",
         'cmd' => array(),

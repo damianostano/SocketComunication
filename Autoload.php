@@ -7,6 +7,7 @@ function my_autoloader($class) {
     includeOnce(ROOT.'/src/', $class);
     includeOnce(ROOT.'/src/model/', $class);
     includeOnce(ROOT.'/src/logic/', $class);
+    includeOnce(ROOT.'/mail/', $class);
     includeOnce(ROOT.'/src/dao/', $class);
     includeOnce(ROOT.'/exception/', $class);
 }

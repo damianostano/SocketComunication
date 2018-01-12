@@ -242,11 +242,11 @@ class CompactLogic extends AbstractDispoLogic
                 $db->rollBack();
             }
         }catch (PDOException $e){
-            Logger::getLogger("monitor.appendCmd")->error("!!!! ERRORE nell'aggiornamento della configurazione di".$compact['id_dispo']." dopo la sua connessione!", $e);
+            Logger::getLogger("monitor.disconnTime")->error("!!!! ERRORE nell'aggiornamento della configurazione di ".$compact['id_dispo']." dopo la sua connessione!", $e);
             try{
                 $db->rollBack();
             }catch (PDOException $e){
-                Logger::getLogger("monitor.appendCmd")->error("!!!!!!!!!!!!!! ERRORE nel ROLL-BACK della transazione!", $e);
+                Logger::getLogger("monitor.disconnTime")->error("!!!!!!!!!!!!!! ERRORE nel ROLL-BACK della transazione!", $e);
             }
         }
         return $ok;

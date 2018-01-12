@@ -10,7 +10,10 @@
  * Funge anche da interfaccia per arrivare alla logica giusa a partire dall'ID del dipositivo
  */
 include_once('CompactLogic.php');
+include_once(__DIR__."/../exception/NotMappedException.php");
 include_once (__DIR__."/../dao/DB.php");
+
+
 
 
 class MapDispoLogic
@@ -51,7 +54,7 @@ class MapDispoLogic
         if(isset($this->mapLogic[$this->mapDispo[$idDispo]])){
             $logic = new $this->mapLogic[$this->mapDispo[$idDispo]]($this->map_cmd);
         }else{
-            throw new Exception("Dispositivo ".$idDispo." non mappato in this->mapLogic.");
+            throw new NotMappedException("Dispositivo ".$idDispo." non mappato in this->mapLogic.");
         }
         return $logic;
     }
