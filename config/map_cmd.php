@@ -10,6 +10,7 @@ $map_cmd = array(
             'WAIT'       => "dispositivo occupato",
             'READY'      => "dispositivo pronto",
             '.'          => "keepalive del dispositivo",
+            'MAIL'       => "dispositivo richiede di mandare una mail al server",
         ),
         'r_cmd' => array(
             'quit'       => "quit",
@@ -118,7 +119,10 @@ $map_cmd = array(
             "config"        => '**ur',
         ),
         'heder' => array(),
-        'campo' => array(),
+        'campo' => array(
+            'id_dispo'=>'id_dispo',
+            'v_bios'  =>'v_bios'
+        ),
     ),
 
 

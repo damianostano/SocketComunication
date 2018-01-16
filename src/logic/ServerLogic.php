@@ -25,12 +25,13 @@ class ServerLogic extends AbstractDispoLogic
         $this->addCmd(new CmdDispo("WAIT")); //il dispo ci comunica che è occupato a fare altro e non può ne ricevere comandi dal server tantomeno rispondere
         $this->addCmd(new CmdDispo("READY")); //il dispo ci comunica che è tornato ricevente
         $this->addCmd(new CmdDispo(".")); //keepalive del dispo
+        $this->addCmd(new CmdDispo("MAIL")); //keepalive del dispo
     }
 
     function elaboraRisposta(Cmd $cmd): string{
         $return="";
         $c = explode("*", trim($cmd->getCmd()));
-        $keyCmd = $c[0];
+        $keyCmd = explode("{", $c[0]);//tolgo i parametri eventualmente presenti CMD{Param1=val1;Param2=val2;}*idDispo
         $valCmd = $c[1];
         if($cmd->getResponse()===RES_DELETE){
             $return = $cmd->getResponse();
@@ -42,6 +43,7 @@ class ServerLogic extends AbstractDispoLogic
                 case "WAIT":
                 case "READY":
                 case ".":
+                case "MAIL":
                     $return = $cmd->getResponse();
                     break;
                 default: $return = $cmd->getResponse();
@@ -66,9 +68,11 @@ class ServerLogic extends AbstractDispoLogic
         $nomeCmd = "";
         if(is_string($cmd)){
             $c = explode("*", trim($cmd));
+            $c = explode("{", $c[0]);//tolgo i parametri eventualmente presenti CMD{Param1=val1;Param2=val2;}*idDispo
             $nomeCmd = $c[0];
         }elseif($cmd instanceof DecodeCmd){
             $c = explode("*", trim($cmd->getCmd()));
+            $c = explode("{", $c[0]);//tolgo i parametri eventualmente presenti CMD{Param1=val1;Param2=val2;}*idDispo
             $nomeCmd = $c[0];
         }
         return array_key_exists($nomeCmd, $this->cmds);

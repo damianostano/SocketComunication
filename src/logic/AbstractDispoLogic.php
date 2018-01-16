@@ -34,7 +34,7 @@ abstract class AbstractDispoLogic
     }
 
     function validaRispConfig($value) {
-        if(preg_match("/(GENERAL SETTING;)([^;\r\n]+;){18}(END GENERAL SETTING)$$/",$value)){
+        if(preg_match("/(GENERAL SETTING;)([^;\r\n]+;)+(END GENERAL SETTING)$$/",$value)){
             return true;
         }else{
             return false;

@@ -32,11 +32,18 @@ class ApricancelloLogic extends AbstractDispoLogic
             switch ($keyCmd) {
                 case "**ur":
                     $response = explode(";", trim($cmd->getResponse()));
-                    if(count($response)==18 && $response[0]==="GENERAL SETTING" && $response[17]==="END GENERAL SETTING"){
+//                    if(count($response)==1){
+//                        $i=0;
+//                        foreach ($this->map_cmd['apricancello']['campo'] as $key => $value){
+//                            $return.=$value."=".$response[$i].";";
+//                            $i++;
+//                        }
+//                    }else{
+                    if(count($response)==4 && $response[0]==="GENERAL SETTING" && $response[3]==="END GENERAL SETTING"){
                         array_pop($response); //tolgo l'ultimo
                         array_shift($response); //tolgo il 1°
                         $i=0;
-                        foreach ($this->map_cmd['compact']['campo'] as $key => $value){
+                        foreach ($this->map_cmd['apricancello']['campo'] as $key => $value){
                             $return.=$value."=".$response[$i].";";
                             $i++;
                         }
@@ -91,13 +98,13 @@ class ApricancelloLogic extends AbstractDispoLogic
             $db->beginTransaction();
 
             $sql = "UPDATE dispo_apricancello
-                    SET v_bios = :v_bios,
+                    SET v_bios = :v_bios
                     WHERE id_dispo=:id_dispo ";
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id_dispo',       $apricancello['id_dispo'],       PDO::PARAM_STR);
-            $stmt->bindValue(':v_bios',         $apricancello['v_bios'],         PDO::PARAM_STR);
+            $stmt->bindValue(':id_dispo', $apricancello['id_dispo'], PDO::PARAM_STR);
+            $stmt->bindValue(':v_bios',   $apricancello['v_bios'],   PDO::PARAM_STR);
             $stmt->execute();
-
+            $db->commit();
         }catch (PDOException $e){
             Logger::getLogger("monitor.disconnTime")->error("!!!! ERRORE nell'aggiornamento della configurazione di ".$apricancello['id_dispo']." dopo la sua connessione!", $e);
             try{
@@ -132,5 +139,18 @@ class ApricancelloLogic extends AbstractDispoLogic
         return $newDate->format('d/m/y');
     }
 
+
+    public function getMailFromDispo(string $idDispo){
+        $this->db = DB::getDb();
+        $stmt_select = $this->db->prepare("SELECT mail_riferimento FROM dispo_apricancello WHERE id_dispo = :id_dispo");
+        $stmt_select->bindValue(":id_dispo", $idDispo, PDO::PARAM_STR);
+        $stmt_select->execute();
+        $mail_dispo = $stmt_select->fetchAll(PDO::FETCH_ASSOC);
+        if($mail_dispo==null || count($mail_dispo)===0){
+            return false;
+        }else{
+            return $mail_dispo[0]['mail_riferimento'];
+        }
+    }
 
 }

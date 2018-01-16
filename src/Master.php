@@ -212,7 +212,7 @@ class Master
                 if ($login_msg->isERR()) {
                     $this->log->error($login_msg->getVal());
                     return false;
-                } elseif ($login_msg->isUSER()) {
+                } elseif ($login_msg->isUSER()){
                     $user = $login_msg->getVal();
                     if (!key_exists($user, $this->user)) {//non devono esserci 2 utenti con lo stesso user
                         $this->user[$user] = $buf;
@@ -233,30 +233,6 @@ class Master
                     }
                 } elseif ($login_msg->isDISP()) {
                     $id_dispositivo = $login_msg->getVal();
-//                    if(isset($this->lastLogout[$id_dispositivo]) && isset($this->lastPong[$id_dispositivo]))
-                    $maxLastLogoutOrPong = $this->lastLogout[$id_dispositivo] > $this->lastPong[$id_dispositivo] ? $this->lastLogout[$id_dispositivo] : $this->lastPong[$id_dispositivo];
-//                    else
-//                        $maxLastLogoutOrPong = false;
-                    $disconnTime = $maxLastLogoutOrPong ? microtime(true) - $maxLastLogoutOrPong : "prima connessione... 0";
-                    if (!key_exists($id_dispositivo, $this->dispositivi)) {
-//                        $this->log->info("Dispositivo $id_dispositivo aggiunto");
-                        Logger::getLogger("monitor.disconnTime")->info($id_dispositivo . ") Dispositivo aggiunto. DisconnTime: $disconnTime sec. ", new Exception($id_dispositivo));
-                    } else {//un dispositivo è già loggato con questo id
-                        //TODO: restituire un messaggio (una mail?) per informare della cosa?
-                        //Fabrizio dice che può succedere normalmente se va giù la connessione x motivi indipendenti da noi, è impossibile saperlo nel momento in cui accade
-//                        $this->log->info("Dispositivo $id_dispositivo già presente!");
-                        Logger::getLogger("monitor.disconnTime")->info($id_dispositivo . ") Dispositivo già presente! DisconnTime: $disconnTime sec. ", new Exception($id_dispositivo));
-                    }
-                    //Sia che il dispositivo lo senta già connesso o sia la 1° volta bisogna ricollegare il buffer
-                    //(nel caso già lo senta potrebbe essere caduta la connessione e quindi essere ricollegato in un nuovo socket)
-                    $this->dispositivi[$id_dispositivo] = $buf;
-                    $this->lastPing[$id_dispositivo] = microtime(true);
-                    $this->lastPong[$id_dispositivo] = microtime(true);
-                    $this->lastLogin[$id_dispositivo] = microtime(true);
-                    $this->semaforoDispo[$id_dispositivo] = true;
-                    //bisognerebbe azzerare le code comandi in esecuzione perchè se si è riconnesso i vecchi cmd oramai sono persi, non riceverranno mai risposta
-                    //ma non conviene perchè i comandi non sono divisi per dispositivo, meglio aspettare semplicemente che scadano
-//                    $this->execCmd[$id_dispositivo] = array(); //non va
 
                     //-------- FARSI DARE LA CONFIGURAZIONE ATTUALE PER SALVARSELA SUL DB
                     //TODO: ottenere il comando per richiedere la configurazione a seconda della tipologia di dispositivo
@@ -271,6 +247,33 @@ class Master
                             return false;
                         }
                     }
+
+//                    if(isset($this->lastLogout[$id_dispositivo]) && isset($this->lastPong[$id_dispositivo]))
+                    $maxLastLogoutOrPong = $this->lastLogout[$id_dispositivo] > $this->lastPong[$id_dispositivo] ? $this->lastLogout[$id_dispositivo] : $this->lastPong[$id_dispositivo];
+//                    else
+//                        $maxLastLogoutOrPong = false;
+                    $disconnTime = $maxLastLogoutOrPong ? microtime(true) - $maxLastLogoutOrPong : "prima connessione... 0";
+                    if (!key_exists($id_dispositivo, $this->dispositivi)) {
+//                        $this->log->info("Dispositivo $id_dispositivo aggiunto");
+                        Logger::getLogger("monitor.disconnTime")->info($id_dispositivo . ") Dispositivo aggiunto. DisconnTime: $disconnTime sec. ", new Exception($id_dispositivo));
+                    } else {//un dispositivo è già loggato con questo id
+                        //TODO: restituire un messaggio (una mail?) per informare della cosa?
+                        //Fabrizio dice che può succedere normalmente se va giù la connessione x motivi indipendenti da noi, è impossibile saperlo nel momento in cui accade
+//                        $this->log->info("Dispositivo $id_dispositivo già presente!");
+                        Logger::getLogger("monitor.disconnTime")->info($id_dispositivo . ") Dispositivo già presente! DisconnTime: $disconnTime sec. ", new Exception($id_dispositivo));
+                    }
+
+                    //Sia che il dispositivo lo senta già connesso o sia la 1° volta bisogna ricollegare il buffer
+                    //(nel caso già lo senta potrebbe essere caduta la connessione e quindi essere ricollegato in un nuovo socket)
+                    $this->dispositivi[$id_dispositivo] = $buf;
+                    $this->lastPing[$id_dispositivo] = microtime(true);
+                    $this->lastPong[$id_dispositivo] = microtime(true);
+                    $this->lastLogin[$id_dispositivo] = microtime(true);
+                    $this->semaforoDispo[$id_dispositivo] = true;
+                    //bisognerebbe azzerare le code comandi in esecuzione perchè se si è riconnesso i vecchi cmd oramai sono persi, non riceverranno mai risposta
+                    //ma non conviene perchè i comandi non sono divisi per dispositivo, meglio aspettare semplicemente che scadano
+//                    $this->execCmd[$id_dispositivo] = array(); //non va
+
                     $cmd_get_conf = $logic->getCmdReadConfig(); //"**ur" per il compact
                     $command = new Cmd($this->getSequenceCmd(), $cmd_get_conf, $id_dispositivo, Cmd::$SERVER);
                     $this->codaCmd[$command->getIdDispo()][] = $command;
@@ -570,10 +573,10 @@ class Master
 
     private function cmd4Server(Cmd $cmd)
     {
-        $cmd = ServerLogic::getCmd($cmd);
-        if(preg_match("/^.+\\{.+\\}$/", $cmd)){
+        $str_cmd = ServerLogic::getCmd($cmd);
+        if(preg_match("/^.+\\{.+\\}$/", $str_cmd)){
 
-            $cmd_array = explode("{", $cmd);
+            $cmd_array = explode("{", $str_cmd);
 
             $keyCmd = $cmd_array[0];
             $parCmd = substr($cmd_array[1], 0, -1);//tolgo l'ultimo carattere che so essere la parentesi }
@@ -582,7 +585,9 @@ class Master
                 $parametri_str = explode(";", $parCmd);
                 $parametri = null;
                 foreach ($parametri_str as $param){
-                    $par_k_v = explode("=", $parCmd);
+                    $par_k_v = explode("=", $param);
+                    if($par_k_v[0]=="")
+                        continue;
                     $key    = $par_k_v[0];
                     $value  = $par_k_v[1];
                     $parametri[$key] = $value;
@@ -625,19 +630,19 @@ class Master
                 $cmd->setResponse(CMD_ESEGUITO);
                 $this->execCmd[$cmd->getId()] = $cmd;   //lo metto nell'insieme di quelli lanciati identificandolo per id univoco
 
-            } elseif ($keyCmd === "WAIT") {//richiesta di mettere in pausa l'invio di comandi al dispositivo
+            } elseif ($keyCmd === CMD_WAIT) {//richiesta di mettere in pausa l'invio di comandi al dispositivo
 //                $this->log->info("Ricevuto comando WAIT da dispositivo: ".$valCmd);
                 Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Ricevuto comando WAIT da dispositivo: " . $valCmd, new Exception($valCmd));
 //                unset($this->execCmd[$cmd->getId()]);
                 $this->semaforoDispo[$valCmd] = false;
 
-            } elseif ($keyCmd === "READY") {//fine del periodo di sospensione di invio comandi
+            } elseif ($keyCmd === CMD_READY) {//fine del periodo di sospensione di invio comandi
 //                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
                 Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Ricevuto comando READY da dispositivo: " . $valCmd, new Exception($valCmd));
 //                unset($this->execCmd[$cmd->getId()]);
                 $this->semaforoDispo[$valCmd] = true;
 
-            } elseif ($keyCmd === ".") {//keepalive del dispositivo
+            } elseif ($keyCmd === CMD_KEEP_ALIVE) {//keepalive del dispositivo
 //                $this->log->info("Ricevuto comando READY da dispositivo: ".$valCmd);
                 Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Ricevuto comando di KeepAlive da dispositivo: " . $valCmd, new Exception($valCmd));
                 if ($this->semaforoDispo[$valCmd] === true) {
@@ -648,22 +653,24 @@ class Master
                     Logger::getLogger("monitor.disconnTime")->info($valCmd . ") Non posso rispondere con ResponseKeepAlive. $valCmd in WAIT", new Exception($valCmd));
                 }
 
-            } elseif ($keyCmd === "MAIL") {//un dispositivo richiede di mandare una mail
-                //i parametri sono: to, object, text
+            } elseif ($keyCmd === CMD_MAIL) {//un dispositivo richiede di mandare una mail
+                //i parametri sono: to, Subject, Text
                 $mail = new Mail();
-                $response = $mail->send($parametri['to'], $parametri['object'], $parametri['text']);
+                //ottenere mail dal dispositivo
+                $logic = $this->logic->getLogic($valCmd);
+                $mail_riferimento = $logic->getMailFromDispo($valCmd); //reinterroga il DB per controllare se sono stati salvati altri dispositivi
+                $response = $mail->send($mail_riferimento, $parametri['Subject'], $parametri['Text']);
                 if($response===true){
-                    $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd. Parametri:".$parametri);
+                    $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd. Parametri:".print_r($parametri, true));
                 }else{
-                    Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd. Errore: ".$response."; parametri: ".$parametri);
+                    Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd. Errore: ".$response."; parametri: ".print_r($parametri, true));
                     $response = $mail->send($parametri['to'], $parametri['object'], $parametri['text']);
                     if($response===true){
-                        $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd al 2° tentativo. Parametri:".$parametri);
+                        $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd al 2° tentativo. Parametri:".print_r($parametri, true));
                     }else{
-                        Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd anche al 2° tentativo. Errore: ".$response."; parametri: ".$parametri);
+                        Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd anche al 2° tentativo. Errore: ".$response."; parametri: ".print_r($parametri, true));
                     }
                 }
-
             }
         }
 
