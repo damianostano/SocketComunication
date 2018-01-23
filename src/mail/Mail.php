@@ -45,7 +45,7 @@ class Mail
         $mail->Host         = $this->Host       ;
         $mail->WordWrap     = $this->WordWrap   ;
         $mail->SetFrom($this->From, $this->NomeVisualizzato);
-        $mail->AddReplyTo("remote.sisas@gmail.com", "PHPPot");
+        $mail->AddReplyTo("remote.sisas@gmail.com", $this->NomeVisualizzato);
         $mail->IsHTML($this->IsHTML);
 
         $mail->AddAddress($destinatario);
