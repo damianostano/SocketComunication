@@ -60,4 +60,21 @@ abstract class AbstractDispoLogic
 
     abstract function encodeCmd(array $keysValues, String $idDispo);
 
+    /**
+     * @param $data La DATA nel formato gg-mm-aa
+     * @return string Viene convertita nel formato aaaa-mm-gg
+     */
+    public static function toMySqlDate($data){
+        $newDate = date_create_from_format("d/m/y", $data);
+        return $newDate->format('Y-m-d');
+    }
+
+    /**
+     * @param $data La DATA nel formato aaaa-mm-gg
+     * @return string Viene convertita nel formato gg-mm-aa
+     */
+    public static function fromMySqlDate($data){
+        $newDate = DateTime::createFromFormat("Y-m-d", $data);
+        return $newDate->format('d/m/y');
+    }
 }

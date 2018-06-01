@@ -115,4 +115,14 @@ class ServerLogic extends AbstractDispoLogic
             return null;
     }
 
+
+    function filterConfig(array $dati_dispo): array{
+        $conf = array();
+//        foreach ($dati_dispo as $key => $val){
+//            if(array_key_exists($key, $this->map_cmd['compact']['w_cmd'])){
+//                $conf[$key] = $val;
+//            }
+//        }
+        return $conf;
+    }
 }

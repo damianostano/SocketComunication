@@ -244,6 +244,7 @@ class Master
                             $logic = $this->logic->getLogic($id_dispositivo);
                         } catch (NotMappedException $e) {//ok non c'è sicuramente
                             $this->log->error("Errore in getLogic nella funzione aggiungi(): ". $e->getMessage());
+                            $this->disconnetti($id_dispositivo);
                             return false;
                         }
                     }
@@ -574,7 +575,7 @@ class Master
     private function cmd4Server(Cmd $cmd)
     {
         $str_cmd = ServerLogic::getCmd($cmd);
-        if(preg_match("/^.+\\{.+\\}$/", $str_cmd)){
+        if(preg_match("/^.+\\{.+\\}$/", $str_cmd)){//ci sono parametri?
 
             $cmd_array = explode("{", $str_cmd);
 
@@ -596,7 +597,7 @@ class Master
                 //se i parametri non sono scritti bene...
             }
         }else{
-            $keyCmd = $cmd;
+            $keyCmd = $str_cmd;
         }
         $valCmd = ServerLogic::getValue($cmd);
         if ($keyCmd === "quit") {
@@ -658,7 +659,7 @@ class Master
                 $mail = new Mail();
                 //ottenere mail dal dispositivo
                 $logic = $this->logic->getLogic($valCmd);
-                $mail_riferimento = $logic->getMailFromDispo($valCmd); //reinterroga il DB per controllare se sono stati salvati altri dispositivi
+                $mail_riferimento = $logic->getMailFromDispo($valCmd);
                 $response = $mail->send($mail_riferimento, $parametri['Subject'], $parametri['Text']);
                 if($response===true){
                     $this->log->info($valCmd.") Inviata mail per il dispositivo $valCmd. Parametri:".print_r($parametri, true));
@@ -671,6 +672,14 @@ class Master
                         Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd anche al 2° tentativo. Errore: ".$response."; parametri: ".print_r($parametri, true));
                     }
                 }
+            } elseif ($keyCmd === CMD_DATI_CMPT) {//Un compact ha inviato dei dati da salvare nel DB
+                "<aaaa-mm-gg hh:mm:ss>#<tipo_veicolo>#<speed>#<carreggiata>&2018-03-01 00:00:00#C#130#F";
+                $dati_grezzi = $parametri['dati'];
+
+                //TODO: fare funzione che faccia tutte le cose sotto:
+                    //TODO: spacchettare in righe e celle i dati inviati come stringa
+                    //TODO: generi SQL per inserimento di mass-insert
+                    //TODO: inserisca i dati nel DB
             }
         }
 

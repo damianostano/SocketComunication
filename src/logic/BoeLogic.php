@@ -9,12 +9,12 @@
 include_once ("AbstractDispoLogic.php");
 include_once (__DIR__."/../model/CmdDispo.php");
 
-class CompactLogic extends AbstractDispoLogic
+class BoeLogic extends AbstractDispoLogic
 {
 
 
     /**
-     * CompactLogic constructor.
+     * BoeLogic constructor.
      * @param array $cmds
      */
     function __construct($map_cmd){
@@ -48,11 +48,11 @@ class CompactLogic extends AbstractDispoLogic
                 return "Il valore è compreso tra 2 e 4.";
             }
         };
-        $min0max10 = function($value) {
-            if(0<=$value && $value <10){
+        $min1000max6000 = function($value) {
+            if(1<=$value && $value <6001){
                 return true;
             }else{
-                return "Il valore è compreso tra 0 e 9.99.";
+                return "Il valore è compreso tra 1000 e 6000.";
             }
         };
         $validaData = function($value) {
@@ -75,8 +75,8 @@ class CompactLogic extends AbstractDispoLogic
         $this->addCmd(new CmdDispo("||mw", $min0max3)); //imposta sensibilità da 0 a 3, 0 default
         $this->addCmd(new CmdDispo("||nr")); //legge correzione avanti
         $this->addCmd(new CmdDispo("||or")); //legge correzione dietro
-        $this->addCmd(new CmdDispo("||nw", $min0max10)); //scrive correzione avanti
-        $this->addCmd(new CmdDispo("||ow", $min0max10)); //scrive correzione dietro
+        $this->addCmd(new CmdDispo("||nw", $min1000max6000)); //scrive distanza boe F1
+        $this->addCmd(new CmdDispo("||ow", $min1000max6000)); //scrive distanza boe B1
         $this->addCmd(new CmdDispo("||vw", $validaOra)); //imposta l'orario di sistema HH:MM:SS
         $this->addCmd(new CmdDispo("||ww", $validaData)); //imposta la data di sistema GG/MM/AA
 
@@ -102,7 +102,6 @@ class CompactLogic extends AbstractDispoLogic
         }else{
             switch ($keyCmd) {
                 case "||jw":
-                case "||mw":
                 case "||vw":
                 case "||ww":
                 case "**iw":
@@ -117,7 +116,7 @@ class CompactLogic extends AbstractDispoLogic
                 case "||ow":
                 case "**mw":
                     if($cmd->getResponse()==="ok"){
-                        $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$valCmd;
+                        $return = $this->map_cmd['boe']['campo'][$keyCmd]."=".$valCmd;
                     }else{
                         $return = $cmd->getResponse();
                     }
@@ -125,7 +124,7 @@ class CompactLogic extends AbstractDispoLogic
                 case "||nr":
                 case "||or":
                 case "||lr":
-                    $return = $this->map_cmd['compact']['campo'][$keyCmd]."=".$cmd->getResponse();
+                    $return = $this->map_cmd['boe']['campo'][$keyCmd]."=".$cmd->getResponse();
                     break;
                 case "**ur":
                     $response = explode(";", trim($cmd->getResponse()));
@@ -133,7 +132,7 @@ class CompactLogic extends AbstractDispoLogic
                         array_pop($response); //tolgo l'ultimo
                         array_shift($response); //tolgo il 1°
                         $i=0;
-                        foreach ($this->map_cmd['compact']['campo'] as $key => $value){
+                        foreach ($this->map_cmd['boe']['campo'] as $key => $value){
                             $return.=$value."=".$response[$i].";";
                             $i++;
                         }
@@ -166,12 +165,12 @@ class CompactLogic extends AbstractDispoLogic
 
     function encodeCmd(array $keysValues, String $idDispo){
         $strCmd = array();
-        $compact = $this->map_cmd['compact'];
+        $boe = $this->map_cmd['boe'];
         foreach($keysValues as $key => $value){
             if($key=="giorno"){
                 $value = AbstractDispoLogic::fromMySqlDate($value);
             }
-            $strCmd[] = $compact['w_cmd'][$key].$value."@@".$idDispo."\r";
+            $strCmd[] = $boe['w_cmd'][$key].$value."@@".$idDispo."\r";
         }
         return $strCmd;
     }
@@ -179,14 +178,14 @@ class CompactLogic extends AbstractDispoLogic
     function filterConfig(array $dati_dispo): array{
         $conf = array();
         foreach ($dati_dispo as $key => $val){
-            if(array_key_exists($key, $this->map_cmd['compact']['w_cmd'])){
+            if(array_key_exists($key, $this->map_cmd['boe']['w_cmd'])){
                 $conf[$key] = $val;
             }
         }
         return $conf;
     }
 
-    public function updateConfig(array $compact, PDO $db=null){
+    public function updateConfig(array $boe, PDO $db=null){
         try{
             if($db==null){
                 throw new Exception("In updateConfig non è stato passato il DB");
@@ -199,51 +198,49 @@ class CompactLogic extends AbstractDispoLogic
                         rif_km = :rif_km
                     WHERE id_dispo=:id_dispo ";
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id_dispo',       $compact['id_dispo'],   PDO::PARAM_STR);
-            $stmt->bindValue(':citta',          $compact['citta'],      PDO::PARAM_STR);
-            $stmt->bindValue(':via',            $compact['via'],        PDO::PARAM_STR);
-            $stmt->bindValue(':rif_km',         $compact['rif_km'],     PDO::PARAM_STR);
+            $stmt->bindValue(':id_dispo',       $boe['id_dispo'],   PDO::PARAM_STR);
+            $stmt->bindValue(':citta',          $boe['citta'],      PDO::PARAM_STR);
+            $stmt->bindValue(':via',            $boe['via'],        PDO::PARAM_STR);
+            $stmt->bindValue(':rif_km',         $boe['rif_km'],     PDO::PARAM_STR);
             $n_affected1 = $stmt->execute();
 
-            $sql = "UPDATE dispo_compact
+            $sql = "UPDATE dispo_boe
                     SET v_bios = :v_bios,
                         volt_batteria = :volt_batteria,
                         dir_avanti = :dir_avanti,
                         dir_dietro = :dir_dietro,
                         counting = :counting,
-                        amplificazione = :amplificazione,
                         giorno = :giorno,
                         ora = :ora,
-                        corr_avanti = :corr_avanti,
-                        corr_dietro = :corr_dietro,
+                        distanza_boe_F1 = :distanza_boe_F1,
+                        distanza_boe_F1 = :distanza_boe_F1,
                         site = :site,
                         point = :point
                     WHERE id_dispo=:id_dispo ";
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id_dispo',       $compact['id_dispo'],       PDO::PARAM_STR);
-            $stmt->bindValue(':v_bios',         $compact['v_bios'],         PDO::PARAM_STR);
-            $stmt->bindValue(':volt_batteria',  $compact['volt_batteria'],  PDO::PARAM_STR);
-            $stmt->bindValue(':dir_avanti',     $compact['dir_avanti'],     PDO::PARAM_STR);
-            $stmt->bindValue(':dir_dietro',     $compact['dir_dietro'],     PDO::PARAM_STR);
-            $stmt->bindValue(':counting',       $compact['counting'],       PDO::PARAM_STR);
-            $stmt->bindValue(':amplificazione', $compact['amplificazione'], PDO::PARAM_STR);
-            $stmt->bindValue(':giorno',         $compact['giorno'],         PDO::PARAM_STR);
-            $stmt->bindValue(':ora',            $compact['ora'],            PDO::PARAM_INT);
-            $stmt->bindValue(':corr_avanti',    $compact['corr_avanti'],    PDO::PARAM_STR);
-            $stmt->bindValue(':corr_dietro',    $compact['corr_dietro'],    PDO::PARAM_STR);
-            $stmt->bindValue(':site',           $compact['site'],           PDO::PARAM_STR);
-            $stmt->bindValue(':point',          $compact['point'],          PDO::PARAM_STR);
+            $stmt->bindValue(':id_dispo',       $boe['id_dispo'],       PDO::PARAM_STR);
+            $stmt->bindValue(':v_bios',         $boe['v_bios'],         PDO::PARAM_STR);
+            $stmt->bindValue(':volt_batteria',  $boe['volt_batteria'],  PDO::PARAM_STR);
+            $stmt->bindValue(':dir_avanti',     $boe['dir_avanti'],     PDO::PARAM_STR);
+            $stmt->bindValue(':dir_dietro',     $boe['dir_dietro'],     PDO::PARAM_STR);
+            $stmt->bindValue(':counting',       $boe['counting'],       PDO::PARAM_STR);
+            $stmt->bindValue(':amplificazione', $boe['amplificazione'], PDO::PARAM_STR);
+            $stmt->bindValue(':giorno',         $boe['giorno'],         PDO::PARAM_STR);
+            $stmt->bindValue(':ora',            $boe['ora'],            PDO::PARAM_INT);
+            $stmt->bindValue(':distanza_boe_F1',$boe['distanza_boe_F1'],PDO::PARAM_STR);
+            $stmt->bindValue(':distanza_boe_F1',$boe['distanza_boe_F1'],PDO::PARAM_STR);
+            $stmt->bindValue(':site',           $boe['site'],           PDO::PARAM_STR);
+            $stmt->bindValue(':point',          $boe['point'],          PDO::PARAM_STR);
             $n_affected2 = $stmt->execute();
 
             $ok = $n_affected1 === $n_affected2;
             if($ok) {
-
                 $db->commit();
             }else{
                 $db->rollBack();
             }
         }catch (PDOException $e){
-            Logger::getLogger("monitor.disconnTime")->error("!!!! ERRORE nell'aggiornamento della configurazione di ".$compact['id_dispo']." dopo la sua connessione!", $e);
+            Logger::getLogger("monitor.disconnTime")->error("!!!! ERRORE nell'aggiornamento della configurazione di ".$boe['id_dispo']." dopo la sua connessione!", $e);
             try{
                 $db->rollBack();
             }catch (PDOException $e){
@@ -254,7 +251,7 @@ class CompactLogic extends AbstractDispoLogic
     }
 
     function getCmdReadConfig(): string{
-        return $this->map_cmd["compact"]["r_cmd"]["config"];
+        return $this->map_cmd["boe"]["r_cmd"]["config"];
     }
 
 

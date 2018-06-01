@@ -42,6 +42,7 @@ define("CMD_INVALID", "I");    //risposta da inviare all'utente che il comando i
 define("CMD_WAIT", "WAIT");    //comando di wait inviato dal dispositivo per comunicare al server che non può processare le sue richieste, nemmeno i keepalive
 define("CMD_READY","READY");   //comando di ready inviato dal dispositivo per comunicare al server che è tornato disponibile a processare i comandi
 define("CMD_MAIL","MAIL");   //comando di ready inviato dal dispositivo per comunicare al server che è tornato disponibile a processare i comandi
+define("CMD_DATI_CMPT","DATI_CMPT");//comando dal Compact per inviare i dati rilevati
 
 define("RES_BUSY","BUSY");     //risposta da inviare all'utente che il comando in questione non può essere eseguito perchè il dispositivo è occupato
 

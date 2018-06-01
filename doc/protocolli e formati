@@ -17,8 +17,7 @@ del user:                                       login*user&&root\r
 
 /* comandi */
 
-dallo user al server per il dispositivo:        example_cmd@@id_disp\r        ->  **rw@@Sisas02
-decodificato dal server ed inviato al dispo:    id_comando@@example_cmd\r     ->  0001@@**rw      //perchè dopo l'esecuzione viene impilato nella coda del dispositivo
-comandi al server:                              cmd*istanza@@server\r         ->  list_dispo*perugia@@server\r
-
+dallo user al server per il dispositivo:        example_cmd@@id_disp\r                          ->  **rw@@Sisas02
+decodificato dal server ed inviato al dispo:    id_comando@@example_cmd\r                       ->  0001@@**rw      //perchè dopo l'esecuzione viene impilato nella coda del dispositivo
+comandi al server:                              cmd{Param1=val1;Param2=val2;}*istanza@@server\r ->  list_dispo*perugia@@server\r
 
