@@ -41,7 +41,7 @@ $map_cmd = array(
             '||lr' => "leggi voltaggio batteria",
             '**vw' => "tag site per file xml",
             '**ww' => "tag point per file xml",
-        ),
+        ),    //tutti i comandi che verranno accettati
         'w_cmd' => array(
             "id_dispo"          => '**iw',
             "citta"             => '**nw',
@@ -57,13 +57,13 @@ $map_cmd = array(
             "amplificazione"    => '||mw',
             "site"              => '**vw',
             "point"             => '**ww',
-        ),
+        ),  //tutti i comandi di scrittura
         'r_cmd' => array(
             "volt_batteria" => '||lr',
             "corr_avanti"   => '||nr',
             "corr_dietro"   => '||or',
             "config"        => '**ur',
-        ),
+        ),  //tutti i comandi di lettura
         'heder' => array(
             'bios' => "versione bios",
             '**iw' => "identificativo",
@@ -81,7 +81,7 @@ $map_cmd = array(
             '||lr' => "voltaggio batteria",
             '**vw' => "site",
             '**ww' => "point",
-        ), //non c'è su cmd
+        ),  //heder del campo
         'campo' => array(
             'v_bios' => "v_bios",
             '**iw' => "id_dispo",
@@ -94,12 +94,11 @@ $map_cmd = array(
             '||ww' => "giorno",
             '||vw' => "ora",
             '||mw' => "amplificazione",
-//            '||mr' => "amplificazione",
             '||nw' => "corr_avanti",
             '||ow' => "corr_dietro",
             '||lr' => "volt_batteria",
             '**vw' => "site",
-            '**ww' => "point",),
+            '**ww' => "point",),  //i nomi dei campi del DB
     ),
     'boe' => array(
         'logic' => "BoeLogic",
@@ -110,13 +109,14 @@ $map_cmd = array(
             '**kw' => "scrivi chilometro",
             '**lw' => "scrivi direzione avanti",
             '**mw' => "scrivi direzione indietro",
-            '||jw' => "scrivi counting",
+            '||jw' => "scrivi n_corsie",
             '||ww' => "scrivi data sistema",
             '||vw' => "scrivi orario sistema",
             '||nr' => "leggi distanza boe F1",
             '||or' => "leggi distanza boe B1",
             '||nw' => "scrivi distanza boe F1",
             '||ow' => "scrivi distanza boe B1",
+            '||mw' => "scrivi sensibilità radar",  //!!!!!!!!!!
             '**ur' => "leggi configurazione di sistema",//solo qui
             '||lr' => "leggi voltaggio batteria",
             '**vw' => "tag site per file xml",
@@ -129,11 +129,12 @@ $map_cmd = array(
             "rif_km"            => '**kw',
             "dir_avanti"        => '**lw',
             "dir_dietro"        => '**mw',
-            "counting"          => '||jw',
+            "n_corsie"          => '||jw',
             "giorno"            => '||ww',
             "ora"               => '||vw',
             'distanza_boe_F1'       => "||nw",
             'distanza_boe_B1'       => "||ow",
+//            "amplificazione"    => '||mw', //!!!!!!!!!!
             "site"              => '**vw',
             "point"             => '**ww',
         ),
@@ -151,9 +152,10 @@ $map_cmd = array(
             '**kw' => "chilometro",
             '**lw' => "direzione avanti",
             '**mw' => "direzione indietro",
-            '||jw' => "counting",
+            '||jw' => "n_corsie",
             '||ww' => "data sistema",
             '||vw' => "orario sistema",
+//            '||mr' => "amplificazione",//!!!!!!!!!!!
             '||nw' => "distanza boe F1",
             '||ow' => "distanza boe B1",
             '||lr' => "voltaggio batteria",
@@ -168,23 +170,18 @@ $map_cmd = array(
             '**kw' => "rif_km",
             '**lw' => "dir_avanti",
             '**mw' => "dir_dietro",
-            '||jw' => "counting",
+            '||jw' => "n_corsie",
             '||ww' => "giorno",
             '||vw' => "ora",
+//            '||mw' => "amplificazione",//TODO: da togliere
             '||nw' => "distanza_boe_F1",
             '||ow' => "distanza_boe_B1",
             '||lr' => "volt_batteria",
             '**vw' => "site",
-            '**ww' => "point",),
+            '**ww' => "point",
+        ),
     ),
-    'pmv' => array(
-        'logic' => "CompactLogic",
-        'cmd' => array(),
-        'w_cmd' => array(),
-        'r_cmd' => array(),
-        'heder' => array(),
-        'campo' => array(),
-    ),
+
     'apricancello' => array(
         'logic' => "ApricancelloLogic",
         'cmd' => array(
@@ -196,11 +193,9 @@ $map_cmd = array(
         ),
         'heder' => array(),
         'campo' => array(
-            'id_dispo'=>'id_dispo',
-            'v_bios'  =>'v_bios'
+            'v_bios' => "v_bios"
         ),
     ),
-
 
 
     'pedestrian' => array(

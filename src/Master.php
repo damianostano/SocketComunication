@@ -281,6 +281,10 @@ class Master
                 }
             }
             return true;
+        }else{
+            $err_socket_accept = socket_strerror($buf);
+            $this->log->error("Errore in accettazione del socket: ".$err_socket_accept);
+            return;
         }
     }
 
@@ -402,6 +406,7 @@ class Master
             }
         }
 
+        $interval = "non inizializzato";
         //faccio un giro per vedere se qualche dispositivo ha scritto
         $countExecCmd = count($this->execCmd);
         if ($n_dispo_connessi > 0 /*&& $countExecCmd>0*/) {//se ci sono dei dispositivi connessi /*ed ho ancora dei comandi in esecuzione*/
@@ -506,7 +511,7 @@ class Master
                             }catch(NotMappedException $nme){
                                 $this->log->error($cmd->getIdDispo().") Errore durante l'invio delle risposte presenti agli utenti. In 'this->logic->getLogic(cmd->getIdDispo())'.", $nme);
                             }catch(Exception $e){
-                                $this->log->error($cmd->getIdDispo().") Errore durante l'invio delle risposte presenti agli utenti. In '->elaboraRisposta(cmd)'.", $e);
+                                $this->log->error($cmd->getIdDispo().") Errore durante l'invio delle risposte presenti agli utenti. In '->elaboraRisposta(cmd)'. ".$e->getMessage(), $e);
                             }
                         }
                     } else {
@@ -558,7 +563,7 @@ class Master
             $logic = $this->logic->getLogic($cmd->getIdDispo());
             if($cmd->getCmd() === $logic->getCmdReadConfig()){
                 if($cmd->getResponse()!=RES_DELETE){
-                    //TODO: salvare nel DB la configurazione
+                    //salvare nel DB la configurazione
                     try {
                         $rispXuser = $logic->elaboraRisposta($cmd);
                         $config4bd = $logic->decodeConfigInDbForm($rispXuser);
@@ -574,6 +579,7 @@ class Master
 
     private function cmd4Server(Cmd $cmd)
     {
+        $parametri = null;
         $str_cmd = ServerLogic::getCmd($cmd);
         if(preg_match("/^.+\\{.+\\}$/", $str_cmd)){//ci sono parametri?
 
@@ -584,7 +590,6 @@ class Master
             if(preg_match("/^(.+=.+;)+$/", $parCmd)){
 
                 $parametri_str = explode(";", $parCmd);
-                $parametri = null;
                 foreach ($parametri_str as $param){
                     $par_k_v = explode("=", $param);
                     if($par_k_v[0]=="")

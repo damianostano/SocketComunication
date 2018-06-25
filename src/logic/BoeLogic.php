@@ -41,18 +41,18 @@ class BoeLogic extends AbstractDispoLogic
                 return "Il valore è compreso tra 0 e 3.";
             }
         };
-        $min2max4 = function($value) {
-            if(2<=$value && $value <=4){
+        $min1max8 = function($value) {
+            if(1<=$value && $value <=8){
                 return true;
             }else{
-                return "Il valore è compreso tra 2 e 4.";
+                return "Il valore è compreso tra 1 e 8.";
             }
         };
-        $min1000max6000 = function($value) {
-            if(1<=$value && $value <6001){
+        $min0max10 = function($value) {
+            if(0.1<=$value && $value <10){
                 return true;
             }else{
-                return "Il valore è compreso tra 1000 e 6000.";
+                return "Il valore è compreso tra 0,1 e 9,99.";
             }
         };
         $validaData = function($value) {
@@ -70,13 +70,13 @@ class BoeLogic extends AbstractDispoLogic
             }
         };
 
-        $this->addCmd(new CmdDispo("||jw", $min2max4)); //imposta counting (2=misura 2 corsie, 3=misura corsia avanti, 4=misura corsie indietro)
+        $this->addCmd(new CmdDispo("||jw", $min1max8)); //imposta numero di corsie
 
         $this->addCmd(new CmdDispo("||mw", $min0max3)); //imposta sensibilità da 0 a 3, 0 default
         $this->addCmd(new CmdDispo("||nr")); //legge correzione avanti
         $this->addCmd(new CmdDispo("||or")); //legge correzione dietro
-        $this->addCmd(new CmdDispo("||nw", $min1000max6000)); //scrive distanza boe F1
-        $this->addCmd(new CmdDispo("||ow", $min1000max6000)); //scrive distanza boe B1
+        $this->addCmd(new CmdDispo("||nw", $min0max10)); //scrive distanza boe F1
+        $this->addCmd(new CmdDispo("||ow", $min0max10)); //scrive distanza boe B1
         $this->addCmd(new CmdDispo("||vw", $validaOra)); //imposta l'orario di sistema HH:MM:SS
         $this->addCmd(new CmdDispo("||ww", $validaData)); //imposta la data di sistema GG/MM/AA
 
@@ -108,7 +108,6 @@ class BoeLogic extends AbstractDispoLogic
                 case "**jw":
                 case "**kw":
                 case "**lw":
-                case "**mw":
                 case "**nw":
                 case "**vw":
                 case "**ww":
@@ -128,7 +127,9 @@ class BoeLogic extends AbstractDispoLogic
                     break;
                 case "**ur":
                     $response = explode(";", trim($cmd->getResponse()));
-                    if(count($response)==18 && $response[0]==="GENERAL SETTING" && $response[17]==="END GENERAL SETTING"){
+                    $campi = $this->map_cmd['boe']['campo'];
+                    $n_campi = count($campi);
+                    if(count($response)==$n_campi+2 && $response[0]==="GENERAL SETTING" && $response[$n_campi+1]==="END GENERAL SETTING"){
                         array_pop($response); //tolgo l'ultimo
                         array_shift($response); //tolgo il 1°
                         $i=0;
@@ -186,6 +187,7 @@ class BoeLogic extends AbstractDispoLogic
     }
 
     public function updateConfig(array $boe, PDO $db=null){
+        $ok = false;
         try{
             if($db==null){
                 throw new Exception("In updateConfig non è stato passato il DB");
@@ -209,7 +211,7 @@ class BoeLogic extends AbstractDispoLogic
                         volt_batteria = :volt_batteria,
                         dir_avanti = :dir_avanti,
                         dir_dietro = :dir_dietro,
-                        counting = :counting,
+                        n_corsie = :n_corsie,
                         giorno = :giorno,
                         ora = :ora,
                         distanza_boe_F1 = :distanza_boe_F1,
@@ -223,7 +225,7 @@ class BoeLogic extends AbstractDispoLogic
             $stmt->bindValue(':volt_batteria',  $boe['volt_batteria'],  PDO::PARAM_STR);
             $stmt->bindValue(':dir_avanti',     $boe['dir_avanti'],     PDO::PARAM_STR);
             $stmt->bindValue(':dir_dietro',     $boe['dir_dietro'],     PDO::PARAM_STR);
-            $stmt->bindValue(':counting',       $boe['counting'],       PDO::PARAM_STR);
+            $stmt->bindValue(':n_corsie',       $boe['n_corsie'],       PDO::PARAM_STR);
             $stmt->bindValue(':amplificazione', $boe['amplificazione'], PDO::PARAM_STR);
             $stmt->bindValue(':giorno',         $boe['giorno'],         PDO::PARAM_STR);
             $stmt->bindValue(':ora',            $boe['ora'],            PDO::PARAM_INT);
