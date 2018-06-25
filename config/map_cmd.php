@@ -181,7 +181,76 @@ $map_cmd = array(
             '**ww' => "point",
         ),
     ),
+    'pmv' => array(
+        'logic' => "PmvLogic",
+        'cmd' => array(
+            '*ura' => "leggi configurazione di sistema",//!!
+            '*iw' => "scrivi identificativo",//max 8 char
+            '*dw' => "scrivi data sistema",
+            '*tw' => "scrivi orario sistema",
 
+            '*ew' => "messaggi in sequenza max",
+            '*hw' => "attivazione msg specifico solo se msg max=0",
+            '*cw' => "num spazi separatori ultima riga",
+            '*ww' => "ritardo scroll ultima riga",
+            '*mw' => "orario spegnimento sistema",
+            '*nw' => "orario accensione sistema",
+            '*qwj' => "inserimento point",
+            '*qwk' => "inserimento site",
+            '*qwl' => "inserimento password wifi",
+            '*qwh' => "inserimento luminosità minima",
+            '*qwi' => "inserimento amplificazione luminosità",
+
+            '*#' => "inserimento/modifica messaggio",
+            '*gr99'=> "lettura di tutti i messaggi",
+        ),
+        'w_cmd' => array(
+            "scrivi identificativo"                          => '*iw' ,
+            "scrivi data sistema"                            => '*dw' ,
+            "scrivi orario sistema"                          => '*tw' ,
+            "messaggi in sequenza max"                       => '*ew' ,
+            "attivazione msg specifico solo se msg max=0"    => '*hw' ,
+            "num spazi separatori ultima riga"               => '*cw' ,
+            "ritardo scroll ultima riga"                     => '*ww' ,
+            "orario spegnimento sistema"                     => '*mw' ,
+            "orario accensione sistema"                      => '*nw' ,
+            "inserimento point"                              => '*qwj',
+            "inserimento site"                               => '*qwk',
+            "inserimento password wifi"                      => '*qwl',
+            "inserimento luminosità minima"                  => '*qwh',
+            "inserimento amplificazione luminosità"          => '*qwi',
+
+            "inserimento/modifica messaggio"                 => '*#',
+        ),
+        'r_cmd' => array(
+            "config"      => '*ura' ,
+            "read_msgs"   => '*gr99' , //!!
+            "read_msg"    => '*gr' ,   //Con il numero del messaggio legge solo quello
+            //TODO: quali sono i campi da salvare per ogni msg?
+        ),
+        'heder' => array(),
+        'campo' => array(   //i campi che arrivano da GENERAL SETTING
+            'v_bios'        => "v_bios",//si può solo leggere
+            '*dw'           => "giorno",
+            '*tw'           => "ora",
+            'volt_batteria' => "volt_batteria",
+            '*ew'           => "max_sequenza_msg",
+            "num_msg_attivo"=> "num_msg_attivo",
+            '*cw'           => "num_blank_last_msg",
+            'ritardo_scroll'=> "ritardo_scroll",
+            '*iw'           => "id_dispo",
+            '*mw'           => "ora_off_pmv",
+            '*nw'           => "ora_on_pmv",
+            '--.-'          => "temperatura",
+            "num_colonne"   => "num_colonne",
+            "num_righe"     => "num_righe",
+            '*qwj'          => "point",
+            '*qwk'          => "site",
+            'wifi'          => "pwd_wifi",
+            'min_l'         => "min_luminosita",
+            'ampl_l'        => "ampl_luminosita",
+        ),
+    ),
     'apricancello' => array(
         'logic' => "ApricancelloLogic",
         'cmd' => array(
