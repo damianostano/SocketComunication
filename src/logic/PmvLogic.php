@@ -280,7 +280,7 @@ class PmvLogic extends AbstractDispoLogic
             //TODO: vedere i messaggi che ci sono
 
             //TODO: quelli che ci sono vanno salvati e gli altri (quelli di cui non c'è il num) cancellati
-            $dispo['msg'];
+//            $dispo['msg'];
 
             $db->commit();
         }catch (PDOException $e){
