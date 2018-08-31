@@ -100,23 +100,23 @@ class PmvLogic extends AbstractDispoLogic
         };
 
 
-        $this->addCmd(new CmdDispo("*iw", $max8char)); //scrivi identificativo
-        $this->addCmd(new CmdDispo("*dw", $validaData)); //scrivi data sistema
-        $this->addCmd(new CmdDispo("*tw", $validaOra)); //scrivi orario sistema
-        $this->addCmd(new CmdDispo("*ew", $min1max40)); //messaggi in sequenza max
-        $this->addCmd(new CmdDispo("*hw", $min1max40)); //attivazione msg specifico solo se msg max=0
-        $this->addCmd(new CmdDispo("*cw", $min1max11)); //num spazi separatori ultima riga
-        $this->addCmd(new CmdDispo("*ww", $min0max15)); //ritardo scroll ultima riga               0-15
-        $this->addCmd(new CmdDispo("*mw", $validaOra)); //orario spegnimento sistema
-        $this->addCmd(new CmdDispo("*nw", $validaOra)); //orario accensione sistema
+        $this->addCmd(new CmdDispo("*iwa", $max8char)); //scrivi identificativo
+        $this->addCmd(new CmdDispo("*dwa", $validaData)); //scrivi data sistema
+        $this->addCmd(new CmdDispo("*twa", $validaOra)); //scrivi orario sistema
+        $this->addCmd(new CmdDispo("*ewa", $min1max40)); //messaggi in sequenza max
+        $this->addCmd(new CmdDispo("*hwa", $min1max40)); //attivazione msg specifico solo se msg max=0
+        $this->addCmd(new CmdDispo("*cwa", $min1max11)); //num spazi separatori ultima riga
+        $this->addCmd(new CmdDispo("*wwa", $min0max15)); //ritardo scroll ultima riga               0-15
+        $this->addCmd(new CmdDispo("*mwa", $validaOra)); //orario spegnimento sistema
+        $this->addCmd(new CmdDispo("*nwa", $validaOra)); //orario accensione sistema
         $this->addCmd(new CmdDispo("*qwj", $max21char)); //inserimento point
         $this->addCmd(new CmdDispo("*qwk", $max21char)); //inserimento site
         $this->addCmd(new CmdDispo("*qwl", $max8char)); //inserimento password wifi                MAX 8
         $this->addCmd(new CmdDispo("*qwh", $min0max255)); //inserimento luminosità minima          0-255
         $this->addCmd(new CmdDispo("*qwi", $min0max2)); //inserimento amplificazione luminosità    0-1.99
-        $this->addCmd(new CmdDispo("*#", $regexMsg)); //inserimento/modifica messaggio
+        $this->addCmd(new CmdDispo("*###", $regexMsg)); //inserimento/modifica messaggio
 
-        $this->addCmd(new CmdDispo("*gr99")); //lettura di tutti i messaggi
+        $this->addCmd(new CmdDispo("*gra")); //lettura dei messaggi: TUTTI se seguito da 99, il numero singolo se da 01 a 40
         $this->addCmd(new CmdDispo("*ura")); //richiedere la configurazione generale del Pmv
     }
 
@@ -128,29 +128,37 @@ class PmvLogic extends AbstractDispoLogic
             $return = $cmd->getResponse();
         }else{
             switch ($keyCmd) {
-                case "*iw":
-                case "*dw":
-                case "*tw":
-                case "*ew":
-                case "*hw":
-                case "*cw":
-                case "*ww":
-                case "*mw":
-                case "*nw":
+                case "*iwa":
+                case "*dwa":
+                case "*twa":
+                case "*ewa":
+                case "*hwa":
+                case "*cwa":
+                case "*wwa":
+                case "*mwa":
+                case "*nwa":
                 case "*qwj":
                 case "*qwk":
                 case "*qwl":
                 case "*qwh":
                 case "*qwi":
-                case "*#":
                     if($cmd->getResponse()==="ok"){
                         $return = $this->map_cmd['pmv']['campo'][$keyCmd]."=".$valCmd;
                     }else{
                         $return = $cmd->getResponse();
                     }
                     break;
-                case "*gr99":
-                    $return = $this->map_cmd['pmv']['campo'][$keyCmd]."=".$cmd->getResponse();
+                case "*###":
+                    $return = $cmd->getResponse();
+                    break;
+                case "*gra":
+                    $list_msg = explode("*###", trim($cmd->getResponse()));
+                    array_shift($list_msg); //il primo è "LIST MESSAGE"
+                    $n_msg = count($list_msg); //l'ultimo messaggio però finisce con "END LIST MESSAGE"
+                    if($valCmd=="99") {
+                        $list_msg[$n_msg - 1] = str_replace("END LIST MESSAGE", "", $list_msg[$n_msg - 1]);
+                    }
+                    $return = implode(";;", $list_msg);
                     break;
                 case "*ura":
                     $response = explode(";", trim($cmd->getResponse()));
@@ -299,6 +307,30 @@ class PmvLogic extends AbstractDispoLogic
         return $this->map_cmd["pmv"]["r_cmd"]["config"];
     }
 
+    function getCmdReadMsg(string $num="99"): string{
+        if( ($num<1 || 40<$num) && $num!=99){
+            throw new Exception("Numero del Messaggio da leggere non valido! Il PMV consente da 01 a 40 più 99 per leggere tutti i messaggi.");
+        }
+        $cmd = $this->map_cmd["pmv"]["r_cmd"]["read_msg"];
+        $cmd .= $num;
+        return $cmd;
+    }
+
+    function getCmdWriteMsg($idDispo,$num_msg,$effetto,$tempo_visualizzazione,$attivo,$msg): string{
+        $cmd = $this->map_cmd["pmv"]["w_cmd"]["inserimento/modifica messaggio"];
+        $cmd .= $num_msg.$effetto.$tempo_visualizzazione.$attivo."**".$msg."@@".$idDispo."\r";
+        return $cmd;
+    }
+
+//    function isCmd($cmd){
+//        $nomeCmd = "";
+//        if(is_string($cmd)){
+//            $nomeCmd = explode("@", $cmd)[0];
+//        }elseif($cmd instanceof DecodeCmd){
+//            $nomeCmd = explode("@", $cmd->getCmd())[0];
+//        }
+//        return array_key_exists($nomeCmd, $this->cmds);
+//    }
 
 
 }

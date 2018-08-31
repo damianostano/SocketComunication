@@ -181,7 +181,7 @@ $map_cmd = array(
             '**ww' => "point",
         ),
     ),
-    'pmv' => array(
+    'pmv_old' => array(
         'logic' => "PmvLogic",
         'cmd' => array(
             '*ura' => "leggi configurazione di sistema",//!!
@@ -241,6 +241,75 @@ $map_cmd = array(
             '*iw'           => "id_dispo",
             '*mw'           => "ora_off_pmv",
             '*nw'           => "ora_on_pmv",
+            '--.-'          => "temperatura",
+            "num_colonne"   => "num_colonne",
+            "num_righe"     => "num_righe",
+            '*qwj'          => "point",
+            '*qwk'          => "site",
+            'wifi'          => "pwd_wifi",
+            'min_l'         => "min_luminosita",
+            'ampl_l'        => "ampl_luminosita",
+        ),
+    ),
+    'pmv' => array(
+        'logic' => "PmvLogic",
+        'cmd' => array(
+            '*ura' => "leggi configurazione di sistema",//!!
+            '*iwa' => "scrivi identificativo",//max 8 char
+            '*dwa' => "scrivi data sistema",
+            '*twa' => "scrivi orario sistema",
+
+            '*ewa' => "messaggi in sequenza max",
+            '*hwa' => "attivazione msg specifico solo se msg max=0",
+            '*cwa' => "num spazi separatori ultima riga",
+            '*wwa' => "ritardo scroll ultima riga",
+            '*mwa' => "orario spegnimento sistema",
+            '*nwa' => "orario accensione sistema",
+            '*qwj' => "inserimento point",
+            '*qwk' => "inserimento site",
+            '*qwl' => "inserimento password wifi",
+            '*qwh' => "inserimento luminosità minima",
+            '*qwi' => "inserimento amplificazione luminosità",
+
+            '*###' => "I/U messaggio",
+            '*gra'=> "lettura di messaggi (01-40 singolo, 99 tutti)",
+        ),
+        'w_cmd' => array(//ATTENZIONE a NON modificare le KEY, sono parlanti ma rimangono KEY che possono essere usate
+            "scrivi identificativo"                          => '*iwa' ,
+            "scrivi data sistema"                            => '*dwa' ,
+            "scrivi orario sistema"                          => '*twa' ,
+            "messaggi in sequenza max"                       => '*ewa' ,
+            "attivazione msg specifico solo se msg max=0"    => '*hwa' ,
+            "num spazi separatori ultima riga"               => '*cwa' ,
+            "ritardo scroll ultima riga"                     => '*wwa' ,
+            "orario spegnimento sistema"                     => '*mwa' ,
+            "orario accensione sistema"                      => '*nwa' ,
+            "inserimento point"                              => '*qwj',
+            "inserimento site"                               => '*qwk',
+            "inserimento password wifi"                      => '*qwl',
+            "inserimento luminosità minima"                  => '*qwh',
+            "inserimento amplificazione luminosità"          => '*qwi',
+
+            "I/U messaggio"          => '*###',
+        ),
+        'r_cmd' => array(
+            "config"      => '*ura' ,
+            "read_msg"    => '*gra' ,   //Con il numero del messaggio legge solo quello, con 99 tutti
+            //TODO: quali sono i campi da salvare per ogni msg?
+        ),
+        'heder' => array(),
+        'campo' => array(   //i campi che arrivano da GENERAL SETTING
+            'v_bios'        => "v_bios",//si può solo leggere
+            '*dwa'           => "giorno",
+            '*twa'           => "ora",
+            'volt_batteria' => "volt_batteria",
+            '*ewa'           => "max_sequenza_msg",
+            "num_msg_attivo"=> "num_msg_attivo",
+            '*cwa'           => "num_blank_last_msg",
+            'ritardo_scroll'=> "ritardo_scroll",
+            '*iwa'           => "id_dispo",
+            '*mwa'           => "ora_off_pmv",
+            '*nwa'           => "ora_on_pmv",
             '--.-'          => "temperatura",
             "num_colonne"   => "num_colonne",
             "num_righe"     => "num_righe",

@@ -234,8 +234,6 @@ class Master
                 } elseif ($login_msg->isDISP()) {
                     $id_dispositivo = $login_msg->getVal();
 
-                    //-------- FARSI DARE LA CONFIGURAZIONE ATTUALE PER SALVARSELA SUL DB
-                    //TODO: ottenere il comando per richiedere la configurazione a seconda della tipologia di dispositivo
                     try {
                         $logic = $this->logic->getLogic($id_dispositivo);
                     } catch (NotMappedException $e) {
