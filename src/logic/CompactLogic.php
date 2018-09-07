@@ -164,14 +164,19 @@ class CompactLogic extends AbstractDispoLogic
     }
 
 
-    function encodeCmd(array $keysValues, String $idDispo){
+    function encodeCmd(array $keysValues, String $idDispo, $completo=true){
         $strCmd = array();
-        $compact = $this->map_cmd['compact'];
+        $dispo = $this->map_cmd['compact'];
         foreach($keysValues as $key => $value){
             if($key=="giorno"){
                 $value = AbstractDispoLogic::fromMySqlDate($value);
             }
-            $strCmd[] = $compact['w_cmd'][$key].$value."@@".$idDispo."\r";
+            if($completo){
+                $strCmd[] = $dispo['w_cmd'][$key].$value."@@".$idDispo."\r";
+            }else{
+                $strCmd[] = $dispo['w_cmd'][$key].$value;
+            }
+
         }
         return $strCmd;
     }

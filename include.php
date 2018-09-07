@@ -46,6 +46,8 @@ define("CMD_DATI_CMPT","DATI_CMPT");//comando dal Compact per inviare i dati ril
 
 define("RES_BUSY","BUSY");     //risposta da inviare all'utente che il comando in questione non può essere eseguito perchè il dispositivo è occupato
 
+define("OK","ok");
+
 include_once('Autoload.php');
 
 //include_once('src\Master.php');

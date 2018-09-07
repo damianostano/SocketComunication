@@ -53,7 +53,7 @@ class ServerLogic extends AbstractDispoLogic
         return $return;
     }
 
-    function encodeCmd(array $keysValues, String $idDispo){
+    function encodeCmd(array $keysValues, String $idDispo, $completo=true){
         $idDispo= Cmd::$SERVER;
         $strCmd = array();
         $server = $this->map_cmd['server'];

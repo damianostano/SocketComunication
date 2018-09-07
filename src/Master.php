@@ -201,11 +201,11 @@ class Master
                 if ($response["state"] == "to") {
                     $this->log->error("2° tentativo di identificazione richiesta di collegamento fallito!");
                 }
-            } elseif ($response["state"] != "ok") {//non dovrebbe nemmeno succedere
+            } elseif ($response["state"] != OK) {//non dovrebbe nemmeno succedere
                 $this->log->error("Errore inatteso nell'aggiunta di un Utente o Dispositivo!");
             }
             //se tutto va bene
-            if ($response["state"] == "ok") {
+            if ($response["state"] == OK) {
                 $this->log->debug("state OK");
                 /*$sso = */socket_set_option($buf, SOL_SOCKET, SO_RCVTIMEO, array('sec' => 0, 'usec' => 1000));//timeout impostato ad 1/1000 di sec per ricevere i normali dati
                 $login_msg = $this->getDecode()->decode_connection_msg($response["msg"]);
@@ -439,7 +439,7 @@ class Master
                     if ($this->disconnetti($id_dispo)) {
                         Logger::getLogger("monitor.disconnTime")->warn($id_dispo . ") handlerCmd: Letto carattere vuoto da $id_dispo quindi l'ho appena disconnesso. interval: " . $interval . "; now: " . $now . "; lastPong: " . $this->lastPong[$id_dispo] . "\n", new Exception($id_dispo));
                     }
-                } elseif ($response["state"] === "ok") {                 //se invece ho ricevuto effettivamente qualche cosa
+                } elseif ($response["state"] === OK) {                 //se invece ho ricevuto effettivamente qualche cosa
                     try {
                         $msg_from_dispo = $response["msg"];
                         if ($this->getDecode()->isResponse($msg_from_dispo)) {//risposta ad un messaggio
@@ -581,14 +581,14 @@ class Master
 
                     //controllare se to_save_in_dispo ci dice di salvare il DB nel dispo (1, true) o il dispo nel DB (0, false)
                     $to_save_in_dispo = $config_dispo_DB['to_save_in_dispo'];
-//                    if($to_save_in_dispo==="1"){//salvare nel dispo la configurazione ottenuta dal DB
-                    if(false){//salvare nel dispo la configurazione ottenuta dal DB
+                    if($to_save_in_dispo==="1"){//salvare nel dispo la configurazione ottenuta dal DB
+//                    if(false){//salvare nel dispo la configurazione ottenuta dal DB
                         $config_dispo_risp = $logic->elaboraRisposta($cmd);
                         $config_dispo_HW = $logic->decodeConfigInDbForm($config_dispo_risp);
 
                         $diff = array_diff_assoc($config_dispo_DB, $config_dispo_HW);  //fare il delta tra la conf nel DB ed il dispo reale
                         $diff = $logic->filterConfig($diff);//prendo solo i valori configurabili sul dispo
-                        $cmds = $logic->encodeCmd($diff, $id_dispo);//creo i comandi da mandare al dispositivo
+                        $cmds = $logic->encodeCmd($diff, $id_dispo, false);//creo i comandi da mandare al dispositivo
                         foreach($cmds as $new_cmd){
                             $command = new Cmd($this->getSequenceCmd(), $new_cmd, $id_dispo, Cmd::$SERVER);
                             $this->codaCmd[$id_dispo][] = $command;
@@ -619,7 +619,7 @@ class Master
                 $this->log->info("Ricevuta dal SERVER la risposta al comando ".$cmd->getId()." del dispo ".$cmd->getIdDispo()." [".$cmd->getCmd()."]");
                 $resp = $cmd->getResponse();
 
-                if(     $resp == CMD_ESEGUITO){
+                if(     $resp == CMD_ESEGUITO || $resp == OK){
                     //devo rimettere il flag a 0. Purtroppo ci passerà x ogni valore ma pace, alla fine è un update veramente poco costoso. Implementare un aggregazione dei comandi per farlo solo una volta non valeva l'impresa
                     $logic->resetToSaveInDispo($id_dispo, $this->logic->db);
                     $this->log->info("resetToSaveInDispo eseguita per dispo ".$id_dispo);
@@ -793,14 +793,14 @@ class Master
     static function socketRead(&$sock)
     {
         $ret = "";
-        $to = "ok";
+        $to = OK;
         for ($i = 1; ; $i++) {
 //            print $i."\n";
             if (false === ($tmp = socket_read($sock, 1))) {
                 $to = "to";
                 break;
             } elseif ($tmp === "\r") {
-                $to = "ok";
+                $to = OK;
                 break;
             } elseif ($tmp === "\n") {
                 $ret .= $tmp;

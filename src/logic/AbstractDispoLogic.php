@@ -100,7 +100,7 @@ abstract class AbstractDispoLogic
 
     abstract function elaboraRisposta(Cmd $cmd): string;
 
-    abstract function encodeCmd(array $keysValues, String $idDispo);
+    abstract function encodeCmd(array $keysValues, String $idDispo, $completo=true);
 
     /**
      * @param $data La DATA nel formato gg-mm-aa
