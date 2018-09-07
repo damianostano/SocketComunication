@@ -542,8 +542,7 @@ class Master
         }
     }
 
-    private function response4Server(Cmd $cmd)
-    {
+    private function response4Server(Cmd $cmd){
         if ($cmd->isKeepAlive()) {//se è un comando di keep alive
             if ($cmd->getResponse() !== RES_KEEP_ALIVE) {//bisogna validare il response
                 $pongPreCmd = ($cmd->getTsInvio() - KEEPALIVE_SEC);//se non è valido dovrei riportare indietro il pong time, come se non avessi ricevuto risposta
@@ -556,8 +555,7 @@ class Master
             } else {
                 $this->log->info("Response al KeppAlive " . $cmd->getId() . " valido");
             }
-        } else {//TODO: futuri possibili sviluppi
-
+        } else {//se NON è un comando di keep alive
             $logic = $this->logic->getLogic($cmd->getIdDispo());
             if($cmd->getCmd() === $logic->getCmdReadConfig()){
                 if($cmd->getResponse()!=RES_DELETE){
