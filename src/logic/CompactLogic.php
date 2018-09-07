@@ -237,7 +237,7 @@ class CompactLogic extends AbstractDispoLogic
 
             $ok = $n_affected1 === $n_affected2;
             if($ok) {
-
+                //$this->logAction(Dao::$UPDATE, "dispositivo", print_r($compact, true)); //this non è l'oggetto giusto (copiato da Hermes) ma loggare questa cosa significherebbe farlo tutte le volte che un dispo si riconnette dato che altrimenti dovrei calcolare il delta tra dispo e DB x capire se salvare o no
                 $db->commit();
             }else{
                 $db->rollBack();
@@ -253,10 +253,19 @@ class CompactLogic extends AbstractDispoLogic
         return $ok;
     }
 
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    function getConfig(string $id_dispo, PDO $db = null){
+        return $this->selectDispoById($id_dispo, "dispo_compact", $db);
+    }
+
+
     function getCmdReadConfig(): string{
         return $this->map_cmd["compact"]["r_cmd"]["config"];
     }
-
 
 
 

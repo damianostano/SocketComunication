@@ -273,9 +273,11 @@ class Master
                     //ma non conviene perchè i comandi non sono divisi per dispositivo, meglio aspettare semplicemente che scadano
 //                    $this->execCmd[$id_dispositivo] = array(); //non va
 
+                    //-------- FARSI DARE LA CONFIGURAZIONE ATTUALE PER SALVARSELA SUL DB
                     $cmd_get_conf = $logic->getCmdReadConfig(); //"**ur" per il compact
                     $command = new Cmd($this->getSequenceCmd(), $cmd_get_conf, $id_dispositivo, Cmd::$SERVER);
                     $this->codaCmd[$command->getIdDispo()][] = $command;
+
                 }
             }
             return true;
@@ -395,8 +397,13 @@ class Master
                             }
                         }
                     } else {//il semaforo di quel dispositivo è rosso
-                        $cmd->setResponse(RES_BUSY);
-                        $this->execCmd[$cmd->getId()] = $cmd;
+                        if($cmd->getIdUser() === Cmd::$SERVER){//se la risposta deve ritornare al SERVER
+                            //rimetto il comando in coda per farlo eseguire non appena il dispo ritorna LIBERO
+                            $this->codaCmd[$id_dispo][] = $cmd;
+                        }else{
+                            $cmd->setResponse(RES_BUSY);
+                            $this->execCmd[$cmd->getId()] = $cmd;
+                        }
                     }
                 } else {//se non ci sono comandi
                     unset($this->codaCmd[$id_dispo]);
@@ -556,22 +563,88 @@ class Master
             } else {
                 $this->log->info("Response al KeppAlive " . $cmd->getId() . " valido");
             }
-        } else {//TODO: futuri possibili sviluppi
+        } else {//Se non è un keepAlive il server deve farci altro...
+            $id_dispo = $cmd->getIdDispo();
 
-            $logic = $this->logic->getLogic($cmd->getIdDispo());
-            if($cmd->getCmd() === $logic->getCmdReadConfig()){
-                if($cmd->getResponse()!=RES_DELETE){
-                    //salvare nel DB la configurazione
-                    try {
-                        $rispXuser = $logic->elaboraRisposta($cmd);
-                        $config4bd = $logic->decodeConfigInDbForm($rispXuser);
-                        $logic->updateConfig($config4bd, $this->logic->db);//$config4bd['citta']='B'
-                    }catch(Exception $e){
-                        $this->log->error($cmd->getIdDispo().") Errore in response4Server (".$e->getMessage().").", $e);
+            $logic = $this->logic->getLogic($id_dispo);//ottengo la logica del dispositivo che ha risposto
+
+            if($cmd->getCmd() === $logic->getCmdReadConfig()){//se è la risposta al comando di richesta configurazione
+                if($cmd->getResponse() == RES_DELETE){
+                    //va rieseguito se viene cancellato, forse ci sono stati problemi di disconnessione
+                    $re_cmd = new Cmd($cmd->getId(), $cmd->getCmd(), $id_dispo, Cmd::$SERVER);
+                    $this->codaCmd[$id_dispo][] = $re_cmd;
+                    usleep(50000);//5/100 di sec. tra un comando e l'altro
+                    $this->log->info("Comando ".$cmd->getId()." rimesso in coda dopo la cancellazione [".$cmd->getCmd()."]");
+                }else{
+                    //leggere config del dispo nel DB
+                    $config_dispo_DB = $logic->getConfig($id_dispo, $this->logic->db);
+
+                    //controllare se to_save_in_dispo ci dice di salvare il DB nel dispo (1, true) o il dispo nel DB (0, false)
+                    $to_save_in_dispo = $config_dispo_DB['to_save_in_dispo'];
+//                    if($to_save_in_dispo==="1"){//salvare nel dispo la configurazione ottenuta dal DB
+                    if(false){//salvare nel dispo la configurazione ottenuta dal DB
+                        $config_dispo_risp = $logic->elaboraRisposta($cmd);
+                        $config_dispo_HW = $logic->decodeConfigInDbForm($config_dispo_risp);
+
+                        $diff = array_diff_assoc($config_dispo_DB, $config_dispo_HW);  //fare il delta tra la conf nel DB ed il dispo reale
+                        $diff = $logic->filterConfig($diff);//prendo solo i valori configurabili sul dispo
+                        $cmds = $logic->encodeCmd($diff, $id_dispo);//creo i comandi da mandare al dispositivo
+                        foreach($cmds as $new_cmd){
+                            $command = new Cmd($this->getSequenceCmd(), $new_cmd, $id_dispo, Cmd::$SERVER);
+                            $this->codaCmd[$id_dispo][] = $command;
+                            usleep(50000);//5/100 di sec. tra un comando e l'altro
+                        }
+
+                    }else { //se to_save_in_dispo==0 salvare config del dispo nel DB:
+
+                        if($cmd->getResponse()!=RES_DELETE){
+                            //salvare nel DB la configurazione
+                            try {
+                                $rispXuser = $logic->elaboraRisposta($cmd);
+                                $config4bd = $logic->decodeConfigInDbForm($rispXuser);
+                                $logic->updateConfig($config4bd, $this->logic->db);//$config4bd['citta']='B'
+                            }catch(Exception $e){
+                                $this->log->error($id_dispo.") Errore in response4Server (".$e->getMessage().").", $e);
+                            }
+                        }else{//se il comando è stato cancellato non non ho i dati del dispo da salvare nel DB
+                            //TODO: ripetere la richiesta di configurazione... così ripeto la procedura
+                            $re_cmd = new Cmd($cmd->getId(), $cmd->getCmd(), $id_dispo, Cmd::$SERVER);
+                            $this->codaCmd[$id_dispo][] = $re_cmd;
+                        }
                     }
+                    $this->log->info("---------------------------------Arrivata risposta dispositivo ".$id_dispo.". Configurazione: ".$cmd->getResponse());
                 }
-                $this->log->info("---------------------------------Arrivata risposta dispositivo ".$cmd->getIdDispo().". Configurazione: ".$cmd->getResponse());
+            }else{//se NON è la risposta al comando di richesta configurazione supponimo che siano comandi standard (lettura scrittura configurazione) ma voluti dal SERVER che quindi qui gestisce il loro ritorno
+
+                $this->log->info("Ricevuta dal SERVER la risposta al comando ".$cmd->getId()." del dispo ".$cmd->getIdDispo()." [".$cmd->getCmd()."]");
+                $resp = $cmd->getResponse();
+
+                if(     $resp == CMD_ESEGUITO){
+                    //devo rimettere il flag a 0. Purtroppo ci passerà x ogni valore ma pace, alla fine è un update veramente poco costoso. Implementare un aggregazione dei comandi per farlo solo una volta non valeva l'impresa
+                    $logic->resetToSaveInDispo($id_dispo, $this->logic->db);
+                    $this->log->info("resetToSaveInDispo eseguita per dispo ".$id_dispo);
+                }elseif($resp == RES_DELETE){
+                    //va rieseguito se viene cancellato, forse ci sono stati problemi di disconnessione
+                    $re_cmd = new Cmd($cmd->getId(), $cmd->getCmd(), $id_dispo, Cmd::$SERVER);
+                    $this->codaCmd[$id_dispo][] = $re_cmd;
+                    usleep(50000);//5/100 di sec. tra un comando e l'altro
+                    $this->log->info("Comando ".$cmd->getId()." rimesso in coda dopo la cancellazione [".$cmd->getCmd()."]");
+                }elseif($resp == RES_BUSY){//teoricamente non dovrebbe entrare qui perchè dove gestisce la coda con semaforo se il comando è stato richiesto dal SERVER ed il dispo è BUSY lo rimette in coda senza eseguirlo
+                    //se il dispo in questo momento è occupato bisogna trovare un modo per rieseguirlo aspettando però un certo tempo
+                    $re_cmd = new Cmd($cmd->getId(), $cmd->getCmd(), $id_dispo, Cmd::$SERVER);
+                    $this->codaCmd[$id_dispo][] = $re_cmd;
+                    usleep(50000);//5/100 di sec.
+                    $this->log->warn("Comando ".$cmd->getId()." rimesso in coda dispositivo BUSY [".$cmd->getCmd()."] ATTENZIONE! teoricamente non sarebbe dovuto accadere! Rivedere");
+                }elseif($resp == CMD_INVALID){
+                    //TODO: teoricamente non può essere che qui finisca un comando invalido quindi occorre segnalare la cosa in qualche modo
+                    $this->log->warn("Fondo di response4Server...non sarebbe dovuto entrare qui. Vuol dire che la response è == CMD_INVALID");
+                }else{
+                    //non dovrebbe entrarci
+                    $this->log->warn("Fondo di response4Server...non sarebbe dovuto entrare qui. Vuol dire che la response è diversa da CMD_ESEGUITO, RES_DELETE, RES_BUSY, CMD_INVALID");
+                }
+
             }
+
         }
     }
 
@@ -675,7 +748,7 @@ class Master
                         Logger::getLogger("monitor.disconnTime")->error($valCmd.") Errore invio mail per il dispositivo $valCmd anche al 2° tentativo. Errore: ".$response."; parametri: ".print_r($parametri, true));
                     }
                 }
-            } elseif ($keyCmd === CMD_DATI_CMPT) {//Un compact ha inviato dei dati da salvare nel DB
+            } elseif ($keyCmd === CMD_DATI_CMPT) {//Un compact ha inviato dei dati da salvare nel DB (protocollo leggero al posto dei file XML)
                 "<aaaa-mm-gg hh:mm:ss>#<tipo_veicolo>#<speed>#<carreggiata>&2018-03-01 00:00:00#C#130#F";
                 $dati_grezzi = $parametri['dati'];
 
@@ -683,6 +756,8 @@ class Master
                     //TODO: spacchettare in righe e celle i dati inviati come stringa
                     //TODO: generi SQL per inserimento di mass-insert
                     //TODO: inserisca i dati nel DB
+            } else {
+
             }
         }
 

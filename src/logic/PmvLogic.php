@@ -303,6 +303,16 @@ class PmvLogic extends AbstractDispoLogic
         return $ok;
     }
 
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    function getConfig(string $id_dispo, PDO $db = null){
+        return $this->selectDispoById($id_dispo, "dispo_pmv", $db);
+    }
+
+
     function getCmdReadConfig(): string{
         return $this->map_cmd["pmv"]["r_cmd"]["config"];
     }

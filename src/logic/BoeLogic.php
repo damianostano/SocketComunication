@@ -252,6 +252,16 @@ class BoeLogic extends AbstractDispoLogic
         return $ok;
     }
 
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    function getConfig(string $id_dispo, PDO $db = null){
+        return $this->selectDispoById($id_dispo, "dispo_boe", $db);
+    }
+
+
     function getCmdReadConfig(): string{
         return $this->map_cmd["boe"]["r_cmd"]["config"];
     }
