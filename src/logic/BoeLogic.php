@@ -181,13 +181,7 @@ class BoeLogic extends AbstractDispoLogic
     }
 
     function filterConfig(array $dati_dispo): array{
-        $conf = array();
-        foreach ($dati_dispo as $key => $val){
-            if(array_key_exists($key, $this->map_cmd['boe']['w_cmd'])){
-                $conf[$key] = $val;
-            }
-        }
-        return $conf;
+        return parent::filterConfig($dati_dispo, 'boe');
     }
 
     public function updateConfig(array $boe, PDO $db=null){

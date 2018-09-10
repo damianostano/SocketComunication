@@ -216,13 +216,7 @@ class PmvLogic extends AbstractDispoLogic
     }
 
     function filterConfig(array $dati_dispo): array{
-        $conf = array();
-        foreach ($dati_dispo as $key => $val){
-            if(array_key_exists($key, $this->map_cmd['pmv']['w_cmd'])){
-                $conf[$key] = $val;
-            }
-        }
-        return $conf;
+        return parent::filterConfig($dati_dispo, 'pmv');
     }
 
     public function updateConfig(array $dispo, PDO $db=null){

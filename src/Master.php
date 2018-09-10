@@ -397,8 +397,8 @@ class Master
                             }
                         }
                     } else {//il semaforo di quel dispositivo è rosso
-                        if($cmd->getIdUser() === Cmd::$SERVER){//se la risposta deve ritornare al SERVER
-                            //rimetto il comando in coda per farlo eseguire non appena il dispo ritorna LIBERO
+                        if($cmd->getIdUser() === Cmd::$SERVER && !$cmd->isKeepAlive()){//se la risposta deve ritornare al SERVER ma non è un keepAlive (perchè i keepAlive sono mandati con regolarità e non c'è bisogno di reincodarli)
+                            //rimetto il comando in coda per farlo eseguire... non appena il dispo ritorna LIBERO
                             $this->codaCmd[$id_dispo][] = $cmd;
                         }else{
                             $cmd->setResponse(RES_BUSY);
@@ -574,7 +574,7 @@ class Master
                     $re_cmd = new Cmd($cmd->getId(), $cmd->getCmd(), $id_dispo, Cmd::$SERVER);
                     $this->codaCmd[$id_dispo][] = $re_cmd;
                     usleep(50000);//5/100 di sec. tra un comando e l'altro
-                    $this->log->info("Comando ".$cmd->getId()." rimesso in coda dopo la cancellazione [".$cmd->getCmd()."]");
+                    $this->log->info("Richiesta di configurazione ".$cmd->getId()." rimessa in coda dopo la cancellazione [".$cmd->getCmd()."]");
                 }else{
                     //leggere config del dispo nel DB
                     $config_dispo_DB = $logic->getConfig($id_dispo, $this->logic->db);

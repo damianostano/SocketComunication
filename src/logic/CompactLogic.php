@@ -181,14 +181,8 @@ class CompactLogic extends AbstractDispoLogic
         return $strCmd;
     }
 
-    function filterConfig(array $dati_dispo): array{
-        $conf = array();
-        foreach ($dati_dispo as $key => $val){
-            if(array_key_exists($key, $this->map_cmd['compact']['w_cmd'])){
-                $conf[$key] = $val;
-            }
-        }
-        return $conf;
+    public function filterConfig(array $dati_dispo): array{
+        return parent::filterConfig($dati_dispo, 'compact');
     }
 
     public function updateConfig(array $compact, PDO $db=null){

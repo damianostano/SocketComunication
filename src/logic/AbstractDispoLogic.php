@@ -82,10 +82,10 @@ abstract class AbstractDispoLogic
                 throw new Exception("In resetToSaveInDispo non è stato passato il DB");
             }
             $sql = "UPDATE dispositivo  
-                    SET to_save_in_dispo = 0,
-                    WHERE id_dispo=:id_dispo ";
+                    SET to_save_in_dispo = 0
+                    WHERE id_dispo = :id_dispo ";
             $stmt = $db->prepare($sql);
-            $stmt->bindValue(':id_dispo', $id_dispo, PDO::PARAM_BOOL);
+            $stmt->bindValue(':id_dispo', $id_dispo, PDO::PARAM_STR);
             $n_affected1 = $stmt->execute();
         }catch (PDOException $e){
             Logger::getLogger("monitor.disconnTime")->error("!!!! ERRORE nel retettaggio di 'to_save_in_dispo' di '$id_dispo' !", $e);
@@ -101,6 +101,20 @@ abstract class AbstractDispoLogic
     abstract function elaboraRisposta(Cmd $cmd): string;
 
     abstract function encodeCmd(array $keysValues, String $idDispo, $completo=true);
+
+    public function filterConfig(array $dati_dispo, $tipo_dispo=null): array{
+        $conf = array();
+        foreach ($dati_dispo as $key => $val){
+            if(array_key_exists($key, $this->map_cmd[$tipo_dispo]['w_cmd'])){
+                if($key=="ora"){
+                    $conf[$key] = date("H:i:s");
+                }else{
+                    $conf[$key] = $val;
+                }
+            }
+        }
+        return $conf;
+    }
 
     /**
      * @param $data La DATA nel formato gg-mm-aa
