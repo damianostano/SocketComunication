@@ -43,12 +43,54 @@ abstract class AbstractDispoLogic
 
     abstract function decodeConfigInDbForm(String $conf): array;
 
+
     /**
-     * Aggiorna la configurazione del dispositivo specifico
+     * Aggiorna la configurazione del dispositivo nel DB copiandoci quella del dispo reale
      * @param array $config La configurazione come ritornata da decodeConfigInDbForm();
      * @return mixed
      */
     abstract function updateConfig(array $config, PDO $db=null);
+
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    abstract function getConfig(string $id_dispo, PDO $db=null);
+    public function selectDispoById($id_dispo, $tabelle_dettaglio, PDO $db=null){
+        if ($db == null) {
+            throw new Exception("In updateConfig non è stato passato il DB");
+        }
+        $sql = "SELECT * FROM dispositivo di
+                JOIN ".$tabelle_dettaglio." as de ON di.id_dispo = de.id_dispo 
+                    AND di.id_dispo = :id_dispo ";
+
+        $stmt = $db->prepare($sql);
+        $stmt->bindValue(':id_dispo', $id_dispo, PDO::PARAM_STR);
+        $stmt->execute();
+        $models = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        if($models==null || count($models)===0){
+            return array();
+        }else{
+            return $models[0];
+        }
+    }
+
+    public function resetToSaveInDispo(string $id_dispo, PDO $db=null){
+        try{
+            if($db==null){
+                throw new Exception("In resetToSaveInDispo non è stato passato il DB");
+            }
+            $sql = "UPDATE dispositivo  
+                    SET to_save_in_dispo = 0
+                    WHERE id_dispo = :id_dispo ";
+            $stmt = $db->prepare($sql);
+            $stmt->bindValue(':id_dispo', $id_dispo, PDO::PARAM_STR);
+            $n_affected1 = $stmt->execute();
+        }catch (PDOException $e){
+            Logger::getLogger("monitor.disconnTime")->error("!!!! ERRORE nel retettaggio di 'to_save_in_dispo' di '$id_dispo' !", $e);
+        }
+    }
 
     /**
      * Ottiene il comando che serve per avere la configurazione del dispositivo
@@ -58,7 +100,21 @@ abstract class AbstractDispoLogic
 
     abstract function elaboraRisposta(Cmd $cmd): string;
 
-    abstract function encodeCmd(array $keysValues, String $idDispo);
+    abstract function encodeCmd(array $keysValues, String $idDispo, $completo=true);
+
+    public function filterConfig(array $dati_dispo, $tipo_dispo=null): array{
+        $conf = array();
+        foreach ($dati_dispo as $key => $val){
+            if(array_key_exists($key, $this->map_cmd[$tipo_dispo]['w_cmd'])){
+                if($key=="ora"){
+                    $conf[$key] = date("H:i:s");
+                }else{
+                    $conf[$key] = $val;
+                }
+            }
+        }
+        return $conf;
+    }
 
     /**
      * @param $data La DATA nel formato gg-mm-aa

@@ -164,26 +164,25 @@ class CompactLogic extends AbstractDispoLogic
     }
 
 
-    function encodeCmd(array $keysValues, String $idDispo){
+    function encodeCmd(array $keysValues, String $idDispo, $completo=true){
         $strCmd = array();
-        $compact = $this->map_cmd['compact'];
+        $dispo = $this->map_cmd['compact'];
         foreach($keysValues as $key => $value){
             if($key=="giorno"){
                 $value = AbstractDispoLogic::fromMySqlDate($value);
             }
-            $strCmd[] = $compact['w_cmd'][$key].$value."@@".$idDispo."\r";
+            if($completo){
+                $strCmd[] = $dispo['w_cmd'][$key].$value."@@".$idDispo."\r";
+            }else{
+                $strCmd[] = $dispo['w_cmd'][$key].$value;
+            }
+
         }
         return $strCmd;
     }
 
-    function filterConfig(array $dati_dispo): array{
-        $conf = array();
-        foreach ($dati_dispo as $key => $val){
-            if(array_key_exists($key, $this->map_cmd['compact']['w_cmd'])){
-                $conf[$key] = $val;
-            }
-        }
-        return $conf;
+    public function filterConfig(array $dati_dispo): array{
+        return parent::filterConfig($dati_dispo, 'compact');
     }
 
     public function updateConfig(array $compact, PDO $db=null){
@@ -237,7 +236,7 @@ class CompactLogic extends AbstractDispoLogic
 
             $ok = $n_affected1 === $n_affected2;
             if($ok) {
-
+                //$this->logAction(Dao::$UPDATE, "dispositivo", print_r($compact, true)); //this non è l'oggetto giusto (copiato da Hermes) ma loggare questa cosa significherebbe farlo tutte le volte che un dispo si riconnette dato che altrimenti dovrei calcolare il delta tra dispo e DB x capire se salvare o no
                 $db->commit();
             }else{
                 $db->rollBack();
@@ -253,10 +252,19 @@ class CompactLogic extends AbstractDispoLogic
         return $ok;
     }
 
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    function getConfig(string $id_dispo, PDO $db = null){
+        return $this->selectDispoById($id_dispo, "dispo_compact", $db);
+    }
+
+
     function getCmdReadConfig(): string{
         return $this->map_cmd["compact"]["r_cmd"]["config"];
     }
-
 
 
 

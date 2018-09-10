@@ -199,26 +199,24 @@ class PmvLogic extends AbstractDispoLogic
     }
 
 
-    function encodeCmd(array $keysValues, String $idDispo){
+    function encodeCmd(array $keysValues, String $idDispo, $completo=true){
         $strCmd = array();
-        $boe = $this->map_cmd['pmv'];
+        $dispo = $this->map_cmd['pmv'];
         foreach($keysValues as $key => $value){
             if($key=="giorno"){
                 $value = AbstractDispoLogic::fromMySqlDate($value);
             }
-            $strCmd[] = $boe['w_cmd'][$key].$value."@@".$idDispo."\r";
+            if($completo){
+                $strCmd[] = $dispo['w_cmd'][$key].$value."@@".$idDispo."\r";
+            }else{
+                $strCmd[] = $dispo['w_cmd'][$key].$value;
+            }
         }
         return $strCmd;
     }
 
     function filterConfig(array $dati_dispo): array{
-        $conf = array();
-        foreach ($dati_dispo as $key => $val){
-            if(array_key_exists($key, $this->map_cmd['pmv']['w_cmd'])){
-                $conf[$key] = $val;
-            }
-        }
-        return $conf;
+        return parent::filterConfig($dati_dispo, 'pmv');
     }
 
     public function updateConfig(array $dispo, PDO $db=null){
@@ -302,6 +300,16 @@ class PmvLogic extends AbstractDispoLogic
         }
         return $ok;
     }
+
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    function getConfig(string $id_dispo, PDO $db = null){
+        return $this->selectDispoById($id_dispo, "dispo_pmv", $db);
+    }
+
 
     function getCmdReadConfig(): string{
         return $this->map_cmd["pmv"]["r_cmd"]["config"];

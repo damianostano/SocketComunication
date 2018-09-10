@@ -53,7 +53,7 @@ class ServerLogic extends AbstractDispoLogic
         return $return;
     }
 
-    function encodeCmd(array $keysValues, String $idDispo){
+    function encodeCmd(array $keysValues, String $idDispo, $completo=true){
         $idDispo= Cmd::$SERVER;
         $strCmd = array();
         $server = $this->map_cmd['server'];
@@ -100,7 +100,15 @@ class ServerLogic extends AbstractDispoLogic
      * @return string
      */
     function updateConfig(array $config, PDO $db=null): string{
-        return null;
+        return null;//non dovrebbe servire
+    }
+    /**
+     * Ottieni la configurazione del dispositivo nel DB
+     * @param array $id_dispo
+     * @return mixed
+     */
+    function getConfig(string $id_dispo, PDO $db = null){
+        return null;//non dovrebbe servire
     }
 
     static function getCmd(Cmd $cmd){
@@ -125,4 +133,6 @@ class ServerLogic extends AbstractDispoLogic
 //        }
         return $conf;
     }
+
+
 }
